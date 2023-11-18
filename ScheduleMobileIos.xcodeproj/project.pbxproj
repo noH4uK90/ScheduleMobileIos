@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A5C4E452B09259D00786C13 /* CurrentTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E442B09259D00786C13 /* CurrentTimetable.swift */; };
+		8A5C4E472B0925D100786C13 /* Grouped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E462B0925D100786C13 /* Grouped.swift */; };
+		8A5C4E492B09266500786C13 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E482B09266500786C13 /* DateModel.swift */; };
+		8A5C4E4B2B09269900786C13 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E4A2B09269900786C13 /* Day.swift */; };
+		8A5C4E4D2B0926E100786C13 /* WeekType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E4C2B0926E100786C13 /* WeekType.swift */; };
+		8A5C4E4F2B09272E00786C13 /* Timetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E4E2B09272E00786C13 /* Timetable.swift */; };
+		8A5C4E512B09276B00786C13 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E502B09276B00786C13 /* Lesson.swift */; };
+		8A5C4E532B09279900786C13 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E522B09279900786C13 /* Time.swift */; };
+		8A5C4E552B0927DB00786C13 /* TimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E542B0927DB00786C13 /* TimeType.swift */; };
+		8A5C4E572B09281200786C13 /* Discipline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E562B09281200786C13 /* Discipline.swift */; };
+		8A5C4E592B09282B00786C13 /* DisciplineName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E582B09282B00786C13 /* DisciplineName.swift */; };
+		8A5C4E5B2B0928AE00786C13 /* DisciplineCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E5A2B0928AE00786C13 /* DisciplineCode.swift */; };
+		8A5C4E5D2B09293100786C13 /* DisciplineType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E5C2B09293100786C13 /* DisciplineType.swift */; };
+		8A5C4E5F2B09299600786C13 /* TeacherClassroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E5E2B09299600786C13 /* TeacherClassroom.swift */; };
+		8A5C4E612B0929B700786C13 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E602B0929B700786C13 /* Teacher.swift */; };
+		8A5C4E632B092A1700786C13 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E622B092A1700786C13 /* Classroom.swift */; };
 		8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */; };
 		8AEB575F2B06C41500F05464 /* ScheduleMobileIosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB575E2B06C41500F05464 /* ScheduleMobileIosApp.swift */; };
 		8AEB57612B06C41500F05464 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB57602B06C41500F05464 /* GroupView.swift */; };
@@ -45,6 +61,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A5C4E442B09259D00786C13 /* CurrentTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimetable.swift; sourceTree = "<group>"; };
+		8A5C4E462B0925D100786C13 /* Grouped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grouped.swift; sourceTree = "<group>"; };
+		8A5C4E482B09266500786C13 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
+		8A5C4E4A2B09269900786C13 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		8A5C4E4C2B0926E100786C13 /* WeekType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekType.swift; sourceTree = "<group>"; };
+		8A5C4E4E2B09272E00786C13 /* Timetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timetable.swift; sourceTree = "<group>"; };
+		8A5C4E502B09276B00786C13 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		8A5C4E522B09279900786C13 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		8A5C4E542B0927DB00786C13 /* TimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeType.swift; sourceTree = "<group>"; };
+		8A5C4E562B09281200786C13 /* Discipline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discipline.swift; sourceTree = "<group>"; };
+		8A5C4E582B09282B00786C13 /* DisciplineName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineName.swift; sourceTree = "<group>"; };
+		8A5C4E5A2B0928AE00786C13 /* DisciplineCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineCode.swift; sourceTree = "<group>"; };
+		8A5C4E5C2B09293100786C13 /* DisciplineType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineType.swift; sourceTree = "<group>"; };
+		8A5C4E5E2B09299600786C13 /* TeacherClassroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroom.swift; sourceTree = "<group>"; };
+		8A5C4E602B0929B700786C13 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
+		8A5C4E622B092A1700786C13 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDefaultsService.swift; sourceTree = "<group>"; };
 		8AEB575B2B06C41500F05464 /* ScheduleMobileIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMobileIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEB575E2B06C41500F05464 /* ScheduleMobileIosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMobileIosApp.swift; sourceTree = "<group>"; };
@@ -178,6 +210,22 @@
 				8AEB579C2B06CB3000F05464 /* Speciality.swift */,
 				8AEB57982B06CAB600F05464 /* Term.swift */,
 				8AEB579A2B06CAF200F05464 /* Course.swift */,
+				8A5C4E442B09259D00786C13 /* CurrentTimetable.swift */,
+				8A5C4E4E2B09272E00786C13 /* Timetable.swift */,
+				8A5C4E502B09276B00786C13 /* Lesson.swift */,
+				8A5C4E5E2B09299600786C13 /* TeacherClassroom.swift */,
+				8A5C4E622B092A1700786C13 /* Classroom.swift */,
+				8A5C4E602B0929B700786C13 /* Teacher.swift */,
+				8A5C4E562B09281200786C13 /* Discipline.swift */,
+				8A5C4E5C2B09293100786C13 /* DisciplineType.swift */,
+				8A5C4E5A2B0928AE00786C13 /* DisciplineCode.swift */,
+				8A5C4E582B09282B00786C13 /* DisciplineName.swift */,
+				8A5C4E522B09279900786C13 /* Time.swift */,
+				8A5C4E542B0927DB00786C13 /* TimeType.swift */,
+				8A5C4E482B09266500786C13 /* DateModel.swift */,
+				8A5C4E4C2B0926E100786C13 /* WeekType.swift */,
+				8A5C4E4A2B09269900786C13 /* Day.swift */,
+				8A5C4E462B0925D100786C13 /* Grouped.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -376,19 +424,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5C4E5F2B09299600786C13 /* TeacherClassroom.swift in Sources */,
 				8AEB579B2B06CAF200F05464 /* Course.swift in Sources */,
+				8A5C4E4F2B09272E00786C13 /* Timetable.swift in Sources */,
 				8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */,
 				8AEB57912B06C54F00F05464 /* NetworkManager.swift in Sources */,
+				8A5C4E592B09282B00786C13 /* DisciplineName.swift in Sources */,
 				8AEB57612B06C41500F05464 /* GroupView.swift in Sources */,
+				8A5C4E472B0925D100786C13 /* Grouped.swift in Sources */,
+				8A5C4E572B09281200786C13 /* Discipline.swift in Sources */,
 				8AEB57952B06C99400F05464 /* PagedList.swift in Sources */,
 				8AEB579F2B07622400F05464 /* GroupViewModel.swift in Sources */,
 				8AEB57A42B0763CB00F05464 /* ScheduleView.swift in Sources */,
+				8A5C4E612B0929B700786C13 /* Teacher.swift in Sources */,
+				8A5C4E532B09279900786C13 /* Time.swift in Sources */,
+				8A5C4E452B09259D00786C13 /* CurrentTimetable.swift in Sources */,
+				8A5C4E492B09266500786C13 /* DateModel.swift in Sources */,
+				8A5C4E5B2B0928AE00786C13 /* DisciplineCode.swift in Sources */,
 				8AEB57972B06CA5400F05464 /* Group.swift in Sources */,
+				8A5C4E632B092A1700786C13 /* Classroom.swift in Sources */,
+				8A5C4E4B2B09269900786C13 /* Day.swift in Sources */,
 				8AEB57992B06CAB600F05464 /* Term.swift in Sources */,
+				8A5C4E4D2B0926E100786C13 /* WeekType.swift in Sources */,
+				8A5C4E552B0927DB00786C13 /* TimeType.swift in Sources */,
+				8A5C4E512B09276B00786C13 /* Lesson.swift in Sources */,
 				8AEB57A22B07626500F05464 /* NavigationService.swift in Sources */,
 				8AEB579D2B06CB3000F05464 /* Speciality.swift in Sources */,
 				8AEB57932B06C8DF00F05464 /* NetworkService.swift in Sources */,
 				8AEB575F2B06C41500F05464 /* ScheduleMobileIosApp.swift in Sources */,
+				8A5C4E5D2B09293100786C13 /* DisciplineType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
