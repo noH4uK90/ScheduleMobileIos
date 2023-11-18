@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */; };
 		8AEB575F2B06C41500F05464 /* ScheduleMobileIosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB575E2B06C41500F05464 /* ScheduleMobileIosApp.swift */; };
 		8AEB57612B06C41500F05464 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB57602B06C41500F05464 /* GroupView.swift */; };
 		8AEB57632B06C41700F05464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB57622B06C41700F05464 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDefaultsService.swift; sourceTree = "<group>"; };
 		8AEB575B2B06C41500F05464 /* ScheduleMobileIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMobileIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEB575E2B06C41500F05464 /* ScheduleMobileIosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMobileIosApp.swift; sourceTree = "<group>"; };
 		8AEB57602B06C41500F05464 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				8AEB57A12B07626500F05464 /* NavigationService.swift */,
+				8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AEB579B2B06CAF200F05464 /* Course.swift in Sources */,
+				8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */,
 				8AEB57912B06C54F00F05464 /* NetworkManager.swift in Sources */,
 				8AEB57612B06C41500F05464 /* GroupView.swift in Sources */,
 				8AEB57952B06C99400F05464 /* PagedList.swift in Sources */,

@@ -12,9 +12,9 @@ struct Group: Identifiable, Codable, Hashable {
     let number: String
     let name: String
     let enrollmentYear: Int
-    let isAgterEleven: Bool
+    let isAfterEleven: Bool
     let isDeleted: Bool
-    let term: Term
+    let term: Term?
     let speciality: Speciality
-    let mergedGroups: [Group]
+    let mergedGroups: [Group?]
 }

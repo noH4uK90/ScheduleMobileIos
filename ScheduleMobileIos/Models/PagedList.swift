@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PagedList<T : Codable> : Codable {
+struct PagedList<T: Codable>: Codable {
     let pageSize: Int
     let pageNumber: Int
     let totalCount: Int

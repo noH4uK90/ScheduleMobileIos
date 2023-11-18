@@ -8,14 +8,37 @@
 import SwiftUI
 
 struct GroupView: View {
+
+    @EnvironmentObject var navigationService: NavigationService
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Content(navigationService: navigationService)
+    }
+
+    struct Content: View {
+
+        @StateObject var viewModel: ViewModel
+
+        init(navigationService: NavigationService) {
+            _viewModel = StateObject(wrappedValue: ViewModel(navigationService: navigationService))
         }
-        .padding()
+
+        var body: some View {
+            NavigationStack {
+                List {
+                    ForEach(viewModel.groups?.items ?? []) { group in
+                        Text("\(group.name), \(group.speciality.name)")
+                            .onTapGesture {
+                                viewModel.selectGroup(group: group)
+                            }
+                    }
+                }
+                .refreshable {
+                    viewModel.fetchGroups(search: viewModel.searchText)
+                }
+            }
+            .searchable(text: $viewModel.searchText, prompt: "Группа...")
+        }
     }
 }
 

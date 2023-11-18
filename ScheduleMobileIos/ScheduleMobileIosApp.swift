@@ -9,15 +9,17 @@ import SwiftUI
 
 @main
 struct ScheduleMobileIosApp: App {
-    let navigationService = NavigationService()
+    @StateObject var navigationService: NavigationService = NavigationService()
 
     var body: some Scene {
         WindowGroup {
             switch navigationService.view {
             case .groups:
                 GroupView()
+                    .environmentObject(navigationService)
             case .schedule:
                 ScheduleView()
+                    .environmentObject(navigationService)
             }
         }
     }

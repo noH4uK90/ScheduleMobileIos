@@ -8,7 +8,8 @@
 import Foundation
 
 class NavigationService: ObservableObject {
-    @Published var view: AppViews = UserDefaults.standard.string(forKey: "CurrentGroup") != nil ? .schedule : .groups
+    @Published var view: AppViews = .groups
+    // UserDefaults.standard.data(forKey: "currentGroup") != nil ? .schedule : .groups
 }
 
 enum AppViews {

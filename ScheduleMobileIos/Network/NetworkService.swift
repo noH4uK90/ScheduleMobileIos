@@ -15,7 +15,6 @@ protocol NetworkProtocol {
 }
 
 struct Network: NetworkProtocol {
-    
     func fetch<T: Codable>(_ url: URL, _ model: T.Type) -> AnyPublisher<T, Error> {
         return URLSession.shared.dataTaskPublisher(for: url)
             .map({ $0.data })
@@ -25,12 +24,12 @@ struct Network: NetworkProtocol {
     }
 
     func post<TData: Codable, TResult: Codable>(_ url: URL, _ data: TData) throws -> AnyPublisher<TResult, Error> {
-        let jsonModel = try JSONEncoder().encode(model)
+        let jsonData = try JSONEncoder().encode(data)
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = jsonModel
+        request.httpBody = jsonData
 
         return URLSession.shared.dataTaskPublisher(for: request)
             .map({ $0.data })
@@ -45,7 +44,7 @@ class NetworkService {
 
     // MARK: - Group
     func getGroups(search: String) throws -> AnyPublisher<PagedList<Group>, Error> {
-        guard let url = Endpoints.group.absoluteURL else {
+        guard let url = Endpoints.group(search).absoluteURL else {
             throw APIError.invalidResponse
         }
         return Network().fetch(url, PagedList<Group>.self)
