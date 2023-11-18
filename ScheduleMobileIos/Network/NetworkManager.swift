@@ -8,7 +8,7 @@
 import Foundation
 
 enum Endpoints {
-    case group(String)
+    case group(String, Int)
 
     var baseURL: URL { URL(string: "http://localhost:5050/api")! }
 
@@ -27,8 +27,11 @@ enum Endpoints {
         }
 
         switch self {
-        case .group(let search):
-            urlComponents.queryItems = [URLQueryItem(name: "Search", value: search)]
+        case .group(let search, let page):
+            urlComponents.queryItems = [
+                URLQueryItem(name: "Search", value: search),
+                URLQueryItem(name: "Page", value: "\(page)")
+            ]
         }
 
         return urlComponents.url

@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
             endingLineNumber = "50"
-            landmarkName = "getGroups(search:)"
+            landmarkName = "getGroups(search:page:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -43,8 +43,8 @@ class NetworkService {
     static let shared = NetworkService(); private init() {}
 
     // MARK: - Group
-    func getGroups(search: String) throws -> AnyPublisher<PagedList<Group>, Error> {
-        guard let url = Endpoints.group(search).absoluteURL else {
+    func getGroups(search: String, page: Int) throws -> AnyPublisher<PagedList<Group>, Error> {
+        guard let url = Endpoints.group(search, page).absoluteURL else {
             throw APIError.invalidResponse
         }
         return Network().fetch(url, PagedList<Group>.self)

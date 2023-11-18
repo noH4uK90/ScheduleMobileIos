@@ -26,10 +26,16 @@ struct GroupView: View {
         var body: some View {
             NavigationStack {
                 List {
-                    ForEach(viewModel.groups?.items ?? []) { group in
+                    ForEach(viewModel.groups) { group in
                         Text("\(group.name), \(group.speciality.name)")
                             .onTapGesture {
                                 viewModel.selectGroup(group: group)
+                            }
+                    }
+                    if viewModel.isHasMore {
+                        ProgressView()
+                            .onAppear {
+                                viewModel.loadMore()
                             }
                     }
                 }
