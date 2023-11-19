@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A53B5172B0A7EDB00DD2F6F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 8A53B5162B0A7EDB00DD2F6F /* Swinject */; };
+		8A53B5192B0A7EDB00DD2F6F /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8A53B5182B0A7EDB00DD2F6F /* Swinject-Dynamic */; };
+		8A53B51B2B0A8B4500DD2F6F /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53B51A2B0A8B4500DD2F6F /* DataTransferService.swift */; };
 		8A5C4E452B09259D00786C13 /* CurrentTimetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E442B09259D00786C13 /* CurrentTimetable.swift */; };
 		8A5C4E472B0925D100786C13 /* Grouped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E462B0925D100786C13 /* Grouped.swift */; };
 		8A5C4E492B09266500786C13 /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E482B09266500786C13 /* DateModel.swift */; };
@@ -23,7 +26,11 @@
 		8A5C4E5F2B09299600786C13 /* TeacherClassroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E5E2B09299600786C13 /* TeacherClassroom.swift */; };
 		8A5C4E612B0929B700786C13 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E602B0929B700786C13 /* Teacher.swift */; };
 		8A5C4E632B092A1700786C13 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E622B092A1700786C13 /* Classroom.swift */; };
+		8A5C4E652B092D9000786C13 /* SheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */; };
+		8A5C4E682B09378000786C13 /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E672B09378000786C13 /* LessonView.swift */; };
+		8A5C4E6A2B093A9F00786C13 /* TimetableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E692B093A9F00786C13 /* TimetableView.swift */; };
 		8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */; };
+		8A9CB57C2B0A7E780067C9C5 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CB57B2B0A7E780067C9C5 /* Resolver.swift */; };
 		8AEB575F2B06C41500F05464 /* ScheduleMobileIosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB575E2B06C41500F05464 /* ScheduleMobileIosApp.swift */; };
 		8AEB57612B06C41500F05464 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB57602B06C41500F05464 /* GroupView.swift */; };
 		8AEB57632B06C41700F05464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB57622B06C41700F05464 /* Assets.xcassets */; };
@@ -61,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A53B51A2B0A8B4500DD2F6F /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
 		8A5C4E442B09259D00786C13 /* CurrentTimetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTimetable.swift; sourceTree = "<group>"; };
 		8A5C4E462B0925D100786C13 /* Grouped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grouped.swift; sourceTree = "<group>"; };
 		8A5C4E482B09266500786C13 /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
@@ -77,7 +85,11 @@
 		8A5C4E5E2B09299600786C13 /* TeacherClassroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassroom.swift; sourceTree = "<group>"; };
 		8A5C4E602B0929B700786C13 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		8A5C4E622B092A1700786C13 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
+		8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheduleViewModel.swift; sourceTree = "<group>"; };
+		8A5C4E672B09378000786C13 /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
+		8A5C4E692B093A9F00786C13 /* TimetableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableView.swift; sourceTree = "<group>"; };
 		8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDefaultsService.swift; sourceTree = "<group>"; };
+		8A9CB57B2B0A7E780067C9C5 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		8AEB575B2B06C41500F05464 /* ScheduleMobileIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMobileIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEB575E2B06C41500F05464 /* ScheduleMobileIosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMobileIosApp.swift; sourceTree = "<group>"; };
 		8AEB57602B06C41500F05464 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
@@ -105,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A53B5172B0A7EDB00DD2F6F /* Swinject in Frameworks */,
+				8A53B5192B0A7EDB00DD2F6F /* Swinject-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +139,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A5C4E662B092F4000786C13 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8A5C4E672B09378000786C13 /* LessonView.swift */,
+				8A5C4E692B093A9F00786C13 /* TimetableView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8A9CB5772B0A7D470067C9C5 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				8A9CB57B2B0A7E780067C9C5 /* Resolver.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		8AEB57522B06C41500F05464 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +179,7 @@
 		8AEB575D2B06C41500F05464 /* ScheduleMobileIos */ = {
 			isa = PBXGroup;
 			children = (
+				8A9CB5772B0A7D470067C9C5 /* DI */,
 				8AEB57A02B07625700F05464 /* Services */,
 				8AEB578C2B06C4F600F05464 /* Network */,
 				8AEB578B2B06C4D900F05464 /* Models */,
@@ -188,6 +220,7 @@
 		8AEB57892B06C4CD00F05464 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8A5C4E662B092F4000786C13 /* Components */,
 				8AEB57602B06C41500F05464 /* GroupView.swift */,
 				8AEB57A32B0763CB00F05464 /* ScheduleView.swift */,
 			);
@@ -198,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				8AEB579E2B07622400F05464 /* GroupViewModel.swift */,
+				8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -233,34 +267,9 @@
 		8AEB578C2B06C4F600F05464 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				8AEB578D2B06C51B00F05464 /* ResponseModels */,
 				8AEB57902B06C54F00F05464 /* NetworkManager.swift */,
-				8AEB57922B06C8DF00F05464 /* NetworkService.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		8AEB578D2B06C51B00F05464 /* ResponseModels */ = {
-			isa = PBXGroup;
-			children = (
-				8AEB578F2B06C53700F05464 /* Get */,
-				8AEB578E2B06C53100F05464 /* Create */,
-			);
-			path = ResponseModels;
-			sourceTree = "<group>";
-		};
-		8AEB578E2B06C53100F05464 /* Create */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Create;
-			sourceTree = "<group>";
-		};
-		8AEB578F2B06C53700F05464 /* Get */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Get;
 			sourceTree = "<group>";
 		};
 		8AEB57A02B07625700F05464 /* Services */ = {
@@ -268,6 +277,8 @@
 			children = (
 				8AEB57A12B07626500F05464 /* NavigationService.swift */,
 				8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */,
+				8A53B51A2B0A8B4500DD2F6F /* DataTransferService.swift */,
+				8AEB57922B06C8DF00F05464 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -289,6 +300,10 @@
 			dependencies = (
 			);
 			name = ScheduleMobileIos;
+			packageProductDependencies = (
+				8A53B5162B0A7EDB00DD2F6F /* Swinject */,
+				8A53B5182B0A7EDB00DD2F6F /* Swinject-Dynamic */,
+			);
 			productName = ScheduleMobileIos;
 			productReference = 8AEB575B2B06C41500F05464 /* ScheduleMobileIos.app */;
 			productType = "com.apple.product-type.application";
@@ -361,6 +376,9 @@
 				Base,
 			);
 			mainGroup = 8AEB57522B06C41500F05464;
+			packageReferences = (
+				8A9CB57A2B0A7DD30067C9C5 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 8AEB575C2B06C41500F05464 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -424,8 +442,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5C4E6A2B093A9F00786C13 /* TimetableView.swift in Sources */,
 				8A5C4E5F2B09299600786C13 /* TeacherClassroom.swift in Sources */,
 				8AEB579B2B06CAF200F05464 /* Course.swift in Sources */,
+				8A9CB57C2B0A7E780067C9C5 /* Resolver.swift in Sources */,
 				8A5C4E4F2B09272E00786C13 /* Timetable.swift in Sources */,
 				8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */,
 				8AEB57912B06C54F00F05464 /* NetworkManager.swift in Sources */,
@@ -433,11 +453,14 @@
 				8AEB57612B06C41500F05464 /* GroupView.swift in Sources */,
 				8A5C4E472B0925D100786C13 /* Grouped.swift in Sources */,
 				8A5C4E572B09281200786C13 /* Discipline.swift in Sources */,
+				8A5C4E652B092D9000786C13 /* SheduleViewModel.swift in Sources */,
 				8AEB57952B06C99400F05464 /* PagedList.swift in Sources */,
 				8AEB579F2B07622400F05464 /* GroupViewModel.swift in Sources */,
 				8AEB57A42B0763CB00F05464 /* ScheduleView.swift in Sources */,
 				8A5C4E612B0929B700786C13 /* Teacher.swift in Sources */,
+				8A53B51B2B0A8B4500DD2F6F /* DataTransferService.swift in Sources */,
 				8A5C4E532B09279900786C13 /* Time.swift in Sources */,
+				8A5C4E682B09378000786C13 /* LessonView.swift in Sources */,
 				8A5C4E452B09259D00786C13 /* CurrentTimetable.swift in Sources */,
 				8A5C4E492B09266500786C13 /* DateModel.swift in Sources */,
 				8A5C4E5B2B0928AE00786C13 /* DisciplineCode.swift in Sources */,
@@ -782,6 +805,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8A9CB57A2B0A7DD30067C9C5 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8A53B5162B0A7EDB00DD2F6F /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A9CB57A2B0A7DD30067C9C5 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		8A53B5182B0A7EDB00DD2F6F /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A9CB57A2B0A7DD30067C9C5 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8AEB57532B06C41500F05464 /* Project object */;
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Teacher: Identifiable, Codable, Hashable  {
+struct Teacher: Identifiable, Codable, Hashable {
     let id: Int
     let name: String
     let surname: String

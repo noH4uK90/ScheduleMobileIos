@@ -11,20 +11,24 @@ import Combine
 extension GroupView {
     @MainActor class ViewModel: ObservableObject {
         @Published var groups = [Group]()
-        @Published var dataGroups: PagedList<Group>?
         @Published var searchText = ""
         @Published var isHasMore = true
 
         private var bag = Set<AnyCancellable>()
         private var navigationService: NavigationService
+        private var dataGroups: PagedList<Group>?
+        @Inject private var groupService: GroupDefaultsProtocol
+        @Inject private var networkService: NetworkProtocol
 
         init(navigationService: NavigationService) {
             self.navigationService = navigationService
             $searchText
                 .debounce(for: 0.5, scheduler: RunLoop.main)
+                .removeDuplicates()
                 .sink(
                     receiveCompletion: { _ in },
                     receiveValue: { value in
+                        self.dataGroups = nil
                         self.fetchGroups(search: value)
                     }
                 )
@@ -33,13 +37,13 @@ extension GroupView {
 
         func fetchGroups(search: String) {
             Task {
-                try NetworkService.shared.getGroups(search: search, page: 1)
+                try networkService.getGroups(search: search, page: 1)
                     .receive(on: RunLoop.main)
                     .sink(
                         receiveCompletion: { _ in },
-                        receiveValue: { value in
-                            self.dataGroups = value
-                            self.groups = value.items
+                        receiveValue: { [weak self] value in
+                            self?.dataGroups = value
+                            self?.groups = value.items
                         }
                     )
                     .store(in: &bag)
@@ -59,13 +63,13 @@ extension GroupView {
 
                 let nextPage = data.pageNumber + 1
 
-                try NetworkService.shared.getGroups(search: searchText, page: nextPage)
+                try networkService.getGroups(search: searchText, page: nextPage)
                     .receive(on: RunLoop.main)
                     .sink(
                         receiveCompletion: { _ in },
-                        receiveValue: { value in
-                            self.dataGroups = value
-                            self.groups.append(contentsOf: value.items)
+                        receiveValue: { [weak self] value in
+                            self?.dataGroups = value
+                            self?.groups.append(contentsOf: value.items)
                         }
                     )
                     .store(in: &bag)
@@ -74,7 +78,7 @@ extension GroupView {
         }
 
         func selectGroup(group: Group) {
-            GroupDefaultsService().selectGroup(group: group)
+            groupService.selectGroup(group: group)
             navigationService.view = .schedule
         }
 

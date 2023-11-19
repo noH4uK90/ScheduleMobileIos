@@ -9,48 +9,28 @@ import Foundation
 import Combine
 
 protocol NetworkProtocol {
-    func fetch<T: Codable>(_ url: URL, _ model: T.Type) -> AnyPublisher<T, Error>
-
-    func post<TData: Codable, TResult: Codable>(_ url: URL, _ data: TData) throws -> AnyPublisher<TResult, Error>
+    func getGroups(search: String, page: Int) throws -> AnyPublisher<PagedList<Group>, Error>
+    func getCurrentTimeTable(groupId: Int) throws -> AnyPublisher<PagedList<CurrentTimetable>, Error>
 }
 
-struct Network: NetworkProtocol {
-    func fetch<T: Codable>(_ url: URL, _ model: T.Type) -> AnyPublisher<T, Error> {
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map({ $0.data })
-            .decode(type: T.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
-
-    func post<TData: Codable, TResult: Codable>(_ url: URL, _ data: TData) throws -> AnyPublisher<TResult, Error> {
-        let jsonData = try JSONEncoder().encode(data)
-
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = jsonData
-
-        return URLSession.shared.dataTaskPublisher(for: request)
-            .map({ $0.data })
-            .decode(type: TResult.self, decoder: JSONDecoder())
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-    }
-}
-
-class NetworkService {
-    static let shared = NetworkService(); private init() {}
+class NetworkService: NetworkProtocol {
+    @Inject private var network: DataTransferProtocol
 
     // MARK: - Group
     func getGroups(search: String, page: Int) throws -> AnyPublisher<PagedList<Group>, Error> {
         guard let url = Endpoints.group(search, page).absoluteURL else {
             throw APIError.invalidResponse
         }
-        return Network().fetch(url, PagedList<Group>.self)
+        return network.fetch(url, PagedList<Group>.self)
     }
 
     // MARK: - Schedule
+    func getCurrentTimeTable(groupId: Int) throws -> AnyPublisher<PagedList<CurrentTimetable>, Error> {
+        guard let url = Endpoints.currentTimetable(groupId).absoluteURL else {
+            throw APIError.invalidResponse
+        }
+        return network.fetch(url, PagedList<CurrentTimetable>.self)
+    }
 }
 
 enum APIError: LocalizedError {

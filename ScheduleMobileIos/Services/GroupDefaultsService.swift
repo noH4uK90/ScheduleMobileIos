@@ -11,10 +11,10 @@ protocol GroupDefaultsProtocol {
     var currentGroup: Group? { get set }
 
     func selectGroup(group: Group)
-    mutating func getGroup() throws
+    func getGroup() -> Group?
 }
 
-struct GroupDefaultsService: GroupDefaultsProtocol {
+class GroupDefaultsService: GroupDefaultsProtocol {
     var currentGroup: Group?
     func selectGroup(group: Group) {
         Task {
@@ -23,9 +23,12 @@ struct GroupDefaultsService: GroupDefaultsProtocol {
 
         }
     }
-    mutating func getGroup() throws {
+    func getGroup() -> Group? {
         let data = UserDefaults.standard.data(forKey: "currentGroup")
-        let group = try JSONDecoder().decode(Group.self, from: data ?? Data())
+        guard var group = try? JSONDecoder().decode(Group?.self, from: data ?? Data()) else {
+            return nil
+        }
         currentGroup = group
+        return group
     }
 }

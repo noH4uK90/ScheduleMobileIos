@@ -9,13 +9,16 @@ import Foundation
 
 enum Endpoints {
     case group(String, Int)
+    case currentTimetable(Int, Int = 7)
 
-    var baseURL: URL { URL(string: "http://localhost:5050/api")! }
+    var baseURL: URL { URL(string: "http://192.168.0.3:5050/api")! }
 
     func path() -> String {
         switch self {
         case .group:
             return "/Group"
+        case .currentTimetable:
+            return "/Timetable/Current"
         }
     }
 
@@ -31,6 +34,11 @@ enum Endpoints {
             urlComponents.queryItems = [
                 URLQueryItem(name: "Search", value: search),
                 URLQueryItem(name: "Page", value: "\(page)")
+            ]
+        case .currentTimetable(let groupId, let dateCount):
+            urlComponents.queryItems = [
+                URLQueryItem(name: "GroupId", value: "\(groupId)"),
+                URLQueryItem(name: "DateCount", value: "\(dateCount)")
             ]
         }
 
