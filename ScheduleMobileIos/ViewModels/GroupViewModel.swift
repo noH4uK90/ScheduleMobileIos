@@ -18,7 +18,7 @@ extension GroupView {
         private var navigationService: NavigationService
         private var dataGroups: PagedList<Group>?
         @Inject private var groupService: GroupDefaultsProtocol
-        @Inject private var networkService: NetworkProtocol
+        @Inject private var groupNetworkService: GroupNetworkProtocol
 
         init(navigationService: NavigationService) {
             self.navigationService = navigationService
@@ -37,7 +37,7 @@ extension GroupView {
 
         func fetchGroups(search: String) {
             Task {
-                try networkService.getGroups(search: search, page: 1)
+                try groupNetworkService.getGroups(search: search, page: 1)
                     .receive(on: RunLoop.main)
                     .sink(
                         receiveCompletion: { _ in },
@@ -63,7 +63,7 @@ extension GroupView {
 
                 let nextPage = data.pageNumber + 1
 
-                try networkService.getGroups(search: searchText, page: nextPage)
+                try groupNetworkService.getGroups(search: searchText, page: nextPage)
                     .receive(on: RunLoop.main)
                     .sink(
                         receiveCompletion: { _ in },
@@ -79,7 +79,7 @@ extension GroupView {
 
         func selectGroup(group: Group) {
             groupService.selectGroup(group: group)
-            navigationService.view = .schedule
+            navigationService.view = .home
         }
 
         func hasMore() -> Bool {

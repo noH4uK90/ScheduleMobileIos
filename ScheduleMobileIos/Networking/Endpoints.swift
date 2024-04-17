@@ -11,7 +11,7 @@ enum Endpoints {
     case group(String, Int)
     case currentTimetable(Int, Int = 7)
 
-    var baseURL: URL { URL(string: "http://192.168.0.3:5050/api")! }
+    var baseURL: URL { API.baseURL }
 
     func path() -> String {
         switch self {
@@ -44,5 +44,4 @@ enum Endpoints {
 
         return urlComponents.url
     }
-
 }

@@ -8,10 +8,10 @@
 import Foundation
 
 class NavigationService: ObservableObject {
-    @Published var view: AppViews = .groups
+    @Published var view: AppViews = .auth
     // UserDefaults.standard.data(forKey: "currentGroup") != nil ? .schedule : .groups
 }
 
 enum AppViews {
-    case groups, schedule
+    case auth, home
 }

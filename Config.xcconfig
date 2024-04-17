@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  ScheduleMobileIos
+//
+//  Created by Иван Спирин on 4/17/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = http://192.168.0.3:5050/api

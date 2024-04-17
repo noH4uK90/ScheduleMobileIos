@@ -1,45 +1,77 @@
 //
-//  Timetable.swift
+//  LessonView.swift
 //  ScheduleMobileIos
 //
-//  Created by Иван Спирин on 11/18/23.
+//  Created by Иван Спирин on 4/2/24.
 //
 
 import SwiftUI
 
 struct LessonView: View {
-    @State var lesson: Lesson
+    @State var oneTeacher = false
     var body: some View {
-        VStack {
-            createText(lesson.discipline.name.name)
-            HStack {
-                createText(lesson.teacherClassrooms.first?.teacher.name ?? "")
-                createText(lesson.teacherClassrooms.first?.classroom?.cabinet ?? "")
-                    .frame(maxWidth: 120)
+        HStack(alignment: .top) {
+            createTime()
+            VStack(alignment: .leading) {
+                Text("Математика")
+                    .font(.title3)
+                    .fontWeight(.semibold)
+
+                HStack(spacing: 0) {
+                    Image(systemName: "person.fill")
+                        .padding(.trailing, 5)
+                    Text(oneTeacher ? "Иванов И.И." : "Иванов И.И., Иванов И.И.")
+                }
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+
+                Spacer()
+
+                HStack {
+                    Text("407")
+                        .cabinetTextStyle()
+
+                    if !oneTeacher {
+                        Text("407")
+                            .cabinetTextStyle()
+                    }
+                }
+                .font(.callout)
+                .foregroundStyle(.blue)
             }
-            HStack {
-                createText(lesson.teacherClassrooms.last?.teacher.name ?? "")
-                createText(lesson.teacherClassrooms.last?.classroom?.cabinet ?? "")
-                    .frame(maxWidth: 120)
-            }
-            createText("\(lesson.time.start) - \(lesson.time.end)")
+
+            Spacer()
         }
-        .padding(.vertical, 3)
+        .frame(maxHeight: 80)
+        .padding(.horizontal, 5)
     }
 
-    private func createText(_ content: String) -> some View {
-        return Text(content)
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 3)
-            .overlay(
-                RoundedRectangle(cornerSize: CGSize(width: 7, height: 7))
-                    .stroke(.blue, lineWidth: 2)
-            )
-            .lineLimit(0)
-            .padding(0)
+    @ViewBuilder
+    func createTime() -> some View {
+        VStack(alignment: .center) {
+            Text("8:30")
+            Spacer()
+            Text("10:10")
+        }
+        .font(.headline)
+        .fontWeight(.semibold)
+        .frame(maxHeight: 80)
+        .padding(.horizontal, 3)
+        .padding(.vertical, 3)
+        .background(.blue.gradient)
+        .foregroundStyle(.white)
+        .cornerRadius(7)
+        .overlay(
+            RoundedRectangle(cornerRadius: 7)
+                .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
+        )
+
+        Divider()
+            .frame(height: 85)
+            .overlay(.foreground)
     }
 }
 
-//  #Preview {
-//    LessonView()
-//  }
+  #Preview {
+      LessonView()
+  }

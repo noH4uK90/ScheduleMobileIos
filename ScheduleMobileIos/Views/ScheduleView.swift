@@ -9,23 +9,26 @@ import SwiftUI
 
 struct ScheduleView: View {
 
-    @EnvironmentObject var navigationService: NavigationService
-
     var body: some View {
-        Content(navigationService: navigationService)
+        Content()
     }
 
     struct Content: View {
 
         @StateObject var viewModel: ViewModel
 
-        init(navigationService: NavigationService) {
-            let viewModel = ViewModel(navigationService: navigationService)
-            _viewModel = StateObject(wrappedValue: viewModel)
+        init() {
+            _viewModel = StateObject(wrappedValue: ViewModel())
         }
 
         var body: some View {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            List {
+                ForEach(Range(0...2)) { _ in
+                    LessonView()
+                        .listRowSeparator(.hidden)
+                }
+            }
+            .listStyle(.inset)
         }
     }
 }
