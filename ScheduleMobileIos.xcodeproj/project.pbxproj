@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A04A6FC2BD51C1B002779B0 /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04A6FB2BD51C1B002779B0 /* SecureStorage.swift */; };
+		8A04A6FE2BD52027002779B0 /* SecureStorageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04A6FD2BD52027002779B0 /* SecureStorageExtensions.swift */; };
+		8A04A7002BD52B6B002779B0 /* SecurePropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04A6FF2BD52B6B002779B0 /* SecurePropertyWrappers.swift */; };
+		8A04A7022BD52C39002779B0 /* SecureSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04A7012BD52C39002779B0 /* SecureSettings.swift */; };
 		8A073CE02BB5F82A000FB56A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A073CDF2BB5F82A000FB56A /* AccountView.swift */; };
 		8A073CE22BB5F891000FB56A /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A073CE12BB5F891000FB56A /* AccountViewModel.swift */; };
 		8A12526C2BB4CE95009CEFDF /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12526B2BB4CE95009CEFDF /* Tab.swift */; };
@@ -36,9 +40,10 @@
 		8A5C4E632B092A1700786C13 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E622B092A1700786C13 /* Classroom.swift */; };
 		8A5C4E652B092D9000786C13 /* SheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */; };
 		8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */; };
+		8A83B53A2BD3DC1200A5DA59 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A83B5392BD3DC1200A5DA59 /* DateExtensions.swift */; };
 		8A9CB57C2B0A7E780067C9C5 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CB57B2B0A7E780067C9C5 /* Resolver.swift */; };
-		8AE309672BCEFE51004688EE /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE309662BCEFE51004688EE /* ColorExtension.swift */; };
-		8AE309692BCEFE77004688EE /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE309682BCEFE77004688EE /* ViewExtension.swift */; };
+		8AE309672BCEFE51004688EE /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE309662BCEFE51004688EE /* ColorExtensions.swift */; };
+		8AE309692BCEFE77004688EE /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE309682BCEFE77004688EE /* ViewExtensions.swift */; };
 		8AE3096C2BCF2FD5004688EE /* AccountEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE3096B2BCF2FD5004688EE /* AccountEndpoints.swift */; };
 		8AE309732BCF31DD004688EE /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8AE309722BCF31DD004688EE /* Config.xcconfig */; };
 		8AE309742BCF31DD004688EE /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8AE309722BCF31DD004688EE /* Config.xcconfig */; };
@@ -110,6 +115,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8A04A6FB2BD51C1B002779B0 /* SecureStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
+		8A04A6FD2BD52027002779B0 /* SecureStorageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStorageExtensions.swift; sourceTree = "<group>"; };
+		8A04A6FF2BD52B6B002779B0 /* SecurePropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurePropertyWrappers.swift; sourceTree = "<group>"; };
+		8A04A7012BD52C39002779B0 /* SecureSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureSettings.swift; sourceTree = "<group>"; };
 		8A073CDF2BB5F82A000FB56A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		8A073CE12BB5F891000FB56A /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		8A12526B2BB4CE95009CEFDF /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
@@ -137,9 +146,10 @@
 		8A5C4E622B092A1700786C13 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheduleViewModel.swift; sourceTree = "<group>"; };
 		8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDefaultsService.swift; sourceTree = "<group>"; };
+		8A83B5392BD3DC1200A5DA59 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		8A9CB57B2B0A7E780067C9C5 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
-		8AE309662BCEFE51004688EE /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
-		8AE309682BCEFE77004688EE /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		8AE309662BCEFE51004688EE /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		8AE309682BCEFE77004688EE /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		8AE3096B2BCF2FD5004688EE /* AccountEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEndpoints.swift; sourceTree = "<group>"; };
 		8AE309722BCF31DD004688EE /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		8AE309752BCF32DE004688EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -211,6 +221,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A04A6FA2BD51C0C002779B0 /* Secure */ = {
+			isa = PBXGroup;
+			children = (
+				8A04A6FB2BD51C1B002779B0 /* SecureStorage.swift */,
+				8A04A6FF2BD52B6B002779B0 /* SecurePropertyWrappers.swift */,
+				8A04A7012BD52C39002779B0 /* SecureSettings.swift */,
+			);
+			path = Secure;
+			sourceTree = "<group>";
+		};
 		8A5BB3AB2BCFDC07004EA891 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,8 +251,10 @@
 		8AE309652BCEFE3A004688EE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				8AE309662BCEFE51004688EE /* ColorExtension.swift */,
-				8AE309682BCEFE77004688EE /* ViewExtension.swift */,
+				8AE309662BCEFE51004688EE /* ColorExtensions.swift */,
+				8AE309682BCEFE77004688EE /* ViewExtensions.swift */,
+				8A83B5392BD3DC1200A5DA59 /* DateExtensions.swift */,
+				8A04A6FD2BD52027002779B0 /* SecureStorageExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,6 +274,7 @@
 			children = (
 				8AE309722BCF31DD004688EE /* Config.xcconfig */,
 				8AEB575D2B06C41500F05464 /* ScheduleMobileIos */,
+				8AEB575E2B06C41500F05464 /* ScheduleMobileIosApp.swift */,
 				8AEB576E2B06C41700F05464 /* ScheduleMobileIosTests */,
 				8AEB57782B06C41700F05464 /* ScheduleMobileIosUITests */,
 				8AFB835D2BBC60C10088035E /* ScheduleWidget */,
@@ -274,18 +297,18 @@
 		8AEB575D2B06C41500F05464 /* ScheduleMobileIos */ = {
 			isa = PBXGroup;
 			children = (
-				8AE309652BCEFE3A004688EE /* Extensions */,
-				8A9CB5772B0A7D470067C9C5 /* DI */,
-				8AEB57A02B07625700F05464 /* Services */,
-				8AEB578C2B06C4F600F05464 /* Networking */,
-				8AEB578B2B06C4D900F05464 /* Models */,
-				8AEB578A2B06C4D200F05464 /* ViewModels */,
-				8AEB57892B06C4CD00F05464 /* Views */,
-				8AEB575E2B06C41500F05464 /* ScheduleMobileIosApp.swift */,
-				8AEB57622B06C41700F05464 /* Assets.xcassets */,
 				8AEB57642B06C41700F05464 /* Preview Content */,
 				8AE309752BCF32DE004688EE /* Info.plist */,
+				8AEB57622B06C41700F05464 /* Assets.xcassets */,
 				8AE309772BCF3359004688EE /* Configuration.swift */,
+				8A9CB5772B0A7D470067C9C5 /* DI */,
+				8AE309652BCEFE3A004688EE /* Extensions */,
+				8AEB578B2B06C4D900F05464 /* Models */,
+				8AEB578C2B06C4F600F05464 /* Networking */,
+				8A04A6FA2BD51C0C002779B0 /* Secure */,
+				8AEB57A02B07625700F05464 /* Services */,
+				8AEB578A2B06C4D200F05464 /* ViewModels */,
+				8AEB57892B06C4CD00F05464 /* Views */,
 			);
 			path = ScheduleMobileIos;
 			sourceTree = "<group>";
@@ -624,6 +647,8 @@
 				8A5BB3AF2BCFDD39004EA891 /* TimetableEndpoints.swift in Sources */,
 				8A5C4E4F2B09272E00786C13 /* Timetable.swift in Sources */,
 				8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */,
+				8A04A7002BD52B6B002779B0 /* SecurePropertyWrappers.swift in Sources */,
+				8A04A7022BD52C39002779B0 /* SecureSettings.swift in Sources */,
 				8A5BB3AD2BCFDC2A004EA891 /* GroupEndpoints.swift in Sources */,
 				8A5C4E592B09282B00786C13 /* DisciplineName.swift in Sources */,
 				8AEB57612B06C41500F05464 /* GroupView.swift in Sources */,
@@ -632,13 +657,15 @@
 				8A5C4E472B0925D100786C13 /* Grouped.swift in Sources */,
 				8AE3097A2BCF3666004688EE /* API.swift in Sources */,
 				8A073CE22BB5F891000FB56A /* AccountViewModel.swift in Sources */,
-				8AE309672BCEFE51004688EE /* ColorExtension.swift in Sources */,
+				8AE309672BCEFE51004688EE /* ColorExtensions.swift in Sources */,
 				8A5C4E572B09281200786C13 /* Discipline.swift in Sources */,
 				8A5BB3B12BCFDF74004EA891 /* GroupNetworkService.swift in Sources */,
-				8AE309692BCEFE77004688EE /* ViewExtension.swift in Sources */,
+				8AE309692BCEFE77004688EE /* ViewExtensions.swift in Sources */,
+				8A04A6FE2BD52027002779B0 /* SecureStorageExtensions.swift in Sources */,
 				8A5C4E652B092D9000786C13 /* SheduleViewModel.swift in Sources */,
 				8AEB57952B06C99400F05464 /* PagedList.swift in Sources */,
 				8AEB579F2B07622400F05464 /* GroupViewModel.swift in Sources */,
+				8A83B53A2BD3DC1200A5DA59 /* DateExtensions.swift in Sources */,
 				8AEB57A42B0763CB00F05464 /* ScheduleView.swift in Sources */,
 				8A5C4E612B0929B700786C13 /* Teacher.swift in Sources */,
 				8A073CE02BB5F82A000FB56A /* AccountView.swift in Sources */,
@@ -657,6 +684,7 @@
 				8A12526C2BB4CE95009CEFDF /* Tab.swift in Sources */,
 				8A5C4E552B0927DB00786C13 /* TimeType.swift in Sources */,
 				8A5C4E512B09276B00786C13 /* Lesson.swift in Sources */,
+				8A04A6FC2BD51C1B002779B0 /* SecureStorage.swift in Sources */,
 				8AEB57A22B07626500F05464 /* NavigationService.swift in Sources */,
 				8AEB579D2B06CB3000F05464 /* Speciality.swift in Sources */,
 				8AEB575F2B06C41500F05464 /* ScheduleMobileIosApp.swift in Sources */,
