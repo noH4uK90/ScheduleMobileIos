@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var navigationService: NavigationService
-    
     @State private var activeTab: Tab = .schedule
     @State private var allTabs: [AnimatedTab] = Tab.allCases.compactMap { tab -> AnimatedTab? in
         return .init(tab: tab)
@@ -18,9 +17,7 @@ struct HomeView: View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {
                 NavigationStack {
-                    VStack {
-
-                    }
+                    ScheduleView()
                     .navigationTitle(Tab.schedule.title)
                 }
                 .setUpTab(.schedule)
@@ -50,6 +47,7 @@ struct HomeView: View {
                     Text(tab.title)
                         .font(.caption)
                         .textScale(.default)
+                        .lineLimit(1)
                 }
                 .frame(maxWidth: .infinity)
                 .foregroundStyle(activeTab == tab ? Color.primary : Color.gray.opacity(0.8))
@@ -76,14 +74,4 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
-}
-
-extension View {
-    @ViewBuilder
-    func setUpTab(_ tab: Tab) -> some View {
-        self
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .tag(tab)
-            .toolbar(.hidden, for: .tabBar)
-    }
 }

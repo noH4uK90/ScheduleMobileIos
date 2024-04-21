@@ -1,4 +1,5 @@
 {
+  "originHash" : "40a3f282203110854a7cd4be591737b7b9fb1be4aeb2861034add082fee26874",
   "pins" : [
     {
       "identity" : "swinject",
@@ -10,5 +11,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

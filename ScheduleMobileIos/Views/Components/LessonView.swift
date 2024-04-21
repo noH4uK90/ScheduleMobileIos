@@ -9,41 +9,55 @@ import SwiftUI
 
 struct LessonView: View {
     @State var oneTeacher = false
+    @State var oneCabinet = false
     var body: some View {
         HStack(alignment: .top) {
             createTime()
             VStack(alignment: .leading) {
-                Text("Математика")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-
-                HStack(spacing: 0) {
-                    Image(systemName: "person.fill")
-                        .padding(.trailing, 5)
-                    Text(oneTeacher ? "Иванов И.И." : "Иванов И.И., Иванов И.И.")
-                }
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-
+                title
+                teacher
                 Spacer()
-
-                HStack {
-                    Text("407")
-                        .cabinetTextStyle()
-
-                    if !oneTeacher {
-                        Text("407")
-                            .cabinetTextStyle()
-                    }
-                }
-                .font(.callout)
-                .foregroundStyle(.blue)
+                cabinet
             }
 
             Spacer()
         }
         .frame(maxHeight: 80)
         .padding(.horizontal, 5)
+    }
+
+    var title: some View {
+        Text("Математика")
+            .font(.title3)
+            .fontWeight(.semibold)
+            .minimumScaleFactor(0.5)
+    }
+
+    var teacher: some View {
+        HStack(spacing: 0) {
+            Image(systemName: "person.fill")
+                .padding(.trailing, 5)
+                .unredacted()
+            Text(oneTeacher ? "Иванов И.И." : "Иванов И.И., Иванов И.И.")
+        }
+        .font(.footnote)
+        .foregroundStyle(.secondary)
+        .minimumScaleFactor(0.5)
+    }
+
+    var cabinet: some View {
+        HStack {
+            Text("407")
+                .cabinetTextStyle()
+
+            if !oneCabinet {
+                Text("407")
+                    .cabinetTextStyle()
+            }
+        }
+        .font(.callout)
+        .foregroundStyle(.blue)
+        .minimumScaleFactor(0.5)
     }
 
     @ViewBuilder
@@ -65,6 +79,7 @@ struct LessonView: View {
             RoundedRectangle(cornerRadius: 7)
                 .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
         )
+        .minimumScaleFactor(0.5)
 
         Divider()
             .frame(height: 85)
