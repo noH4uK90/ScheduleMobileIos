@@ -75,10 +75,6 @@ struct LessonView: View {
         .background(.blue.gradient)
         .foregroundStyle(.white)
         .cornerRadius(7)
-        .overlay(
-            RoundedRectangle(cornerRadius: 7)
-                .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
-        )
         .minimumScaleFactor(0.5)
 
         Divider()

@@ -13,7 +13,7 @@ struct AccountView: View {
     }
 
     struct Content: View {
-
+        @EnvironmentObject var navigationService: NavigationService
         @StateObject private var viewModel: ViewModel
 
         init() {

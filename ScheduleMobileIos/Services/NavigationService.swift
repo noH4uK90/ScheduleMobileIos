@@ -9,6 +9,7 @@ import Foundation
 
 class NavigationService: ObservableObject {
     @Published var view: AppViews = .auth
+    @Published var isAuthenticated = false
     // UserDefaults.standard.data(forKey: "currentGroup") != nil ? .schedule : .groups
 }
 

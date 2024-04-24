@@ -20,34 +20,42 @@ struct GroupView: View {
         @StateObject var viewModel: ViewModel
 
         init(navigationService: NavigationService) {
-            _viewModel = StateObject(wrappedValue: ViewModel(navigationService: navigationService))
+            _viewModel = StateObject(wrappedValue: ViewModel())
         }
 
         var body: some View {
-            NavigationStack {
-                List {
-                    ForEach(viewModel.groups) { group in
-                        Text("\(group.name), \(group.speciality.name)")
-                            .onTapGesture {
-                                viewModel.selectGroup(group: group)
-                            }
-                    }
-                    if viewModel.isHasMore {
-                        ProgressView()
-                            .onAppear {
-                                viewModel.loadMore()
-                            }
-                    }
-                }
-                .refreshable {
-                    viewModel.fetchGroups(search: viewModel.searchText)
+            VStack {
+                picker
+                groups
+//                    .redacted(reason: .placeholder)
+                Spacer()
+            }
+        }
+
+        var picker: some View {
+            Picker("",
+                   selection: $viewModel.selectedCourse) {
+                ForEach(Range(1...4), id: \.self) { course in
+                    Text("\(course) курс").tag(course)
                 }
             }
-            .searchable(text: $viewModel.searchText, prompt: "Группа...")
+            .pickerStyle(.segmented)
+            .padding(.horizontal, 24)
+        }
+
+        var groups: some View {
+            ScrollView {
+                GroupsView(groupName: "ИСПП")
+                GroupsView(groupName: "ИСС")
+                GroupsView(groupName: "ИСПВ")
+            }
+            .padding(.horizontal, 24)
+
         }
     }
 }
 
 #Preview {
     GroupView()
+        .environmentObject(NavigationService())
 }

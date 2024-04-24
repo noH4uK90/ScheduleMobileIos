@@ -24,7 +24,7 @@ extension Date {
     func daysOfWeek() -> [Int: String] {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEEEEE"
-        dateFormatter.locale = Locale.current
+        dateFormatter.locale = Locale.init(identifier: "ru_RU")
         var days = dateFormatter.shortWeekdaySymbols
         let sunday = days!.removeFirst()
         days!.append(sunday)

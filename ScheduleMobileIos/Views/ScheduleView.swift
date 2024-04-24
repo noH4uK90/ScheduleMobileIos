@@ -14,7 +14,7 @@ struct ScheduleView: View {
     }
 
     struct Content: View {
-
+        @EnvironmentObject var navigationService: NavigationService
         @StateObject var viewModel: ViewModel
         private var days = Date().daysOfWeek()
         @State private var selected: Int
@@ -58,4 +58,5 @@ struct ScheduleView: View {
 
 #Preview {
     ScheduleView()
+        .environmentObject(NavigationService())
 }

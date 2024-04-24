@@ -13,27 +13,28 @@ extension GroupView {
         @Published var groups = [Group]()
         @Published var searchText = ""
         @Published var isHasMore = true
+        @Published var selectedCourse = 1
 
         private var bag = Set<AnyCancellable>()
-        private var navigationService: NavigationService
+//        private var navigationService: NavigationService
         private var dataGroups: PagedList<Group>?
         @Inject private var groupService: GroupDefaultsProtocol
         @Inject private var groupNetworkService: GroupNetworkProtocol
 
-        init(navigationService: NavigationService) {
-            self.navigationService = navigationService
-            $searchText
-                .debounce(for: 0.5, scheduler: RunLoop.main)
-                .removeDuplicates()
-                .sink(
-                    receiveCompletion: { _ in },
-                    receiveValue: { value in
-                        self.dataGroups = nil
-                        self.fetchGroups(search: value)
-                    }
-                )
-                .store(in: &bag)
-        }
+//        init() {
+//            self.navigationService = navigationService
+//            $searchText
+//                .debounce(for: 0.5, scheduler: RunLoop.main)
+//                .removeDuplicates()
+//                .sink(
+//                    receiveCompletion: { _ in },
+//                    receiveValue: { value in
+//                        self.dataGroups = nil
+//                        self.fetchGroups(search: value)
+//                    }
+//                )
+//                .store(in: &bag)
+//        }
 
         func fetchGroups(search: String) {
             Task {
@@ -79,7 +80,7 @@ extension GroupView {
 
         func selectGroup(group: Group) {
             groupService.selectGroup(group: group)
-            navigationService.view = .home
+            //navigationService.view = .home
         }
 
         func hasMore() -> Bool {

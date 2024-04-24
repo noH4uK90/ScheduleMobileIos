@@ -13,20 +13,39 @@ struct HomeView: View {
     @State private var allTabs: [AnimatedTab] = Tab.allCases.compactMap { tab -> AnimatedTab? in
         return .init(tab: tab)
     }
+    @State private var isAuthenticated = false
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {
-                NavigationStack {
-                    ScheduleView()
-                    .navigationTitle(Tab.schedule.title)
-                }
-                .setUpTab(.schedule)
+                if navigationService.isAuthenticated {
+                    NavigationStack {
+                        ScheduleView()
+                            .navigationTitle(Tab.schedule.title)
+                            .environmentObject(navigationService)
+                    }
+                    .setUpTab(.schedule)
 
-                NavigationStack {
-                    AccountView()
-                    .navigationTitle(Tab.account.title)
+                    NavigationStack {
+                        AccountView()
+                            .navigationTitle(Tab.account.title)
+                            .environmentObject(navigationService)
+                    }
+                    .setUpTab(.account)
+                } else {
+                    NavigationStack {
+                        GroupView()
+                            .navigationTitle("Группа")
+                            .environmentObject(navigationService)
+                    }
+                    .setUpTab(.schedule)
+
+                    NavigationStack {
+                        AuthView()
+                            .navigationTitle("Авторизация")
+                            .environmentObject(navigationService)
+                    }
+                    .setUpTab(.account)
                 }
-                .setUpTab(.account)
             }
 
             customTabBar()
@@ -74,4 +93,5 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+        .environmentObject(NavigationService())
 }

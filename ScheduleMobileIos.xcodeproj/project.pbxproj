@@ -40,6 +40,9 @@
 		8A5C4E632B092A1700786C13 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E622B092A1700786C13 /* Classroom.swift */; };
 		8A5C4E652B092D9000786C13 /* SheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */; };
 		8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */; };
+		8A6EC8492BD8616B003A449E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EC8482BD8616B003A449E /* AuthView.swift */; };
+		8A6EC84B2BD86A5E003A449E /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EC84A2BD86A5E003A449E /* GroupsView.swift */; };
+		8A6EC84D2BD88B37003A449E /* RestorePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EC84C2BD88B37003A449E /* RestorePasswordView.swift */; };
 		8A83B53A2BD3DC1200A5DA59 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A83B5392BD3DC1200A5DA59 /* DateExtensions.swift */; };
 		8A9CB57C2B0A7E780067C9C5 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CB57B2B0A7E780067C9C5 /* Resolver.swift */; };
 		8AE309672BCEFE51004688EE /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE309662BCEFE51004688EE /* ColorExtensions.swift */; };
@@ -146,6 +149,9 @@
 		8A5C4E622B092A1700786C13 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheduleViewModel.swift; sourceTree = "<group>"; };
 		8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDefaultsService.swift; sourceTree = "<group>"; };
+		8A6EC8482BD8616B003A449E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		8A6EC84A2BD86A5E003A449E /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
+		8A6EC84C2BD88B37003A449E /* RestorePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestorePasswordView.swift; sourceTree = "<group>"; };
 		8A83B5392BD3DC1200A5DA59 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		8A9CB57B2B0A7E780067C9C5 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		8AE309662BCEFE51004688EE /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
@@ -346,6 +352,8 @@
 				8AEB57A32B0763CB00F05464 /* ScheduleView.swift */,
 				8A12526D2BB4CF95009CEFDF /* HomeView.swift */,
 				8A073CDF2BB5F82A000FB56A /* AccountView.swift */,
+				8A6EC8482BD8616B003A449E /* AuthView.swift */,
+				8A6EC84C2BD88B37003A449E /* RestorePasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -435,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				8AFB83792BBC6B800088035E /* LessonView.swift */,
+				8A6EC84A2BD86A5E003A449E /* GroupsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -653,6 +662,8 @@
 				8A5C4E592B09282B00786C13 /* DisciplineName.swift in Sources */,
 				8AEB57612B06C41500F05464 /* GroupView.swift in Sources */,
 				8AE3096C2BCF2FD5004688EE /* AccountEndpoints.swift in Sources */,
+				8A6EC84B2BD86A5E003A449E /* GroupsView.swift in Sources */,
+				8A6EC8492BD8616B003A449E /* AuthView.swift in Sources */,
 				8A5BB3B32BCFE052004EA891 /* TimetableNetworkService.swift in Sources */,
 				8A5C4E472B0925D100786C13 /* Grouped.swift in Sources */,
 				8AE3097A2BCF3666004688EE /* API.swift in Sources */,
@@ -664,6 +675,7 @@
 				8A04A6FE2BD52027002779B0 /* SecureStorageExtensions.swift in Sources */,
 				8A5C4E652B092D9000786C13 /* SheduleViewModel.swift in Sources */,
 				8AEB57952B06C99400F05464 /* PagedList.swift in Sources */,
+				8A6EC84D2BD88B37003A449E /* RestorePasswordView.swift in Sources */,
 				8AEB579F2B07622400F05464 /* GroupViewModel.swift in Sources */,
 				8A83B53A2BD3DC1200A5DA59 /* DateExtensions.swift in Sources */,
 				8AEB57A42B0763CB00F05464 /* ScheduleView.swift in Sources */,
