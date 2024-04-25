@@ -27,7 +27,6 @@ struct GroupView: View {
             VStack {
                 picker
                 groups
-//                    .redacted(reason: .placeholder)
                 Spacer()
             }
         }
@@ -35,7 +34,7 @@ struct GroupView: View {
         var picker: some View {
             Picker("",
                    selection: $viewModel.selectedCourse) {
-                ForEach(Range(1...4), id: \.self) { course in
+                ForEach(Range(1...5), id: \.self) { course in
                     Text("\(course) курс").tag(course)
                 }
             }
@@ -45,9 +44,9 @@ struct GroupView: View {
 
         var groups: some View {
             ScrollView {
-                GroupsView(groupName: "ИСПП")
-                GroupsView(groupName: "ИСС")
-                GroupsView(groupName: "ИСПВ")
+                ForEach(viewModel.groups, id: \.key) { specialityGroups in
+                    GroupsView(specialityGroups: specialityGroups)
+                }
             }
             .padding(.horizontal, 24)
 

@@ -9,6 +9,5 @@ import Foundation
 
 struct Term: Identifiable, Codable, Hashable {
     let id: Int
-    let courseTerm: Int
-    let course: Course
+    let course: Int
 }

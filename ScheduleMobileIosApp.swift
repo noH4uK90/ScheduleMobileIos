@@ -13,14 +13,8 @@ struct ScheduleMobileIosApp: App {
 
     var body: some Scene {
         WindowGroup {
-            switch navigationService.view {
-            case .auth:
-                HomeView()
-                    .environmentObject(navigationService)
-            case .home:
-                HomeView()
-                    .environmentObject(navigationService)
-            }
+            HomeView()
+                .environmentObject(navigationService)
         }
     }
 }

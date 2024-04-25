@@ -10,85 +10,35 @@ import Combine
 
 extension GroupView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var groups = [Group]()
-        @Published var searchText = ""
-        @Published var isHasMore = true
+        @Published var groups = [Grouped<Speciality, Group>]()
         @Published var selectedCourse = 1
 
         private var bag = Set<AnyCancellable>()
-//        private var navigationService: NavigationService
-        private var dataGroups: PagedList<Group>?
-        @Inject private var groupService: GroupDefaultsProtocol
         @Inject private var groupNetworkService: GroupNetworkProtocol
 
-//        init() {
-//            self.navigationService = navigationService
-//            $searchText
-//                .debounce(for: 0.5, scheduler: RunLoop.main)
-//                .removeDuplicates()
-//                .sink(
-//                    receiveCompletion: { _ in },
-//                    receiveValue: { value in
-//                        self.dataGroups = nil
-//                        self.fetchGroups(search: value)
-//                    }
-//                )
-//                .store(in: &bag)
-//        }
+        init() {
+            $selectedCourse
+                .sink(
+                    receiveValue: { [weak self] value in
+                        self?.fetchGroups(course: value)
+                    }
+                )
+                .store(in: &bag)
+        }
 
-        func fetchGroups(search: String) {
+        func fetchGroups(course: Int) {
             Task {
-                try groupNetworkService.getGroups(search: search, page: 1)
+                try groupNetworkService.getCourseGroups(id: course)
                     .receive(on: RunLoop.main)
+                    .delay(for: 2.0, scheduler: RunLoop.main)
                     .sink(
                         receiveCompletion: { _ in },
                         receiveValue: { [weak self] value in
-                            self?.dataGroups = value
-                            self?.groups = value.items
+                            self?.groups = value
                         }
                     )
                     .store(in: &bag)
-                isHasMore = hasMore()
             }
-        }
-
-        func loadMore() {
-            Task {
-                guard let data = dataGroups else {
-                    return
-                }
-
-                if !isHasMore {
-                    return
-                }
-
-                let nextPage = data.pageNumber + 1
-
-                try groupNetworkService.getGroups(search: searchText, page: nextPage)
-                    .receive(on: RunLoop.main)
-                    .sink(
-                        receiveCompletion: { _ in },
-                        receiveValue: { [weak self] value in
-                            self?.dataGroups = value
-                            self?.groups.append(contentsOf: value.items)
-                        }
-                    )
-                    .store(in: &bag)
-                isHasMore = hasMore()
-            }
-        }
-
-        func selectGroup(group: Group) {
-            groupService.selectGroup(group: group)
-            //navigationService.view = .home
-        }
-
-        func hasMore() -> Bool {
-            guard let data = dataGroups else {
-                return true
-            }
-
-            return data.pageNumber < data.totalPages
         }
     }
 }

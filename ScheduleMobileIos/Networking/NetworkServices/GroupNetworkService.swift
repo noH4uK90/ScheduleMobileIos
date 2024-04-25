@@ -10,6 +10,7 @@ import Combine
 
 protocol GroupNetworkProtocol {
     func getGroups(search: String, page: Int) throws -> AnyPublisher<PagedList<Group>, Error>
+    func getCourseGroups(id: Int) throws -> AnyPublisher<[Grouped<Speciality, Group>], Error>
 }
 
 final class GroupNetworkService: GroupNetworkProtocol {
@@ -20,5 +21,12 @@ final class GroupNetworkService: GroupNetworkProtocol {
             throw APIError.invalidResponse
         }
         return network.fetch(url, PagedList<Group>.self)
+    }
+
+    func getCourseGroups(id: Int) throws -> AnyPublisher<[Grouped<Speciality, Group>], any Error> {
+        guard let url = GroupEndpoints.courseGroups(id).absoluteURL else {
+            throw APIError.invalidResponse
+        }
+        return network.fetch(url, [Grouped<Speciality, Group>].self)
     }
 }

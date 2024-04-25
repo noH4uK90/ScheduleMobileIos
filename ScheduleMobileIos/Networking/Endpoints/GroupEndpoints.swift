@@ -9,6 +9,7 @@ import Foundation
 
 enum GroupEndpoints {
     case group(String, Int)
+    case courseGroups(Int)
 
     var baseURL: URL { API.baseURL }
 
@@ -16,6 +17,8 @@ enum GroupEndpoints {
         switch self {
         case .group:
             "/Group"
+        case .courseGroups(let course):
+            "/Group/ByCourse/\(course)"
         }
     }
 
@@ -30,6 +33,8 @@ enum GroupEndpoints {
                 URLQueryItem(name: "Search", value: search),
                 URLQueryItem(name: "Page", value: "\(page)")
             ]
+        case .courseGroups(let course):
+            urlComponents.queryItems = []
         }
 
         return urlComponents.url

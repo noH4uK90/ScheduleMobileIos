@@ -14,7 +14,6 @@ struct Group: Identifiable, Codable, Hashable {
     let enrollmentYear: Int
     let isAfterEleven: Bool
     let isDeleted: Bool
-    let term: Term?
+    let term: Term
     let speciality: Speciality
-    let mergedGroups: [Group?]
 }
