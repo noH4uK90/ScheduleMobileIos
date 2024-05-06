@@ -1,14 +1,15 @@
 //
-//  Teacher.swift
+//  Student.swift
 //  ScheduleMobileIos
 //
-//  Created by Иван Спирин on 11/18/23.
+//  Created by Иван Спирин on 5/6/24.
 //
 
 import Foundation
 
-struct Teacher: Identifiable, Codable, Hashable {
+struct Student: Identifiable, Codable, Hashable {
     let id: Int
+    let group: Group
     let login: String
     let email: String
     let name: String

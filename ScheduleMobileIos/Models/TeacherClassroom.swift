@@ -9,5 +9,5 @@ import Foundation
 
 struct TeacherClassroom: Codable, Hashable {
     let teacher: Teacher
-    let classroom: Classroom?
+    let classroom: Classroom
 }

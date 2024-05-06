@@ -8,7 +8,6 @@
 import Foundation
 
 struct CurrentTimetable: Codable {
-    let groups: [Group]
-    let groupName: String
-    let dates: [Grouped<DateModel, Timetable>]
+    let group: Group
+    let daysAndDate: [Grouped<RecordValue<DayModel, Date>, Timetable>]
 }

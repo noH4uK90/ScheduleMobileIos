@@ -11,9 +11,9 @@ struct Discipline: Identifiable, Codable, Hashable {
     let id: Int
     let name: DisciplineName
     let code: DisciplineCode
-    let totalHourse: Int
-    let isDeleted: Bool
     let type: DisciplineType
     let term: Term
     let speciality: Speciality
+    let totalHourse: Int
+    let isDeleted: Bool
 }

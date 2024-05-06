@@ -13,7 +13,7 @@ struct Group: Identifiable, Codable, Hashable {
     let name: String
     let enrollmentYear: Int
     let isAfterEleven: Bool
-    let isDeleted: Bool
     let term: Term
     let speciality: Speciality
+    let isDeleted: Bool
 }

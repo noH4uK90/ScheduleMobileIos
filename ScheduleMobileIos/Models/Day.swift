@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Day: Identifiable, Codable, Hashable {
+struct DayModel: Identifiable, Codable, Hashable {
     let id: Int
     let name: String
     let isStudy: Bool
