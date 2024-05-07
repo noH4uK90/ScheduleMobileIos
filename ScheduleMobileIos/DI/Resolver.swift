@@ -28,8 +28,8 @@ class Resolver {
 func buildContainer() -> Container {
     let container = Container()
 
-    container.register(GroupDefaultsProtocol.self) { _ in
-        return GroupDefaultsService()
+    container.register(UserDefaultsProtocol.self) { _ in
+        return UserDefaultsService()
     }
     container.register(DataTransferProtocol.self) { _ in
         return DataTransferService()
@@ -39,6 +39,12 @@ func buildContainer() -> Container {
     }
     container.register(TimetableNetworkProtocol.self) { _ in
         return TimetableNetworkService()
+    }
+    container.register(AccountNetworkProtocol.self) { _ in
+        return AccountNetworkService()
+    }
+    container.register(StudentNetworkProtocol.self) { _ in
+        return StudentNetworkService()
     }
 
     return container

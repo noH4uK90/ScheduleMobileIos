@@ -11,29 +11,54 @@ import Combine
 protocol DataTransferProtocol {
     func fetch<T: Codable>(_ url: URL, _ model: T.Type) -> AnyPublisher<T, Error>
 
-    func post<TData: Codable, TResult: Codable>(_ url: URL, _ data: TData) throws -> AnyPublisher<TResult, Error>
+    func post<TData: Codable>(_ url: URL, _ body: TData) throws
 
-    func refreshToken() -> AnyPublisher<Bool, Error>
+    func post<TData: Codable, TResult: Codable>(_ url: URL, _ body: TData) throws -> AnyPublisher<TResult, Error>
 }
 
 final class DataTransferService: DataTransferProtocol {
-    internal func refreshToken() -> AnyPublisher<Bool, Error> {
-        Just(true)
-            .setFailureType(to: Error.self)
+    private func createPostRequest<T: Codable>(_ url: URL, _ body: T) throws -> URLRequest {
+        let jsonData = try JSONEncoder().encode(body)
+        let secureSettings = SecureSettings()
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(secureSettings.accessToken ?? "")", forHTTPHeaderField: "authorization")
+        request.httpBody = jsonData
+
+        return request
+    }
+
+    private func refresh() throws -> AnyPublisher<AuthorizationResponse, any Error> {
+        guard let url = AccountEndpoints.refresh.abosluteURL else {
+            throw APIError.invalidResponse
+        }
+
+        let secureSettings = SecureSettings()
+        let command = RefreshCommand(
+            refreshToken: secureSettings.refreshToken ?? "",
+            accessToken: secureSettings.accessToken ?? "")
+        let request = try createPostRequest(url, command)
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map({ $0.data })
+            .decode(type: AuthorizationResponse.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }
 
     func fetch<T: Codable>(_ url: URL, _ model: T.Type) -> AnyPublisher<T, Error> {
-
         return URLSession.shared.dataTaskPublisher(for: url)
             .tryCatch { [weak self] error -> AnyPublisher<(data: Data, response: URLResponse), Error> in
                 guard let self = self, error.code == .userAuthenticationRequired else {
                     throw error
                 }
-                return self.refreshToken()
-                    .flatMap { isSuccess -> AnyPublisher<URLSession.DataTaskPublisher.Output, Error> in
-                        guard isSuccess else {
-                            return Fail(error: URLError(.userAuthenticationRequired)).eraseToAnyPublisher()
+                return try self.refresh()
+                    .flatMap { authorizationResponse -> AnyPublisher<URLSession.DataTaskPublisher.Output, Error> in
+                        guard
+                            authorizationResponse.accessToken.isEmpty &&
+                            authorizationResponse.refreshToken.isEmpty else {
+                                return Fail(error: URLError(.userAuthenticationRequired)).eraseToAnyPublisher()
                         }
                         return URLSession.shared.dataTaskPublisher(for: url)
                             .mapError { $0 as Error }
@@ -47,15 +72,33 @@ final class DataTransferService: DataTransferProtocol {
             .eraseToAnyPublisher()
     }
 
-    func post<TData: Codable, TResult: Codable>(_ url: URL, _ data: TData) throws -> AnyPublisher<TResult, Error> {
-        let jsonData = try JSONEncoder().encode(data)
+    func post<TData: Codable>(_ url: URL, _ body: TData) throws {
+        let request = try createPostRequest(url, body)
 
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = jsonData
+        URLSession.shared.dataTask(with: request)
+    }
+
+    func post<TData: Codable, TResult: Codable>(_ url: URL, _ body: TData) throws -> AnyPublisher<TResult, Error> {
+        let request = try createPostRequest(url, body)
 
         return URLSession.shared.dataTaskPublisher(for: request)
+            .tryCatch { [weak self] error -> AnyPublisher<(data: Data, response: URLResponse), Error> in
+                guard let self = self, error.code == .userAuthenticationRequired else {
+                    throw error
+                }
+                return try self.refresh()
+                    .flatMap { authorizationResponse -> AnyPublisher<URLSession.DataTaskPublisher.Output, Error> in
+                        guard
+                            authorizationResponse.accessToken.isEmpty &&
+                            authorizationResponse.refreshToken.isEmpty else {
+                                return Fail(error: URLError(.userAuthenticationRequired)).eraseToAnyPublisher()
+                        }
+                        return URLSession.shared.dataTaskPublisher(for: url)
+                            .mapError { $0 as Error }
+                            .eraseToAnyPublisher()
+                    }
+                    .eraseToAnyPublisher()
+            }
             .map({ $0.data })
             .decode(type: TResult.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)

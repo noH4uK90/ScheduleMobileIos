@@ -10,12 +10,12 @@ import Foundation
 enum TimetableEndpoints {
     case currentTimetable(Int, Int = 7)
 
-    var baseURL: URL { API.baseURL }
+    var baseURL: URL { API.baseURL.appending(path: APITags.timetable.rawValue) }
 
     func path() -> String {
         switch self {
         case .currentTimetable:
-            "Timetable/Current"
+            "Current"
         }
     }
 
@@ -28,7 +28,7 @@ enum TimetableEndpoints {
         case .currentTimetable(let groupId, let dateCount):
             urlComponents.queryItems = [
                 URLQueryItem(name: "GroupId", value: "\(groupId)"),
-                URLQueryItem(name: "DateCount", value: "\(dateCount)")
+                URLQueryItem(name: "DayCount", value: "\(dateCount)")
             ]
         }
 

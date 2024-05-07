@@ -9,7 +9,7 @@ import Foundation
 
 class NavigationService: ObservableObject {
     @Published var view: AppViews = .auth
-    @Published var isAuthenticated = false
+    @Published var isAuthenticated = !(SecureSettings().accessToken?.isEmpty ?? true)
     // UserDefaults.standard.data(forKey: "currentGroup") != nil ? .schedule : .groups
 }
 

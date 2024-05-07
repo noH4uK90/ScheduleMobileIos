@@ -16,27 +16,23 @@ struct ScheduleView: View {
     struct Content: View {
         @EnvironmentObject var navigationService: NavigationService
         @StateObject var viewModel: ViewModel
-        private var days = Date().daysOfWeek()
-        @State private var selected: Int
-        @State private var isLoaded = false
 
         init() {
             _viewModel = StateObject(wrappedValue: ViewModel())
-            selected = Date().dayNumberOfWeek()
         }
 
         var body: some View {
             VStack {
                 dayPicker
                 scheduleList
-                    .redacted(reason: isLoaded ? [] : .placeholder)
+                    //.redacted(reason: isLoaded ? [] : .placeholder)
             }
         }
 
         var dayPicker: some View {
             Picker("Days",
-                   selection: $selected) {
-                ForEach(days.sorted(by: <), id: \.key) { _, day in
+                   selection: $viewModel.selected) {
+                ForEach(viewModel.days.sorted(by: <), id: \.key) { _, day in
                     Text("\(day)")
                 }
             }

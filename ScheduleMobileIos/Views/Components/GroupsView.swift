@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GroupsView: View {
-    
+
     @State var specialityGroups: Grouped<Speciality, Group>
 
     @State private var columns: [GridItem] = [

@@ -30,9 +30,8 @@ extension GroupView {
             Task {
                 try groupNetworkService.getCourseGroups(id: course)
                     .receive(on: RunLoop.main)
-                    .delay(for: 2.0, scheduler: RunLoop.main)
                     .sink(
-                        receiveCompletion: { _ in },
+                        receiveCompletion: { completion in print(completion) },
                         receiveValue: { [weak self] value in
                             self?.groups = value
                         }

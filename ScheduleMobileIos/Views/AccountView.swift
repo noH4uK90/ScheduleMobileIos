@@ -8,24 +8,32 @@
 import SwiftUI
 
 struct AccountView: View {
+    @EnvironmentObject var navigationService: NavigationService
+
     var body: some View {
-        Content()
+        Content(navigationService: navigationService)
     }
 
     struct Content: View {
-        @EnvironmentObject var navigationService: NavigationService
         @StateObject private var viewModel: ViewModel
 
-        init() {
-            _viewModel = StateObject(wrappedValue: ViewModel())
+        init(navigationService: NavigationService) {
+            _viewModel = StateObject(wrappedValue: ViewModel(navigationService: navigationService))
         }
 
         var body: some View {
-            Text("Account")
+            VStack {
+                Text("Account")
+            }
+            .toolbar {
+                Button("Выход") {
+                    viewModel.logOut()
+                }
+            }
         }
     }
 }
 
-#Preview {
-    AccountView()
-}
+//#Preview {
+//    AccountView()
+//}

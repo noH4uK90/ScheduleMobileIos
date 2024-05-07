@@ -8,7 +8,35 @@
 import Foundation
 
 enum AccountEndpoints {
-    case login
+    case login, refresh, logout
 
-    var baseURL: URL { API.baseURL }
+    var baseURL: URL { API.baseURL.appending(path: APITags.account.rawValue) }
+
+    func path() -> String {
+        switch self {
+        case .login:
+            "login"
+        case .refresh:
+            "refresh"
+        case .logout:
+            "logout"
+        }
+    }
+
+    var abosluteURL: URL? {
+        guard var urlComponents = API.getComponents(for: baseURL, with: self.path()) else {
+            return nil
+        }
+
+        switch self {
+        case .login:
+            urlComponents.queryItems = []
+        case .refresh:
+            urlComponents.queryItems = []
+        case .logout:
+            urlComponents.queryItems = []
+        }
+
+        return urlComponents.url
+    }
 }

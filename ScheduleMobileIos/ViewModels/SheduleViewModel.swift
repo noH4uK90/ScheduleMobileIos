@@ -10,6 +10,8 @@ import Combine
 
 extension ScheduleView {
     @MainActor class ViewModel: ObservableObject {
-
+        @Published var days = Date().daysOfWeek()
+        @Published var selected: Int = Date().dayNumberOfWeek()
+        @Published private var isLoaded = false
     }
 }

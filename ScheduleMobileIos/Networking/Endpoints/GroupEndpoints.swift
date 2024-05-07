@@ -11,14 +11,14 @@ enum GroupEndpoints {
     case group(String, Int)
     case courseGroups(Int)
 
-    var baseURL: URL { API.baseURL }
+    var baseURL: URL { API.baseURL.appending(path: APITags.group.rawValue) }
 
     func path() -> String {
         switch self {
         case .group:
-            "/Group"
+            ""
         case .courseGroups(let course):
-            "/Group/ByCourse/\(course)"
+            "ByCourse/\(course)"
         }
     }
 

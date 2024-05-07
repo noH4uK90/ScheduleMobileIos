@@ -13,8 +13,15 @@
 		8A04A7022BD52C39002779B0 /* SecureSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04A7012BD52C39002779B0 /* SecureSettings.swift */; };
 		8A073CE02BB5F82A000FB56A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A073CDF2BB5F82A000FB56A /* AccountView.swift */; };
 		8A073CE22BB5F891000FB56A /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A073CE12BB5F891000FB56A /* AccountViewModel.swift */; };
+		8A104FD42BE9712900322462 /* AccountNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A104FD32BE9712900322462 /* AccountNetworkService.swift */; };
+		8A104FD62BE9719300322462 /* AuthorizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A104FD52BE9719300322462 /* AuthorizationResponse.swift */; };
 		8A12526C2BB4CE95009CEFDF /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12526B2BB4CE95009CEFDF /* Tab.swift */; };
 		8A12526E2BB4CF95009CEFDF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12526D2BB4CF95009CEFDF /* HomeView.swift */; };
+		8A2BF5582BEA4D28006925C7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */; };
+		8A2BF55A2BEA6493006925C7 /* StudentEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF5592BEA6493006925C7 /* StudentEndpoints.swift */; };
+		8A2BF55C2BEA66A6006925C7 /* StudentNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF55B2BEA66A6006925C7 /* StudentNetworkService.swift */; };
+		8A2BF55F2BEA6A48006925C7 /* Roles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF55E2BEA6A48006925C7 /* Roles.swift */; };
+		8A30499A2BE96EF40096FAC7 /* APITags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3049992BE96EF40096FAC7 /* APITags.swift */; };
 		8A32DBD12BE95C8700CE2A09 /* RecordValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32DBD02BE95C8700CE2A09 /* RecordValue.swift */; };
 		8A53B5172B0A7EDB00DD2F6F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 8A53B5162B0A7EDB00DD2F6F /* Swinject */; };
 		8A53B5192B0A7EDB00DD2F6F /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8A53B5182B0A7EDB00DD2F6F /* Swinject-Dynamic */; };
@@ -37,7 +44,7 @@
 		8A5C4E612B0929B700786C13 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E602B0929B700786C13 /* Teacher.swift */; };
 		8A5C4E632B092A1700786C13 /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E622B092A1700786C13 /* Classroom.swift */; };
 		8A5C4E652B092D9000786C13 /* SheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */; };
-		8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */; };
+		8A5D3B342B0885DE000B581C /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5D3B332B0885DE000B581C /* UserDefaultsService.swift */; };
 		8A6EC8492BD8616B003A449E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EC8482BD8616B003A449E /* AuthView.swift */; };
 		8A6EC84B2BD86A5E003A449E /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EC84A2BD86A5E003A449E /* GroupsView.swift */; };
 		8A6EC84D2BD88B37003A449E /* RestorePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EC84C2BD88B37003A449E /* RestorePasswordView.swift */; };
@@ -131,8 +138,15 @@
 		8A04A7012BD52C39002779B0 /* SecureSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureSettings.swift; sourceTree = "<group>"; };
 		8A073CDF2BB5F82A000FB56A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		8A073CE12BB5F891000FB56A /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		8A104FD32BE9712900322462 /* AccountNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNetworkService.swift; sourceTree = "<group>"; };
+		8A104FD52BE9719300322462 /* AuthorizationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationResponse.swift; sourceTree = "<group>"; };
 		8A12526B2BB4CE95009CEFDF /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		8A12526D2BB4CF95009CEFDF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		8A2BF5592BEA6493006925C7 /* StudentEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEndpoints.swift; sourceTree = "<group>"; };
+		8A2BF55B2BEA66A6006925C7 /* StudentNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentNetworkService.swift; sourceTree = "<group>"; };
+		8A2BF55E2BEA6A48006925C7 /* Roles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roles.swift; sourceTree = "<group>"; };
+		8A3049992BE96EF40096FAC7 /* APITags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITags.swift; sourceTree = "<group>"; };
 		8A32DBD02BE95C8700CE2A09 /* RecordValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordValue.swift; sourceTree = "<group>"; };
 		8A53B51A2B0A8B4500DD2F6F /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
 		8A5BB3AC2BCFDC2A004EA891 /* GroupEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEndpoints.swift; sourceTree = "<group>"; };
@@ -153,7 +167,7 @@
 		8A5C4E602B0929B700786C13 /* Teacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		8A5C4E622B092A1700786C13 /* Classroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
 		8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheduleViewModel.swift; sourceTree = "<group>"; };
-		8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDefaultsService.swift; sourceTree = "<group>"; };
+		8A5D3B332B0885DE000B581C /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		8A6EC8482BD8616B003A449E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		8A6EC84A2BD86A5E003A449E /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
 		8A6EC84C2BD88B37003A449E /* RestorePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestorePasswordView.swift; sourceTree = "<group>"; };
@@ -251,11 +265,21 @@
 			path = Secure;
 			sourceTree = "<group>";
 		};
+		8A2BF55D2BEA6A24006925C7 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				8A2BF55E2BEA6A48006925C7 /* Roles.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		8A5BB3AB2BCFDC07004EA891 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
 				8A5BB3B02BCFDF74004EA891 /* GroupNetworkService.swift */,
 				8A5BB3B22BCFE052004EA891 /* TimetableNetworkService.swift */,
+				8A104FD32BE9712900322462 /* AccountNetworkService.swift */,
+				8A2BF55B2BEA66A6006925C7 /* StudentNetworkService.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -285,6 +309,7 @@
 				8AE3096B2BCF2FD5004688EE /* AccountEndpoints.swift */,
 				8A5BB3AC2BCFDC2A004EA891 /* GroupEndpoints.swift */,
 				8A5BB3AE2BCFDD39004EA891 /* TimetableEndpoints.swift */,
+				8A2BF5592BEA6493006925C7 /* StudentEndpoints.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -322,6 +347,7 @@
 				8AEB57622B06C41700F05464 /* Assets.xcassets */,
 				8AE309772BCF3359004688EE /* Configuration.swift */,
 				8A9CB5772B0A7D470067C9C5 /* DI */,
+				8A2BF55D2BEA6A24006925C7 /* Enums */,
 				8AE309652BCEFE3A004688EE /* Extensions */,
 				8AEB578B2B06C4D900F05464 /* Models */,
 				8AEB578C2B06C4F600F05464 /* Networking */,
@@ -378,6 +404,7 @@
 				8AEB579E2B07622400F05464 /* GroupViewModel.swift */,
 				8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */,
 				8A073CE12BB5F891000FB56A /* AccountViewModel.swift */,
+				8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -414,6 +441,7 @@
 				8AEB57982B06CAB600F05464 /* Term.swift */,
 				8A5C4E4E2B09272E00786C13 /* Timetable.swift */,
 				8A5C4E4C2B0926E100786C13 /* WeekType.swift */,
+				8A104FD52BE9719300322462 /* AuthorizationResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -422,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				8AE309792BCF3666004688EE /* API.swift */,
+				8A3049992BE96EF40096FAC7 /* APITags.swift */,
 				8AE3096A2BCF2FBE004688EE /* Endpoints */,
 				8A5BB3AB2BCFDC07004EA891 /* NetworkServices */,
 			);
@@ -432,7 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				8AEB57A12B07626500F05464 /* NavigationService.swift */,
-				8A5D3B332B0885DE000B581C /* GroupDefaultsService.swift */,
+				8A5D3B332B0885DE000B581C /* UserDefaultsService.swift */,
 				8A53B51A2B0A8B4500DD2F6F /* DataTransferService.swift */,
 			);
 			path = Services;
@@ -672,27 +701,33 @@
 				8A5C4E5F2B09299600786C13 /* TeacherClassroom.swift in Sources */,
 				8AEB579B2B06CAF200F05464 /* Course.swift in Sources */,
 				8AFB837F2BBC8CD40088035E /* WidgetLessonView.swift in Sources */,
+				8A30499A2BE96EF40096FAC7 /* APITags.swift in Sources */,
 				8A9CB57C2B0A7E780067C9C5 /* Resolver.swift in Sources */,
 				8AD3644A2BE9646D00C32492 /* Employee.swift in Sources */,
 				8AFB837A2BBC6B800088035E /* LessonView.swift in Sources */,
 				8A5BB3AF2BCFDD39004EA891 /* TimetableEndpoints.swift in Sources */,
 				8A5C4E4F2B09272E00786C13 /* Timetable.swift in Sources */,
-				8A5D3B342B0885DE000B581C /* GroupDefaultsService.swift in Sources */,
+				8A5D3B342B0885DE000B581C /* UserDefaultsService.swift in Sources */,
 				8A04A7002BD52B6B002779B0 /* SecurePropertyWrappers.swift in Sources */,
 				8A04A7022BD52C39002779B0 /* SecureSettings.swift in Sources */,
+				8A2BF5582BEA4D28006925C7 /* AuthViewModel.swift in Sources */,
 				8A5BB3AD2BCFDC2A004EA891 /* GroupEndpoints.swift in Sources */,
 				8A5C4E592B09282B00786C13 /* DisciplineName.swift in Sources */,
 				8AEB57612B06C41500F05464 /* GroupView.swift in Sources */,
 				8AD3643E2BE9623200C32492 /* Account.swift in Sources */,
 				8AE3096C2BCF2FD5004688EE /* AccountEndpoints.swift in Sources */,
 				8A6EC84B2BD86A5E003A449E /* GroupsView.swift in Sources */,
+				8A104FD42BE9712900322462 /* AccountNetworkService.swift in Sources */,
 				8A6EC8492BD8616B003A449E /* AuthView.swift in Sources */,
+				8A2BF55A2BEA6493006925C7 /* StudentEndpoints.swift in Sources */,
 				8A5BB3B32BCFE052004EA891 /* TimetableNetworkService.swift in Sources */,
 				8A5C4E472B0925D100786C13 /* Grouped.swift in Sources */,
 				8A32DBD12BE95C8700CE2A09 /* RecordValue.swift in Sources */,
 				8AE3097A2BCF3666004688EE /* API.swift in Sources */,
 				8A073CE22BB5F891000FB56A /* AccountViewModel.swift in Sources */,
 				8AE309672BCEFE51004688EE /* ColorExtensions.swift in Sources */,
+				8A2BF55C2BEA66A6006925C7 /* StudentNetworkService.swift in Sources */,
+				8A104FD62BE9719300322462 /* AuthorizationResponse.swift in Sources */,
 				8A5C4E572B09281200786C13 /* Discipline.swift in Sources */,
 				8A5BB3B12BCFDF74004EA891 /* GroupNetworkService.swift in Sources */,
 				8AE309692BCEFE77004688EE /* ViewExtensions.swift in Sources */,
@@ -707,6 +742,7 @@
 				8A5C4E612B0929B700786C13 /* Teacher.swift in Sources */,
 				8A073CE02BB5F82A000FB56A /* AccountView.swift in Sources */,
 				8AD364422BE9636100C32492 /* Surname.swift in Sources */,
+				8A2BF55F2BEA6A48006925C7 /* Roles.swift in Sources */,
 				8A53B51B2B0A8B4500DD2F6F /* DataTransferService.swift in Sources */,
 				8A5C4E452B09259D00786C13 /* CurrentTimetable.swift in Sources */,
 				8A5C4E5B2B0928AE00786C13 /* DisciplineCode.swift in Sources */,

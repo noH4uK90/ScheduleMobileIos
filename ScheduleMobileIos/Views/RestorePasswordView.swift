@@ -18,7 +18,6 @@ struct RestorePasswordView: View {
             TextField("example@gmail.com", text: $email)
                 .textFieldStyle(.roundedBorder)
 
-
                 Button {
                     showingAlert = true
                 } label: {

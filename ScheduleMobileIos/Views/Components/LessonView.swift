@@ -10,6 +10,7 @@ import SwiftUI
 struct LessonView: View {
     @State var oneTeacher = false
     @State var oneCabinet = false
+    @State var isChanged = false
     var body: some View {
         HStack(alignment: .top) {
             createTime()
@@ -27,10 +28,22 @@ struct LessonView: View {
     }
 
     var title: some View {
-        Text("Математика")
-            .font(.title3)
-            .fontWeight(.semibold)
-            .minimumScaleFactor(0.5)
+        HStack {
+            Text("Математика")
+                .font(.title3)
+                .fontWeight(.semibold)
+                .minimumScaleFactor(0.5)
+            Spacer()
+            if isChanged {
+                Text("Изм.")
+                    .padding(.horizontal, 3)
+                    .cornerRadius(0)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 3)
+                            .stroke(.red.gradient, lineWidth: 1)
+                    }
+            }
+        }
     }
 
     var teacher: some View {

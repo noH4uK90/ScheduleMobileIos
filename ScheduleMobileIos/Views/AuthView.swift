@@ -9,44 +9,55 @@ import SwiftUI
 
 struct AuthView: View {
     @EnvironmentObject var navigationService: NavigationService
-    @State private var login: String = ""
-    @State private var password: String = ""
+
     var body: some View {
-        VStack {
-            inputs
-            buttons
-        }
-        .padding()
+        Content(navigationService: navigationService)
     }
 
-    var inputs: some View {
-        VStack {
-            TextField("Логин...", text: $login)
-                .textFieldStyle(.roundedBorder)
-            TextField("Пароль...", text: $login)
-                .textFieldStyle(.roundedBorder)
-        }
-    }
+    struct Content: View {
+        @StateObject private var viewModel: ViewModel
 
-    var buttons: some View {
-        VStack(alignment: .leading) {
-            Button {
-                navigationService.isAuthenticated = true
-            } label: {
-                Text("Войти")
-                    .frame(maxWidth: .infinity)
+        init(navigationService: NavigationService) {
+            _viewModel = StateObject(wrappedValue: ViewModel(navigationService: navigationService))
+        }
+
+        var body: some View {
+            VStack {
+                inputs
+                buttons
             }
-            .buttonStyle(.borderedProminent)
-            .padding(.horizontal)
-            .padding(.top)
-            NavigationLink("Забыли пароль?") {
-                RestorePasswordView()
+            .padding()
+        }
+
+        var inputs: some View {
+            VStack {
+                TextField("Логин...", text: $viewModel.login)
+                    .textFieldStyle(.roundedBorder)
+                TextField("Пароль...", text: $viewModel.password)
+                    .textFieldStyle(.roundedBorder)
             }
-            .padding(.horizontal)
+        }
+
+        var buttons: some View {
+            VStack(alignment: .leading) {
+                Button {
+                    viewModel.logIn()
+                } label: {
+                    Text("Войти")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(.horizontal)
+                .padding(.top)
+                NavigationLink("Забыли пароль?") {
+                    RestorePasswordView()
+                }
+                .padding(.horizontal)
+            }
         }
     }
 }
 
-#Preview {
-    AuthView()
-}
+//#Preview {
+//    AuthView()
+//}

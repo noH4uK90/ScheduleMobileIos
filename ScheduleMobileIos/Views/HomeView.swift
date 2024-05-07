@@ -13,7 +13,6 @@ struct HomeView: View {
     @State private var allTabs: [AnimatedTab] = Tab.allCases.compactMap { tab -> AnimatedTab? in
         return .init(tab: tab)
     }
-    @State private var isAuthenticated = false
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {
