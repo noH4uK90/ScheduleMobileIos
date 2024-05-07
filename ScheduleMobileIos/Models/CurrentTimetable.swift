@@ -9,5 +9,5 @@ import Foundation
 
 struct CurrentTimetable: Codable {
     let group: Group
-    let daysAndDate: [Grouped<RecordValue<DayModel, Date>, Timetable>]
+    let daysAndDate: [Grouped<RecordValue<DayModel, String>, Timetable>]
 }

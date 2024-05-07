@@ -48,6 +48,8 @@ final class DataTransferService: DataTransferProtocol {
     }
 
     func fetch<T: Codable>(_ url: URL, _ model: T.Type) -> AnyPublisher<T, Error> {
+        var decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(Date().getLocalDateFormatt(locale: "ru_RU"))
         return URLSession.shared.dataTaskPublisher(for: url)
             .tryCatch { [weak self] error -> AnyPublisher<(data: Data, response: URLResponse), Error> in
                 guard let self = self, error.code == .userAuthenticationRequired else {
@@ -67,7 +69,7 @@ final class DataTransferService: DataTransferProtocol {
                     .eraseToAnyPublisher()
             }
             .map({ $0.data })
-            .decode(type: T.self, decoder: JSONDecoder())
+            .decode(type: T.self, decoder: decoder)
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
     }

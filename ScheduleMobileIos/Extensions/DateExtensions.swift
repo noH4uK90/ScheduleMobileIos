@@ -31,4 +31,20 @@ extension Date {
 
         return days!.enumerated().reduce(into: [:]) { $0[$1.offset + 1] = $1.element }
     }
+
+    func getLocalDateFormatt(locale: String) -> DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.init(identifier: locale)
+        dateFormatter.timeStyle = .short
+        dateFormatter.amSymbol = ""
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter
+    }
+
+    func formatStringDate(date: String) -> String {
+        let dateFormatter = getLocalDateFormatt(locale: "ru_RU")
+        let newDate = dateFormatter.date(from: date)
+        dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
+        return dateFormatter.string(from: newDate!)
+    }
 }

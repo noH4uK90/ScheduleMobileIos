@@ -15,6 +15,6 @@ struct LessonChange: Identifiable, Codable, Hashable {
     let timeEnd: String
     let lesson: Lesson
     let discipline: Discipline
-    let date: Date
+    let date: String
     let lessonTeacherClassrooms: [TeacherClassroom]
 }

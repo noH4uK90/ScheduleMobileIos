@@ -18,7 +18,7 @@ struct ScheduleView: View {
         @StateObject var viewModel: ViewModel
 
         init() {
-            _viewModel = StateObject(wrappedValue: ViewModel())
+            _viewModel = StateObject(wrappedValue: ViewModel(group: nil))
         }
 
         var body: some View {
@@ -42,9 +42,10 @@ struct ScheduleView: View {
 
         var scheduleList: some View {
             List {
-                ForEach(Range(0...2)) { _ in
-                    LessonView()
+                ForEach(viewModel.lessons) { lesson in
+                    LessonView(lesson: lesson, date: viewModel.currentDate)
                         .listRowSeparator(.hidden)
+                        .environment(\.locale, Locale(identifier: "ru_RU"))
                 }
             }
             .listStyle(.inset)

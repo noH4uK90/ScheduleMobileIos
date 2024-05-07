@@ -49,6 +49,7 @@
 		8A6EC84B2BD86A5E003A449E /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EC84A2BD86A5E003A449E /* GroupsView.swift */; };
 		8A6EC84D2BD88B37003A449E /* RestorePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6EC84C2BD88B37003A449E /* RestorePasswordView.swift */; };
 		8A83B53A2BD3DC1200A5DA59 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A83B5392BD3DC1200A5DA59 /* DateExtensions.swift */; };
+		8A90228C2BEAB50300E593A9 /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A90228B2BEAB50300E593A9 /* LessonViewModel.swift */; };
 		8A9CB57C2B0A7E780067C9C5 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9CB57B2B0A7E780067C9C5 /* Resolver.swift */; };
 		8AD3643C2BE9613100C32492 /* LessonChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3643B2BE9613100C32492 /* LessonChange.swift */; };
 		8AD3643E2BE9623200C32492 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD3643D2BE9623200C32492 /* Account.swift */; };
@@ -172,6 +173,7 @@
 		8A6EC84A2BD86A5E003A449E /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
 		8A6EC84C2BD88B37003A449E /* RestorePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestorePasswordView.swift; sourceTree = "<group>"; };
 		8A83B5392BD3DC1200A5DA59 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		8A90228B2BEAB50300E593A9 /* LessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
 		8A9CB57B2B0A7E780067C9C5 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
 		8AD3643B2BE9613100C32492 /* LessonChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonChange.swift; sourceTree = "<group>"; };
 		8AD3643D2BE9623200C32492 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */,
 				8A073CE12BB5F891000FB56A /* AccountViewModel.swift */,
 				8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */,
+				8A90228B2BEAB50300E593A9 /* LessonViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -746,6 +749,7 @@
 				8A53B51B2B0A8B4500DD2F6F /* DataTransferService.swift in Sources */,
 				8A5C4E452B09259D00786C13 /* CurrentTimetable.swift in Sources */,
 				8A5C4E5B2B0928AE00786C13 /* DisciplineCode.swift in Sources */,
+				8A90228C2BEAB50300E593A9 /* LessonViewModel.swift in Sources */,
 				8A12526E2BB4CF95009CEFDF /* HomeView.swift in Sources */,
 				8AEB57972B06CA5400F05464 /* Group.swift in Sources */,
 				8A5C4E632B092A1700786C13 /* Classroom.swift in Sources */,
