@@ -46,6 +46,9 @@ func buildContainer() -> Container {
     container.register(StudentNetworkProtocol.self) { _ in
         return StudentNetworkService()
     }
+    container.register(TeacherNetworkProtocol.self) { _ in
+        return TeacherNetworkService()
+    }
 
     return container
 }

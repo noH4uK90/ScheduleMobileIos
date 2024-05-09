@@ -47,3 +47,7 @@ struct RefreshCommand: Codable {
     let refreshToken: String
     let accessToken: String
 }
+
+struct RestorePasswordCommand: Codable {
+    let email: String
+}

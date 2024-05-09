@@ -13,6 +13,7 @@ struct HomeView: View {
     @State private var allTabs: [AnimatedTab] = Tab.allCases.compactMap { tab -> AnimatedTab? in
         return .init(tab: tab)
     }
+    @Inject private var userDefaults: UserDefaultsProtocol
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {

@@ -31,6 +31,7 @@ extension AuthView {
                     .receive(on: RunLoop.main)
                     .sink(
                         receiveCompletion: { [weak self] completion in
+                            print("Completion: \(completion)")
                             switch completion {
                             case .finished:
                                 self?.navigationService.isAuthenticated = true
@@ -39,6 +40,7 @@ extension AuthView {
                             }
                         },
                         receiveValue: { [weak self] value in
+                            print("Value: \(value)")
                             self?.setUpDefaults(value)
                         }
                     )
@@ -60,6 +62,8 @@ extension AuthView {
                         self.userDefaultsService.setGroup(group: group)
                     }
                 }
+            } else {
+                self.userDefaultsService.setGroup(group: nil)
             }
         }
 
@@ -68,7 +72,7 @@ extension AuthView {
                 try studentNetworkService.getStudentByAccount(id: id)
                     .receive(on: RunLoop.main)
                     .sink(
-                        receiveCompletion: { completion in print(completion) },
+                        receiveCompletion: { _ in },
                         receiveValue: { value in
                             completion(value.group)
                         }

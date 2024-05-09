@@ -11,7 +11,7 @@ import Combine
 protocol DataTransferProtocol {
     func fetch<T: Codable>(_ url: URL, _ model: T.Type) -> AnyPublisher<T, Error>
 
-    func post<TData: Codable>(_ url: URL, _ body: TData) throws
+    func post<TData: Codable>(_ url: URL, _ body: TData) throws -> AnyPublisher<Void, Error>
 
     func post<TData: Codable, TResult: Codable>(_ url: URL, _ body: TData) throws -> AnyPublisher<TResult, Error>
 }
@@ -74,10 +74,36 @@ final class DataTransferService: DataTransferProtocol {
             .eraseToAnyPublisher()
     }
 
-    func post<TData: Codable>(_ url: URL, _ body: TData) throws {
+    func post<TData: Codable>(_ url: URL, _ body: TData) throws -> AnyPublisher<Void, Error> {
         let request = try createPostRequest(url, body)
 
-        URLSession.shared.dataTask(with: request)
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .print("Post")
+            .tryCatch { [weak self] error -> AnyPublisher<(data: Data, response: URLResponse), Error> in
+                guard let self = self, error.code == .userAuthenticationRequired else {
+                    throw error
+                }
+                return try self.refresh()
+                    .flatMap { authorizationResponse -> AnyPublisher<URLSession.DataTaskPublisher.Output, Error> in
+                        guard
+                            authorizationResponse.accessToken.isEmpty &&
+                            authorizationResponse.refreshToken.isEmpty else {
+                                return Fail(error: URLError(.userAuthenticationRequired)).eraseToAnyPublisher()
+                        }
+                        return URLSession.shared.dataTaskPublisher(for: url)
+                            .mapError { $0 as Error }
+                            .eraseToAnyPublisher()
+                    }
+                    .eraseToAnyPublisher()
+            }
+            .tryMap { output in
+                guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
+                    throw URLError(.badServerResponse)
+                }
+                return()
+            }
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 
     func post<TData: Codable, TResult: Codable>(_ url: URL, _ body: TData) throws -> AnyPublisher<TResult, Error> {

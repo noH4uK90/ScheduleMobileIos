@@ -12,4 +12,5 @@ enum APITags: String {
     case group = "Group"
     case timetable = "Timetable"
     case student = "Student"
+    case teacher = "Teacher"
 }

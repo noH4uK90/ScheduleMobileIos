@@ -11,8 +11,8 @@ protocol UserDefaultsProtocol {
     var account: Account? { get set }
     var group: Group? { get set }
 
-    func setAccount(account: Account)
-    func setGroup(group: Group)
+    func setAccount(account: Account?)
+    func setGroup(group: Group?)
 
     func getAccount() -> Account?
     func getGroup() -> Group?
@@ -29,17 +29,24 @@ class UserDefaultsService: UserDefaultsProtocol {
         group = getGroup()
     }
 
-    func setAccount(account: Account) {
+    func setAccount(account: Account?) {
         Task {
-            let data = try JSONEncoder().encode(account)
-            UserDefaults.standard.setValue(data, forKey: "account")
+            if let account = account {
+                let data = try JSONEncoder().encode(account)
+                UserDefaults.standard.setValue(data, forKey: "account")
+            }
+            self.account = getAccount()
+            NotificationCenter.default.post(name: .accountUpdated, object: nil)
         }
     }
-    func setGroup(group: Group) {
+    func setGroup(group: Group?) {
         Task {
-            let data = try JSONEncoder().encode(group)
-            UserDefaults.standard.setValue(data, forKey: "group")
-
+            if let group = group {
+                let data = try JSONEncoder().encode(group)
+                UserDefaults.standard.setValue(data, forKey: "group")
+            }
+            self.group = getGroup()
+            NotificationCenter.default.post(name: .groupUpdated, object: nil)
         }
     }
 
@@ -62,4 +69,9 @@ class UserDefaultsService: UserDefaultsProtocol {
         UserDefaults.standard.removeObject(forKey: "account")
         UserDefaults.standard.removeObject(forKey: "group")
     }
+}
+
+extension Notification.Name {
+    static let accountUpdated = Notification.Name("accountUpdated")
+    static let groupUpdated = Notification.Name("groupUpdated")
 }

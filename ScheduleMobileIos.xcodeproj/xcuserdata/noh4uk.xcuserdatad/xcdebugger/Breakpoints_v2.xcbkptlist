@@ -154,8 +154,8 @@
             filePath = "ScheduleMobileIos/ViewModels/AuthViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "setUpDefaults(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,8 +170,8 @@
             filePath = "ScheduleMobileIos/ViewModels/AuthViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "getStudentGroup(id:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,8 +186,8 @@
             filePath = "ScheduleMobileIos/ViewModels/AuthViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "setUpDefaults(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,8 +202,8 @@
             filePath = "ScheduleMobileIos/ViewModels/AuthViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "setUpDefaults(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -211,15 +211,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "35119BCD-5635-4FBA-8A6A-7346274EA38D"
+            uuid = "B12B1EB4-F465-4859-BEA9-34346B2ED4D6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScheduleMobileIos/ViewModels/AuthViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "setUpDefaults(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "888A80B3-7C7E-4789-BD90-5B87A8811C98"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScheduleMobileIos/ViewModels/SheduleViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "init(group:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -227,32 +243,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "34CE693F-7DDA-4770-880D-EC0CAE1EAF11"
+            uuid = "20BDC7C4-364D-4435-9081-6F785D48E4A0"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScheduleMobileIos/ViewModels/SheduleViewModel.swift"
+            filePath = "ScheduleMobileIos/Services/UserDefaultsService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "updateLessonsForSelectedDay(_:)"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "setGroup(group:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9E0B092D-0EBF-4FD5-886F-05D15AEB1F55"
+            uuid = "C8AE0443-25C2-4152-96C7-27886FB8E8AF"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ScheduleMobileIos/ViewModels/SheduleViewModel.swift"
+            filePath = "ScheduleMobileIos/Services/UserDefaultsService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "updateLessonsForSelectedDay(_:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "setAccount(account:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BC8440B-9F8C-42CF-B1F1-8C031AD438F6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScheduleMobileIos/Extensions/DateExtensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "dateForDayOfWeek(day:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C350320-FFCB-4669-BF9A-6CC4E0824D04"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScheduleMobileIos/ViewModels/RestorePasswordViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "restorePassword(dismiss:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -10,7 +10,8 @@ import Combine
 
 protocol AccountNetworkProtocol {
     func login(login: String, password: String) throws -> AnyPublisher<AuthorizationResponse, Error>
-    func logout() throws
+    func logout() throws -> AnyPublisher<Void, Error>
+    func restorePassword(email: String) throws -> AnyPublisher<Void, Error>
 }
 
 final class AccountNetworkService: AccountNetworkProtocol {
@@ -23,14 +24,9 @@ final class AccountNetworkService: AccountNetworkProtocol {
 
         let command = LoginCommand(login: login, password: password)
         return try network.post(url, command)
-//        return URLSession.shared.dataTaskPublisher(for: url)
-//            .map({ $0.data })
-//            .decode(type: AuthorizationResponse.self, decoder: JSONDecoder())
-//            .receive(on: DispatchQueue.main)
-//            .eraseToAnyPublisher()
     }
 
-    func logout() throws {
+    func logout() throws -> AnyPublisher<Void, Error> {
         guard let url = AccountEndpoints.logout.abosluteURL else {
             throw APIError.invalidResponse
         }
@@ -39,6 +35,15 @@ final class AccountNetworkService: AccountNetworkProtocol {
         let command = LogoutCommand(
             accessToken: secureSettings.accessToken ?? "",
             refreshToken: secureSettings.refreshToken ?? "")
-        try network.post(url, command)
+        return try network.post(url, command)
+    }
+
+    func restorePassword(email: String) throws -> AnyPublisher<Void, Error> {
+        guard let url = AccountEndpoints.restorePassword.abosluteURL else {
+            throw APIError.invalidResponse
+        }
+
+        let command = RestorePasswordCommand(email: email)
+        return try network.post(url, command)
     }
 }

@@ -23,6 +23,9 @@
 		8A2BF55F2BEA6A48006925C7 /* Roles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF55E2BEA6A48006925C7 /* Roles.swift */; };
 		8A30499A2BE96EF40096FAC7 /* APITags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3049992BE96EF40096FAC7 /* APITags.swift */; };
 		8A32DBD12BE95C8700CE2A09 /* RecordValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32DBD02BE95C8700CE2A09 /* RecordValue.swift */; };
+		8A4C42792BEB62740044889C /* TeacherEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C42782BEB62740044889C /* TeacherEndpoints.swift */; };
+		8A4C427C2BEB64B60044889C /* TeacherNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C427B2BEB64B60044889C /* TeacherNetworkService.swift */; };
+		8A4C427E2BEC329E0044889C /* RestorePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C427D2BEC329E0044889C /* RestorePasswordViewModel.swift */; };
 		8A53B5172B0A7EDB00DD2F6F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 8A53B5162B0A7EDB00DD2F6F /* Swinject */; };
 		8A53B5192B0A7EDB00DD2F6F /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8A53B5182B0A7EDB00DD2F6F /* Swinject-Dynamic */; };
 		8A53B51B2B0A8B4500DD2F6F /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53B51A2B0A8B4500DD2F6F /* DataTransferService.swift */; };
@@ -149,6 +152,9 @@
 		8A2BF55E2BEA6A48006925C7 /* Roles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roles.swift; sourceTree = "<group>"; };
 		8A3049992BE96EF40096FAC7 /* APITags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITags.swift; sourceTree = "<group>"; };
 		8A32DBD02BE95C8700CE2A09 /* RecordValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordValue.swift; sourceTree = "<group>"; };
+		8A4C42782BEB62740044889C /* TeacherEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherEndpoints.swift; sourceTree = "<group>"; };
+		8A4C427B2BEB64B60044889C /* TeacherNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherNetworkService.swift; sourceTree = "<group>"; };
+		8A4C427D2BEC329E0044889C /* RestorePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestorePasswordViewModel.swift; sourceTree = "<group>"; };
 		8A53B51A2B0A8B4500DD2F6F /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
 		8A5BB3AC2BCFDC2A004EA891 /* GroupEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEndpoints.swift; sourceTree = "<group>"; };
 		8A5BB3AE2BCFDD39004EA891 /* TimetableEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableEndpoints.swift; sourceTree = "<group>"; };
@@ -278,10 +284,11 @@
 		8A5BB3AB2BCFDC07004EA891 /* NetworkServices */ = {
 			isa = PBXGroup;
 			children = (
-				8A5BB3B02BCFDF74004EA891 /* GroupNetworkService.swift */,
-				8A5BB3B22BCFE052004EA891 /* TimetableNetworkService.swift */,
 				8A104FD32BE9712900322462 /* AccountNetworkService.swift */,
+				8A5BB3B02BCFDF74004EA891 /* GroupNetworkService.swift */,
 				8A2BF55B2BEA66A6006925C7 /* StudentNetworkService.swift */,
+				8A4C427B2BEB64B60044889C /* TeacherNetworkService.swift */,
+				8A5BB3B22BCFE052004EA891 /* TimetableNetworkService.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -310,8 +317,9 @@
 			children = (
 				8AE3096B2BCF2FD5004688EE /* AccountEndpoints.swift */,
 				8A5BB3AC2BCFDC2A004EA891 /* GroupEndpoints.swift */,
-				8A5BB3AE2BCFDD39004EA891 /* TimetableEndpoints.swift */,
 				8A2BF5592BEA6493006925C7 /* StudentEndpoints.swift */,
+				8A4C42782BEB62740044889C /* TeacherEndpoints.swift */,
+				8A5BB3AE2BCFDD39004EA891 /* TimetableEndpoints.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -408,6 +416,7 @@
 				8A073CE12BB5F891000FB56A /* AccountViewModel.swift */,
 				8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */,
 				8A90228B2BEAB50300E593A9 /* LessonViewModel.swift */,
+				8A4C427D2BEC329E0044889C /* RestorePasswordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -712,6 +721,7 @@
 				8A5C4E4F2B09272E00786C13 /* Timetable.swift in Sources */,
 				8A5D3B342B0885DE000B581C /* UserDefaultsService.swift in Sources */,
 				8A04A7002BD52B6B002779B0 /* SecurePropertyWrappers.swift in Sources */,
+				8A4C427C2BEB64B60044889C /* TeacherNetworkService.swift in Sources */,
 				8A04A7022BD52C39002779B0 /* SecureSettings.swift in Sources */,
 				8A2BF5582BEA4D28006925C7 /* AuthViewModel.swift in Sources */,
 				8A5BB3AD2BCFDC2A004EA891 /* GroupEndpoints.swift in Sources */,
@@ -726,6 +736,7 @@
 				8A5BB3B32BCFE052004EA891 /* TimetableNetworkService.swift in Sources */,
 				8A5C4E472B0925D100786C13 /* Grouped.swift in Sources */,
 				8A32DBD12BE95C8700CE2A09 /* RecordValue.swift in Sources */,
+				8A4C427E2BEC329E0044889C /* RestorePasswordViewModel.swift in Sources */,
 				8AE3097A2BCF3666004688EE /* API.swift in Sources */,
 				8A073CE22BB5F891000FB56A /* AccountViewModel.swift in Sources */,
 				8AE309672BCEFE51004688EE /* ColorExtensions.swift in Sources */,
@@ -747,6 +758,7 @@
 				8AD364422BE9636100C32492 /* Surname.swift in Sources */,
 				8A2BF55F2BEA6A48006925C7 /* Roles.swift in Sources */,
 				8A53B51B2B0A8B4500DD2F6F /* DataTransferService.swift in Sources */,
+				8A4C42792BEB62740044889C /* TeacherEndpoints.swift in Sources */,
 				8A5C4E452B09259D00786C13 /* CurrentTimetable.swift in Sources */,
 				8A5C4E5B2B0928AE00786C13 /* DisciplineCode.swift in Sources */,
 				8A90228C2BEAB50300E593A9 /* LessonViewModel.swift in Sources */,

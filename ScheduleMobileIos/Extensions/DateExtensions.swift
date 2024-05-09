@@ -14,17 +14,26 @@ extension Date {
         return weekDay
     }
 
+    func dateForDayOfWeek(day: Int) -> String {
+        let currentWeekDay = dayNumberOfWeek()
+        let daysToAdd = day >= currentWeekDay ? day - currentWeekDay : day + 7 - currentWeekDay
+
+        let calendar = Calendar.current
+        let newDate = calendar.date(byAdding: .day, value: daysToAdd, to: self) ?? Date()
+
+        let formatter = DateFormatter()
+        formatter.locale = Locale.init(identifier: "ru_RU")
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: newDate)
+    }
+
     func dayOfWeek() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEEEE"
-        dateFormatter.locale = Locale.current
+        let dateFormatter = getLocalDateFormatt(locale: "ru_RU")
         return dateFormatter.string(from: self)
     }
 
     func daysOfWeek() -> [Int: String] {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEEEEE"
-        dateFormatter.locale = Locale.init(identifier: "ru_RU")
+        let dateFormatter = getLocalDateFormatt(locale: "ru_RU")
         var days = dateFormatter.shortWeekdaySymbols
         let sunday = days!.removeFirst()
         days!.append(sunday)
@@ -37,6 +46,7 @@ extension Date {
         dateFormatter.locale = Locale.init(identifier: locale)
         dateFormatter.timeStyle = .short
         dateFormatter.amSymbol = ""
+        dateFormatter.pmSymbol = ""
         dateFormatter.dateFormat = "HH:mm"
         return dateFormatter
     }
