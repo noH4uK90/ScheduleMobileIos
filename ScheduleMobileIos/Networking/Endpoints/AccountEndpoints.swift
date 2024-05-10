@@ -8,7 +8,7 @@
 import Foundation
 
 enum AccountEndpoints {
-    case login, refresh, logout, restorePassword
+    case login, refresh, logout, changePassword, restorePassword
 
     var baseURL: URL { API.baseURL.appending(path: APITags.account.rawValue) }
 
@@ -20,6 +20,8 @@ enum AccountEndpoints {
             "refresh"
         case .logout:
             "logout"
+        case .changePassword:
+            "change_password"
         case .restorePassword:
             "restore_password"
         }
@@ -36,6 +38,8 @@ enum AccountEndpoints {
         case .refresh:
             urlComponents.queryItems = []
         case .logout:
+            urlComponents.queryItems = []
+        case .changePassword :
             urlComponents.queryItems = []
         case .restorePassword:
             urlComponents.queryItems = []

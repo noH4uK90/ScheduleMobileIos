@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GroupView: View {
+struct SelectGroupView: View {
 
     @EnvironmentObject var navigationService: NavigationService
 
@@ -55,6 +55,6 @@ struct GroupView: View {
 }
 
 #Preview {
-    GroupView()
+    SelectGroupView()
         .environmentObject(NavigationService())
 }

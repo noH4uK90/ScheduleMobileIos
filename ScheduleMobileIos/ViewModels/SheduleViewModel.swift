@@ -98,7 +98,7 @@ extension ScheduleView.ViewModel {
             try timetableNetworkService.getCurrentTimeTable(groupId: groupId)
                 .receive(on: RunLoop.main)
                 .sink(
-                    receiveCompletion: { completion in print(completion) },
+                    receiveCompletion: { _ in },
                     receiveValue: { [weak self] value in
                         self?.currentTimetables = value.items
                     }

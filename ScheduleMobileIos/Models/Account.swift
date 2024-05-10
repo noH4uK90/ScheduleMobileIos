@@ -48,6 +48,12 @@ struct RefreshCommand: Codable {
     let accessToken: String
 }
 
+struct ChangePasswordCommand: Codable {
+    let id: Int
+    let password: String
+    let newPassword: String
+}
+
 struct RestorePasswordCommand: Codable {
     let email: String
 }

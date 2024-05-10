@@ -17,6 +17,8 @@
 		8A104FD62BE9719300322462 /* AuthorizationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A104FD52BE9719300322462 /* AuthorizationResponse.swift */; };
 		8A12526C2BB4CE95009CEFDF /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12526B2BB4CE95009CEFDF /* Tab.swift */; };
 		8A12526E2BB4CF95009CEFDF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12526D2BB4CF95009CEFDF /* HomeView.swift */; };
+		8A158A982BEE575500ADAE98 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158A972BEE575500ADAE98 /* ChangePasswordView.swift */; };
+		8A158A9A2BEE578400ADAE98 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158A992BEE578400ADAE98 /* ChangePasswordViewModel.swift */; };
 		8A2BF5582BEA4D28006925C7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */; };
 		8A2BF55A2BEA6493006925C7 /* StudentEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF5592BEA6493006925C7 /* StudentEndpoints.swift */; };
 		8A2BF55C2BEA66A6006925C7 /* StudentNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF55B2BEA66A6006925C7 /* StudentNetworkService.swift */; };
@@ -72,7 +74,7 @@
 		8AE309782BCF3359004688EE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE309772BCF3359004688EE /* Configuration.swift */; };
 		8AE3097A2BCF3666004688EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE309792BCF3666004688EE /* API.swift */; };
 		8AEB575F2B06C41500F05464 /* ScheduleMobileIosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB575E2B06C41500F05464 /* ScheduleMobileIosApp.swift */; };
-		8AEB57612B06C41500F05464 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB57602B06C41500F05464 /* GroupView.swift */; };
+		8AEB57612B06C41500F05464 /* SelectGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB57602B06C41500F05464 /* SelectGroupView.swift */; };
 		8AEB57632B06C41700F05464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB57622B06C41700F05464 /* Assets.xcassets */; };
 		8AEB57662B06C41700F05464 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AEB57652B06C41700F05464 /* Preview Assets.xcassets */; };
 		8AEB57702B06C41700F05464 /* ScheduleMobileIosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB576F2B06C41700F05464 /* ScheduleMobileIosTests.swift */; };
@@ -147,6 +149,8 @@
 		8A104FD52BE9719300322462 /* AuthorizationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationResponse.swift; sourceTree = "<group>"; };
 		8A12526B2BB4CE95009CEFDF /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		8A12526D2BB4CF95009CEFDF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8A158A972BEE575500ADAE98 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		8A158A992BEE578400ADAE98 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		8A2BF5592BEA6493006925C7 /* StudentEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEndpoints.swift; sourceTree = "<group>"; };
 		8A2BF55B2BEA66A6006925C7 /* StudentNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentNetworkService.swift; sourceTree = "<group>"; };
@@ -201,7 +205,7 @@
 		8AE309792BCF3666004688EE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8AEB575B2B06C41500F05464 /* ScheduleMobileIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMobileIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEB575E2B06C41500F05464 /* ScheduleMobileIosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMobileIosApp.swift; sourceTree = "<group>"; };
-		8AEB57602B06C41500F05464 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
+		8AEB57602B06C41500F05464 /* SelectGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGroupView.swift; sourceTree = "<group>"; };
 		8AEB57622B06C41700F05464 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AEB57652B06C41700F05464 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8AEB576B2B06C41700F05464 /* ScheduleMobileIosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScheduleMobileIosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +277,33 @@
 				8A04A7012BD52C39002779B0 /* SecureSettings.swift */,
 			);
 			path = Secure;
+			sourceTree = "<group>";
+		};
+		8A158A942BEE55EA00ADAE98 /* ScheduleViews */ = {
+			isa = PBXGroup;
+			children = (
+				8AEB57602B06C41500F05464 /* SelectGroupView.swift */,
+				8AEB57A32B0763CB00F05464 /* ScheduleView.swift */,
+			);
+			path = ScheduleViews;
+			sourceTree = "<group>";
+		};
+		8A158A952BEE55F200ADAE98 /* AuthViews */ = {
+			isa = PBXGroup;
+			children = (
+				8A6EC8482BD8616B003A449E /* AuthView.swift */,
+				8A6EC84C2BD88B37003A449E /* RestorePasswordView.swift */,
+			);
+			path = AuthViews;
+			sourceTree = "<group>";
+		};
+		8A158A962BEE55F900ADAE98 /* AccountViews */ = {
+			isa = PBXGroup;
+			children = (
+				8A073CDF2BB5F82A000FB56A /* AccountView.swift */,
+				8A158A972BEE575500ADAE98 /* ChangePasswordView.swift */,
+			);
+			path = AccountViews;
 			sourceTree = "<group>";
 		};
 		8A2BF55D2BEA6A24006925C7 /* Enums */ = {
@@ -399,13 +430,11 @@
 		8AEB57892B06C4CD00F05464 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8A158A962BEE55F900ADAE98 /* AccountViews */,
+				8A158A952BEE55F200ADAE98 /* AuthViews */,
+				8A158A942BEE55EA00ADAE98 /* ScheduleViews */,
 				8AFB83782BBC6B6D0088035E /* Components */,
-				8AEB57602B06C41500F05464 /* GroupView.swift */,
-				8AEB57A32B0763CB00F05464 /* ScheduleView.swift */,
 				8A12526D2BB4CF95009CEFDF /* HomeView.swift */,
-				8A073CDF2BB5F82A000FB56A /* AccountView.swift */,
-				8A6EC8482BD8616B003A449E /* AuthView.swift */,
-				8A6EC84C2BD88B37003A449E /* RestorePasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -419,6 +448,7 @@
 				8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */,
 				8A90228B2BEAB50300E593A9 /* LessonViewModel.swift */,
 				8A4C427D2BEC329E0044889C /* RestorePasswordViewModel.swift */,
+				8A158A992BEE578400ADAE98 /* ChangePasswordViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -720,6 +750,7 @@
 				8A9CB57C2B0A7E780067C9C5 /* Resolver.swift in Sources */,
 				8AD3644A2BE9646D00C32492 /* Employee.swift in Sources */,
 				8AFB837A2BBC6B800088035E /* LessonView.swift in Sources */,
+				8A158A982BEE575500ADAE98 /* ChangePasswordView.swift in Sources */,
 				8A5BB3AF2BCFDD39004EA891 /* TimetableEndpoints.swift in Sources */,
 				8A5C4E4F2B09272E00786C13 /* Timetable.swift in Sources */,
 				8A5D3B342B0885DE000B581C /* UserDefaultsService.swift in Sources */,
@@ -729,8 +760,9 @@
 				8A2BF5582BEA4D28006925C7 /* AuthViewModel.swift in Sources */,
 				8A5BB3AD2BCFDC2A004EA891 /* GroupEndpoints.swift in Sources */,
 				8A5C4E592B09282B00786C13 /* DisciplineName.swift in Sources */,
-				8AEB57612B06C41500F05464 /* GroupView.swift in Sources */,
+				8AEB57612B06C41500F05464 /* SelectGroupView.swift in Sources */,
 				8AD3643E2BE9623200C32492 /* Account.swift in Sources */,
+				8A158A9A2BEE578400ADAE98 /* ChangePasswordViewModel.swift in Sources */,
 				8A58ED852BED76E600E4A357 /* SecureInputView.swift in Sources */,
 				8AE3096C2BCF2FD5004688EE /* AccountEndpoints.swift in Sources */,
 				8A6EC84B2BD86A5E003A449E /* GroupsView.swift in Sources */,

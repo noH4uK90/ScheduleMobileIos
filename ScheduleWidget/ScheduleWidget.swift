@@ -41,7 +41,7 @@ struct ScheduleWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
-        GeometryReader { geometry in
+        GeometryReader { _ in
             VStack(alignment: .leading) {
                 Text("21 ЯНВАРЯ 2024")
                     .font(.title)
@@ -52,7 +52,6 @@ struct ScheduleWidgetEntryView: View {
                 ForEach(Range(0...4), id: \.self) { _ in
                     WidgetLessonView()
                         .padding(.vertical, 2)
-                        //.frame(maxHeight: geometry.size.height / 4)
                 }
             }
         }

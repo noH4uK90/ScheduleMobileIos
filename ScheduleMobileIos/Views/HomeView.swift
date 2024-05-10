@@ -28,12 +28,13 @@ struct HomeView: View {
                     NavigationStack {
                         AccountView()
                             .navigationTitle(Tab.account.title)
+                            .navigationBarTitleDisplayMode(.inline)
                             .environmentObject(navigationService)
                     }
                     .setUpTab(.account)
                 } else {
                     NavigationStack {
-                        GroupView()
+                        SelectGroupView()
                             .navigationTitle("Группа")
                             .environmentObject(navigationService)
                     }

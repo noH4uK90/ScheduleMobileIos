@@ -25,7 +25,6 @@ extension RestorePasswordView {
                     .receive(on: RunLoop.main)
                     .sink(
                         receiveCompletion: { [weak self] completion in
-                            print(completion)
                             switch completion {
                             case .finished:
                                 self?.alertMessage = "Новый пароль выслан на Вашу электронную почту"

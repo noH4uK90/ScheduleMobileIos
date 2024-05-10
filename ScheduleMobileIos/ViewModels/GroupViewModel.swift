@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-extension GroupView {
+extension SelectGroupView {
     @MainActor class ViewModel: ObservableObject {
         @Published var groups = [Grouped<Speciality, GroupModel>]()
         @Published var selectedCourse = 1
