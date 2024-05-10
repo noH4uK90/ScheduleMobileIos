@@ -33,7 +33,7 @@ enum GroupEndpoints {
                 URLQueryItem(name: "Search", value: search),
                 URLQueryItem(name: "Page", value: "\(page)")
             ]
-        case .courseGroups(let course):
+        case .courseGroups:
             urlComponents.queryItems = []
         }
 

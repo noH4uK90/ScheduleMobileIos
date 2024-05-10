@@ -10,7 +10,7 @@ import Combine
 
 extension GroupView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var groups = [Grouped<Speciality, Group>]()
+        @Published var groups = [Grouped<Speciality, GroupModel>]()
         @Published var selectedCourse = 1
 
         private var bag = Set<AnyCancellable>()

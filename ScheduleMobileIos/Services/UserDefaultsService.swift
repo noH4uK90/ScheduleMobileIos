@@ -9,20 +9,20 @@ import Foundation
 
 protocol UserDefaultsProtocol {
     var account: Account? { get set }
-    var group: Group? { get set }
+    var group: GroupModel? { get set }
 
     func setAccount(account: Account?)
-    func setGroup(group: Group?)
+    func setGroup(group: GroupModel?)
 
     func getAccount() -> Account?
-    func getGroup() -> Group?
+    func getGroup() -> GroupModel?
 
     func clear()
 }
 
 class UserDefaultsService: UserDefaultsProtocol {
     var account: Account?
-    var group: Group?
+    var group: GroupModel?
 
     init() {
         account = getAccount()
@@ -39,7 +39,7 @@ class UserDefaultsService: UserDefaultsProtocol {
             NotificationCenter.default.post(name: .accountUpdated, object: nil)
         }
     }
-    func setGroup(group: Group?) {
+    func setGroup(group: GroupModel?) {
         Task {
             if let group = group {
                 let data = try JSONEncoder().encode(group)
@@ -57,9 +57,9 @@ class UserDefaultsService: UserDefaultsProtocol {
         }
         return response
     }
-    func getGroup() -> Group? {
+    func getGroup() -> GroupModel? {
         let data = UserDefaults.standard.data(forKey: "group")
-        guard let response = try? JSONDecoder().decode(Group?.self, from: data ?? Data()) else {
+        guard let response = try? JSONDecoder().decode(GroupModel?.self, from: data ?? Data()) else {
             return nil
         }
         return response

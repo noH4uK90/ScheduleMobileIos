@@ -29,6 +29,7 @@
 		8A53B5172B0A7EDB00DD2F6F /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 8A53B5162B0A7EDB00DD2F6F /* Swinject */; };
 		8A53B5192B0A7EDB00DD2F6F /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8A53B5182B0A7EDB00DD2F6F /* Swinject-Dynamic */; };
 		8A53B51B2B0A8B4500DD2F6F /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A53B51A2B0A8B4500DD2F6F /* DataTransferService.swift */; };
+		8A58ED852BED76E600E4A357 /* SecureInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A58ED842BED76E600E4A357 /* SecureInputView.swift */; };
 		8A5BB3AD2BCFDC2A004EA891 /* GroupEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BB3AC2BCFDC2A004EA891 /* GroupEndpoints.swift */; };
 		8A5BB3AF2BCFDD39004EA891 /* TimetableEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BB3AE2BCFDD39004EA891 /* TimetableEndpoints.swift */; };
 		8A5BB3B12BCFDF74004EA891 /* GroupNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A5BB3B02BCFDF74004EA891 /* GroupNetworkService.swift */; };
@@ -78,7 +79,7 @@
 		8AEB577A2B06C41700F05464 /* ScheduleMobileIosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB57792B06C41700F05464 /* ScheduleMobileIosUITests.swift */; };
 		8AEB577C2B06C41700F05464 /* ScheduleMobileIosUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB577B2B06C41700F05464 /* ScheduleMobileIosUITestsLaunchTests.swift */; };
 		8AEB57952B06C99400F05464 /* PagedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB57942B06C99400F05464 /* PagedList.swift */; };
-		8AEB57972B06CA5400F05464 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB57962B06CA5300F05464 /* Group.swift */; };
+		8AEB57972B06CA5400F05464 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB57962B06CA5300F05464 /* GroupModel.swift */; };
 		8AEB57992B06CAB600F05464 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB57982B06CAB600F05464 /* Term.swift */; };
 		8AEB579B2B06CAF200F05464 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB579A2B06CAF200F05464 /* Course.swift */; };
 		8AEB579D2B06CB3000F05464 /* Speciality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB579C2B06CB3000F05464 /* Speciality.swift */; };
@@ -156,6 +157,7 @@
 		8A4C427B2BEB64B60044889C /* TeacherNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherNetworkService.swift; sourceTree = "<group>"; };
 		8A4C427D2BEC329E0044889C /* RestorePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestorePasswordViewModel.swift; sourceTree = "<group>"; };
 		8A53B51A2B0A8B4500DD2F6F /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
+		8A58ED842BED76E600E4A357 /* SecureInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureInputView.swift; sourceTree = "<group>"; };
 		8A5BB3AC2BCFDC2A004EA891 /* GroupEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEndpoints.swift; sourceTree = "<group>"; };
 		8A5BB3AE2BCFDD39004EA891 /* TimetableEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableEndpoints.swift; sourceTree = "<group>"; };
 		8A5BB3B02BCFDF74004EA891 /* GroupNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNetworkService.swift; sourceTree = "<group>"; };
@@ -208,7 +210,7 @@
 		8AEB57792B06C41700F05464 /* ScheduleMobileIosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMobileIosUITests.swift; sourceTree = "<group>"; };
 		8AEB577B2B06C41700F05464 /* ScheduleMobileIosUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMobileIosUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8AEB57942B06C99400F05464 /* PagedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedList.swift; sourceTree = "<group>"; };
-		8AEB57962B06CA5300F05464 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		8AEB57962B06CA5300F05464 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		8AEB57982B06CAB600F05464 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
 		8AEB579A2B06CAF200F05464 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		8AEB579C2B06CB3000F05464 /* Speciality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speciality.swift; sourceTree = "<group>"; };
@@ -434,7 +436,7 @@
 				8A5C4E582B09282B00786C13 /* DisciplineName.swift */,
 				8A5C4E5C2B09293100786C13 /* DisciplineType.swift */,
 				8AD364492BE9646D00C32492 /* Employee.swift */,
-				8AEB57962B06CA5300F05464 /* Group.swift */,
+				8AEB57962B06CA5300F05464 /* GroupModel.swift */,
 				8A5C4E462B0925D100786C13 /* Grouped.swift */,
 				8A5C4E502B09276B00786C13 /* Lesson.swift */,
 				8AD3643B2BE9613100C32492 /* LessonChange.swift */,
@@ -506,6 +508,7 @@
 			children = (
 				8AFB83792BBC6B800088035E /* LessonView.swift */,
 				8A6EC84A2BD86A5E003A449E /* GroupsView.swift */,
+				8A58ED842BED76E600E4A357 /* SecureInputView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				8A5C4E592B09282B00786C13 /* DisciplineName.swift in Sources */,
 				8AEB57612B06C41500F05464 /* GroupView.swift in Sources */,
 				8AD3643E2BE9623200C32492 /* Account.swift in Sources */,
+				8A58ED852BED76E600E4A357 /* SecureInputView.swift in Sources */,
 				8AE3096C2BCF2FD5004688EE /* AccountEndpoints.swift in Sources */,
 				8A6EC84B2BD86A5E003A449E /* GroupsView.swift in Sources */,
 				8A104FD42BE9712900322462 /* AccountNetworkService.swift in Sources */,
@@ -763,7 +767,7 @@
 				8A5C4E5B2B0928AE00786C13 /* DisciplineCode.swift in Sources */,
 				8A90228C2BEAB50300E593A9 /* LessonViewModel.swift in Sources */,
 				8A12526E2BB4CF95009CEFDF /* HomeView.swift in Sources */,
-				8AEB57972B06CA5400F05464 /* Group.swift in Sources */,
+				8AEB57972B06CA5400F05464 /* GroupModel.swift in Sources */,
 				8A5C4E632B092A1700786C13 /* Classroom.swift in Sources */,
 				8AD3644C2BE964CA00C32492 /* Permission.swift in Sources */,
 				8AE309782BCF3359004688EE /* Configuration.swift in Sources */,

@@ -14,7 +14,7 @@ protocol StudentNetworkProtocol {
 
 final class StudentNetworkService: StudentNetworkProtocol {
     @Inject private var network: DataTransferProtocol
-    
+
     func getStudentByAccount(id: Int) throws -> AnyPublisher<Student, any Error> {
         guard let url = StudentEndpoints.studentByAccount(id).absoluteURL else {
             throw APIError.invalidResponse

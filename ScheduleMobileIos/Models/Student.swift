@@ -9,7 +9,7 @@ import Foundation
 
 struct Student: Identifiable, Codable, Hashable {
     let id: Int
-    let group: Group
+    let group: GroupModel
     let login: String
     let email: String
     let name: String

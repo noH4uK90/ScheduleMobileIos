@@ -48,7 +48,7 @@ final class DataTransferService: DataTransferProtocol {
     }
 
     func fetch<T: Codable>(_ url: URL, _ model: T.Type) -> AnyPublisher<T, Error> {
-        var decoder = JSONDecoder()
+        let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(Date().getLocalDateFormatt(locale: "ru_RU"))
         return URLSession.shared.dataTaskPublisher(for: url)
             .tryCatch { [weak self] error -> AnyPublisher<(data: Data, response: URLResponse), Error> in
@@ -78,7 +78,6 @@ final class DataTransferService: DataTransferProtocol {
         let request = try createPostRequest(url, body)
 
         return URLSession.shared.dataTaskPublisher(for: request)
-            .print("Post")
             .tryCatch { [weak self] error -> AnyPublisher<(data: Data, response: URLResponse), Error> in
                 guard let self = self, error.code == .userAuthenticationRequired else {
                     throw error
@@ -100,6 +99,12 @@ final class DataTransferService: DataTransferProtocol {
                 guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
                     throw URLError(.badServerResponse)
                 }
+
+                guard (200...299).contains(response.statusCode) else {
+                    let apiError = try JSONDecoder().decode(ApiError.self, from: output.data)
+                    throw apiError
+                }
+
                 return()
             }
             .receive(on: DispatchQueue.main)

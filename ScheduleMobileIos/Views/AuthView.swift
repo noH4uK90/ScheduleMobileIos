@@ -33,7 +33,7 @@ struct AuthView: View {
             VStack {
                 TextField("Логин...", text: $viewModel.login)
                     .textFieldStyle(.roundedBorder)
-                TextField("Пароль...", text: $viewModel.password)
+                SecureInputView("Пароль...", text: $viewModel.password)
                     .textFieldStyle(.roundedBorder)
             }
         }
@@ -57,7 +57,3 @@ struct AuthView: View {
         }
     }
 }
-
-//#Preview {
-//    AuthView()
-//}

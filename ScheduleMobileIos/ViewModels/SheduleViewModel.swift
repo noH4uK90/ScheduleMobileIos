@@ -22,11 +22,11 @@ extension ScheduleView {
         private var currentTimetables: [CurrentTimetable] = []
         private var bag = Set<AnyCancellable>()
 
-        init(group: Group?) {
+        init(group: GroupModel?) {
             setupAccountNotification()
             setupGroupNotification()
 
-            let effectiveGroup = group ?? userDefaultService.group
+            let effectiveGroup = group ?? userDefaultService.getGroup()
 
             if let group = effectiveGroup {
                 getCurrentTimetables(groupId: group.id)
@@ -37,14 +37,14 @@ extension ScheduleView {
                 .sink(
                     receiveCompletion: { _ in },
                     receiveValue: { [weak self] value in
-                        self?.getLessons(group: group, selectedDay: value)
+                        self?.getLessons(selectedDay: value)
                     }
                 )
                 .store(in: &bag)
         }
 
-        private func getLessons(group: Group?, selectedDay: Int) {
-            getLessonsForGroup(group, selectedDay: selectedDay)
+        private func getLessons(selectedDay: Int) {
+            getLessonsForGroup(selectedDay: selectedDay)
             getLessonsForTeacher(selectedDay: selectedDay)
         }
     }
@@ -52,15 +52,11 @@ extension ScheduleView {
 
 // MARK: Group lesson extesion
 extension ScheduleView.ViewModel {
-    private func getLessonsForGroup(_ group: Group?, selectedDay: Int) {
-        let effectiveGroup = group ?? userDefaultService.getGroup()
-
-        if let group = effectiveGroup {
-            currentTimetables.forEach { current in
-                if let day = current.daysAndDate.first(where: { $0.key.tValue.id == selectedDay }) {
-                    if let timetable = day.items.first {
-                        lessons = timetable.lessons.filter { $0.discipline != nil }
-                    }
+    private func getLessonsForGroup(selectedDay: Int) {
+        currentTimetables.forEach { current in
+            if let day = current.daysAndDate.first(where: { $0.key.tValue.id == selectedDay }) {
+                if let timetable = day.items.first {
+                    lessons = timetable.lessons.filter { $0.discipline != nil }
                 }
             }
         }
@@ -141,7 +137,6 @@ extension ScheduleView.ViewModel {
                         }
                     }
                     self?.getLessons(
-                        group: self?.userDefaultService.group,
                         selectedDay: self?.selected ?? Date().dayNumberOfWeek())
                 }
             )
@@ -158,7 +153,6 @@ extension ScheduleView.ViewModel {
                         self?.getCurrentTimetables(groupId: group.id)
                     }
                     self?.getLessons(
-                        group: self?.userDefaultService.group,
                         selectedDay: self?.selected ?? Date().dayNumberOfWeek())
                 }
             )

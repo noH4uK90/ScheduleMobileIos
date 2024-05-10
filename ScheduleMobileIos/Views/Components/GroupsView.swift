@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GroupsView: View {
 
-    @State var specialityGroups: Grouped<Speciality, Group>
+    @State var specialityGroups: Grouped<Speciality, GroupModel>
 
     @State private var columns: [GridItem] = [
         GridItem(.flexible(), alignment: .leading),
@@ -17,7 +17,7 @@ struct GroupsView: View {
         GridItem(.flexible(), alignment: .leading)
     ]
 
-    init(specialityGroups: Grouped<Speciality, Group>) {
+    init(specialityGroups: Grouped<Speciality, GroupModel>) {
         self.specialityGroups = specialityGroups
     }
 
@@ -30,16 +30,16 @@ struct GroupsView: View {
             .frame(maxWidth: 60)
 
             Divider()
-            
+
             LazyVGrid(columns: columns, alignment: .leading) {
                 ForEach(specialityGroups.items, id: \.id) { group in
                     NavigationLink(destination: {
                         ScheduleView()
                             .navigationTitle(Tab.schedule.title)
-                    }) {
+                    }, label: {
                         Text("\(group.number)")
                         Spacer()
-                    }
+                    })
                     .cabinetTextStyle()
                 }
             }
@@ -53,7 +53,3 @@ struct GroupsView: View {
         }
     }
 }
-
-//#Preview {
-//    GroupsView(groupName: "ИСC")
-//}

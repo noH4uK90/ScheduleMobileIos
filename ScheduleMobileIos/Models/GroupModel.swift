@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Group: Identifiable, Codable, Hashable {
+struct GroupModel: Identifiable, Codable, Hashable {
     let id: Int
     let number: String
     let name: String

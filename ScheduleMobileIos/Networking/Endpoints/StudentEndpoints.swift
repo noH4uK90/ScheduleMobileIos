@@ -25,7 +25,7 @@ enum StudentEndpoints {
         }
 
         switch self {
-        case .studentByAccount(let id):
+        case .studentByAccount:
             urlComponents.queryItems = []
         }
 

@@ -31,6 +31,4 @@ final class TeacherNetworkService: TeacherNetworkProtocol {
 
         return network.fetch(url, [Lesson].self)
     }
-    
-
 }

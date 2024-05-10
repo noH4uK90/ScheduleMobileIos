@@ -47,7 +47,3 @@ struct RestorePasswordView: View {
         }
     }
 }
-
-//#Preview {
-//    RestorePasswordView()
-//}

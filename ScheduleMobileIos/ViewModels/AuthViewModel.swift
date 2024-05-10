@@ -67,7 +67,7 @@ extension AuthView {
             }
         }
 
-        private func getStudentGroup(id: Int, completion: @escaping (Group?) -> Void) {
+        private func getStudentGroup(id: Int, completion: @escaping (GroupModel?) -> Void) {
             Task {
                 try studentNetworkService.getStudentByAccount(id: id)
                     .receive(on: RunLoop.main)
