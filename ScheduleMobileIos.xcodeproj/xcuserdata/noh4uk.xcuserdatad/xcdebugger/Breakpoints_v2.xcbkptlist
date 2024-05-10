@@ -62,8 +62,8 @@
             filePath = "ScheduleMobileIos/Services/NavigationService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
             landmarkName = "NavigationService"
             landmarkType = "3">
          </BreakpointContent>
@@ -254,36 +254,6 @@
             endingLineNumber = "44"
             landmarkName = "setGroup(group:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "20BDC7C4-364D-4435-9081-6F785D48E4A0 - b7ef3dbf60d25b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in ScheduleMobileIos.UserDefaultsService.setGroup(group: Swift.Optional&lt;ScheduleMobileIos.GroupModel&gt;) -&gt; ()"
-                  moduleName = "ScheduleMobileIos"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/noh4uk/Documents/projects/ScheduleMobileIos/ScheduleMobileIos/Services/UserDefaultsService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44">
-               </Location>
-               <Location
-                  uuid = "20BDC7C4-364D-4435-9081-6F785D48E4A0 - b7ef3dbf60d25b7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in ScheduleMobileIos.UserDefaultsService.setGroup(group: Swift.Optional&lt;ScheduleMobileIos.GroupModel&gt;) -&gt; ()"
-                  moduleName = "ScheduleMobileIos"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/noh4uk/Documents/projects/ScheduleMobileIos/ScheduleMobileIos/Services/UserDefaultsService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -332,6 +302,22 @@
             endingLineNumber = "24"
             landmarkName = "restorePassword(dismiss:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "330891E3-AD32-40BD-9D05-F66CAF5D53DE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ScheduleMobileIos/Views/ScheduleViews/TeacherScheduleView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

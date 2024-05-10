@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LessonView: View {
-    @State var lesson: Lesson
-    @State var date: String
+    @Binding var lesson: Lesson
+    @Binding var date: String
 
     var body: some View {
         Content(lesson: lesson, date: date)

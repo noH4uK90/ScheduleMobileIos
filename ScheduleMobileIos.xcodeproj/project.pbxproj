@@ -19,6 +19,15 @@
 		8A12526E2BB4CF95009CEFDF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12526D2BB4CF95009CEFDF /* HomeView.swift */; };
 		8A158A982BEE575500ADAE98 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158A972BEE575500ADAE98 /* ChangePasswordView.swift */; };
 		8A158A9A2BEE578400ADAE98 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158A992BEE578400ADAE98 /* ChangePasswordViewModel.swift */; };
+		8A158A9C2BEEA9E200ADAE98 /* GroupScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158A9B2BEEA9E200ADAE98 /* GroupScheduleView.swift */; };
+		8A158A9E2BEEA9EF00ADAE98 /* GroupSheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158A9D2BEEA9EF00ADAE98 /* GroupSheduleViewModel.swift */; };
+		8A158AA02BEEADE000ADAE98 /* DayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158A9F2BEEADE000ADAE98 /* DayPicker.swift */; };
+		8A158AA22BEEB1FA00ADAE98 /* TeacherScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158AA12BEEB1FA00ADAE98 /* TeacherScheduleView.swift */; };
+		8A158AA42BEEB23600ADAE98 /* TeacherScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158AA32BEEB23600ADAE98 /* TeacherScheduleViewModel.swift */; };
+		8A158AAA2BEEBE1E00ADAE98 /* ScheduleNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158AA92BEEBE1E00ADAE98 /* ScheduleNavigationView.swift */; };
+		8A158AAC2BEEBEE500ADAE98 /* ScheduleNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158AAB2BEEBEE500ADAE98 /* ScheduleNavigationViewModel.swift */; };
+		8A158AAE2BEECC7300ADAE98 /* SelectTeacherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158AAD2BEECC7300ADAE98 /* SelectTeacherView.swift */; };
+		8A158AB02BEECC8700ADAE98 /* SelectTeacherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A158AAF2BEECC8700ADAE98 /* SelectTeacherViewModel.swift */; };
 		8A2BF5582BEA4D28006925C7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */; };
 		8A2BF55A2BEA6493006925C7 /* StudentEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF5592BEA6493006925C7 /* StudentEndpoints.swift */; };
 		8A2BF55C2BEA66A6006925C7 /* StudentNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BF55B2BEA66A6006925C7 /* StudentNetworkService.swift */; };
@@ -151,6 +160,15 @@
 		8A12526D2BB4CF95009CEFDF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8A158A972BEE575500ADAE98 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		8A158A992BEE578400ADAE98 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
+		8A158A9B2BEEA9E200ADAE98 /* GroupScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupScheduleView.swift; sourceTree = "<group>"; };
+		8A158A9D2BEEA9EF00ADAE98 /* GroupSheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSheduleViewModel.swift; sourceTree = "<group>"; };
+		8A158A9F2BEEADE000ADAE98 /* DayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPicker.swift; sourceTree = "<group>"; };
+		8A158AA12BEEB1FA00ADAE98 /* TeacherScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherScheduleView.swift; sourceTree = "<group>"; };
+		8A158AA32BEEB23600ADAE98 /* TeacherScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherScheduleViewModel.swift; sourceTree = "<group>"; };
+		8A158AA92BEEBE1E00ADAE98 /* ScheduleNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleNavigationView.swift; sourceTree = "<group>"; };
+		8A158AAB2BEEBEE500ADAE98 /* ScheduleNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleNavigationViewModel.swift; sourceTree = "<group>"; };
+		8A158AAD2BEECC7300ADAE98 /* SelectTeacherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeacherView.swift; sourceTree = "<group>"; };
+		8A158AAF2BEECC8700ADAE98 /* SelectTeacherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeacherViewModel.swift; sourceTree = "<group>"; };
 		8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		8A2BF5592BEA6493006925C7 /* StudentEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentEndpoints.swift; sourceTree = "<group>"; };
 		8A2BF55B2BEA66A6006925C7 /* StudentNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentNetworkService.swift; sourceTree = "<group>"; };
@@ -284,6 +302,10 @@
 			children = (
 				8AEB57602B06C41500F05464 /* SelectGroupView.swift */,
 				8AEB57A32B0763CB00F05464 /* ScheduleView.swift */,
+				8A158A9B2BEEA9E200ADAE98 /* GroupScheduleView.swift */,
+				8A158AA12BEEB1FA00ADAE98 /* TeacherScheduleView.swift */,
+				8A158AA92BEEBE1E00ADAE98 /* ScheduleNavigationView.swift */,
+				8A158AAD2BEECC7300ADAE98 /* SelectTeacherView.swift */,
 			);
 			path = ScheduleViews;
 			sourceTree = "<group>";
@@ -442,13 +464,17 @@
 		8AEB578A2B06C4D200F05464 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				8AEB579E2B07622400F05464 /* GroupViewModel.swift */,
-				8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */,
 				8A073CE12BB5F891000FB56A /* AccountViewModel.swift */,
 				8A2BF5572BEA4D28006925C7 /* AuthViewModel.swift */,
+				8A158A992BEE578400ADAE98 /* ChangePasswordViewModel.swift */,
+				8A158A9D2BEEA9EF00ADAE98 /* GroupSheduleViewModel.swift */,
+				8AEB579E2B07622400F05464 /* GroupViewModel.swift */,
 				8A90228B2BEAB50300E593A9 /* LessonViewModel.swift */,
 				8A4C427D2BEC329E0044889C /* RestorePasswordViewModel.swift */,
-				8A158A992BEE578400ADAE98 /* ChangePasswordViewModel.swift */,
+				8A158AAB2BEEBEE500ADAE98 /* ScheduleNavigationViewModel.swift */,
+				8A5C4E642B092D9000786C13 /* SheduleViewModel.swift */,
+				8A158AA32BEEB23600ADAE98 /* TeacherScheduleViewModel.swift */,
+				8A158AAF2BEECC8700ADAE98 /* SelectTeacherViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -539,6 +565,7 @@
 				8AFB83792BBC6B800088035E /* LessonView.swift */,
 				8A6EC84A2BD86A5E003A449E /* GroupsView.swift */,
 				8A58ED842BED76E600E4A357 /* SecureInputView.swift */,
+				8A158A9F2BEEADE000ADAE98 /* DayPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -744,10 +771,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A5C4E5F2B09299600786C13 /* TeacherClassroom.swift in Sources */,
+				8A158AA42BEEB23600ADAE98 /* TeacherScheduleViewModel.swift in Sources */,
 				8AEB579B2B06CAF200F05464 /* Course.swift in Sources */,
 				8AFB837F2BBC8CD40088035E /* WidgetLessonView.swift in Sources */,
 				8A30499A2BE96EF40096FAC7 /* APITags.swift in Sources */,
 				8A9CB57C2B0A7E780067C9C5 /* Resolver.swift in Sources */,
+				8A158A9E2BEEA9EF00ADAE98 /* GroupSheduleViewModel.swift in Sources */,
 				8AD3644A2BE9646D00C32492 /* Employee.swift in Sources */,
 				8AFB837A2BBC6B800088035E /* LessonView.swift in Sources */,
 				8A158A982BEE575500ADAE98 /* ChangePasswordView.swift in Sources */,
@@ -758,6 +787,7 @@
 				8A4C427C2BEB64B60044889C /* TeacherNetworkService.swift in Sources */,
 				8A04A7022BD52C39002779B0 /* SecureSettings.swift in Sources */,
 				8A2BF5582BEA4D28006925C7 /* AuthViewModel.swift in Sources */,
+				8A158A9C2BEEA9E200ADAE98 /* GroupScheduleView.swift in Sources */,
 				8A5BB3AD2BCFDC2A004EA891 /* GroupEndpoints.swift in Sources */,
 				8A5C4E592B09282B00786C13 /* DisciplineName.swift in Sources */,
 				8AEB57612B06C41500F05464 /* SelectGroupView.swift in Sources */,
@@ -780,6 +810,7 @@
 				8A104FD62BE9719300322462 /* AuthorizationResponse.swift in Sources */,
 				8A5C4E572B09281200786C13 /* Discipline.swift in Sources */,
 				8A5BB3B12BCFDF74004EA891 /* GroupNetworkService.swift in Sources */,
+				8A158AA02BEEADE000ADAE98 /* DayPicker.swift in Sources */,
 				8AE309692BCEFE77004688EE /* ViewExtensions.swift in Sources */,
 				8A04A6FE2BD52027002779B0 /* SecureStorageExtensions.swift in Sources */,
 				8A5C4E652B092D9000786C13 /* SheduleViewModel.swift in Sources */,
@@ -790,16 +821,21 @@
 				8AD364442BE9636E00C32492 /* MiddleName.swift in Sources */,
 				8AEB57A42B0763CB00F05464 /* ScheduleView.swift in Sources */,
 				8A5C4E612B0929B700786C13 /* Teacher.swift in Sources */,
+				8A158AAA2BEEBE1E00ADAE98 /* ScheduleNavigationView.swift in Sources */,
 				8A073CE02BB5F82A000FB56A /* AccountView.swift in Sources */,
 				8AD364422BE9636100C32492 /* Surname.swift in Sources */,
 				8A2BF55F2BEA6A48006925C7 /* Roles.swift in Sources */,
+				8A158AAC2BEEBEE500ADAE98 /* ScheduleNavigationViewModel.swift in Sources */,
 				8A53B51B2B0A8B4500DD2F6F /* DataTransferService.swift in Sources */,
 				8A4C42792BEB62740044889C /* TeacherEndpoints.swift in Sources */,
 				8A5C4E452B09259D00786C13 /* CurrentTimetable.swift in Sources */,
+				8A158AA22BEEB1FA00ADAE98 /* TeacherScheduleView.swift in Sources */,
 				8A5C4E5B2B0928AE00786C13 /* DisciplineCode.swift in Sources */,
 				8A90228C2BEAB50300E593A9 /* LessonViewModel.swift in Sources */,
 				8A12526E2BB4CF95009CEFDF /* HomeView.swift in Sources */,
 				8AEB57972B06CA5400F05464 /* GroupModel.swift in Sources */,
+				8A158AB02BEECC8700ADAE98 /* SelectTeacherViewModel.swift in Sources */,
+				8A158AAE2BEECC7300ADAE98 /* SelectTeacherView.swift in Sources */,
 				8A5C4E632B092A1700786C13 /* Classroom.swift in Sources */,
 				8AD3644C2BE964CA00C32492 /* Permission.swift in Sources */,
 				8AE309782BCF3359004688EE /* Configuration.swift in Sources */,

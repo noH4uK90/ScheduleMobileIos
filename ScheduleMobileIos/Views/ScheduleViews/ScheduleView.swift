@@ -9,51 +9,16 @@ import SwiftUI
 
 struct ScheduleView: View {
 
+    @Binding var lessons: [Lesson]
+    @Binding var currentDate: String
+
     var body: some View {
-        Content()
+        List {
+            ForEach($lessons) { $lesson in
+                LessonView(lesson: $lesson, date: $currentDate)
+                    .listRowSeparator(.hidden)
+            }
+        }
+        .listStyle(.inset)
     }
-
-    struct Content: View {
-        @EnvironmentObject var navigationService: NavigationService
-        @StateObject var viewModel: ViewModel
-
-        init() {
-            _viewModel = StateObject(wrappedValue: ViewModel(group: nil))
-        }
-
-        var body: some View {
-            VStack {
-                dayPicker
-                scheduleList
-                    //.redacted(reason: isLoaded ? [] : .placeholder)
-            }
-        }
-
-        var dayPicker: some View {
-            Picker("Days",
-                   selection: $viewModel.selected) {
-                ForEach(viewModel.days.sorted(by: <), id: \.key) { _, day in
-                    Text("\(day)")
-                }
-            }
-            .pickerStyle(.segmented)
-            .padding(.horizontal, 24)
-        }
-
-        var scheduleList: some View {
-            List {
-                ForEach(viewModel.lessons) { lesson in
-                    LessonView(lesson: lesson, date: viewModel.currentDate)
-                        .listRowSeparator(.hidden)
-                        .environment(\.locale, Locale(identifier: "ru_RU"))
-                }
-            }
-            .listStyle(.inset)
-        }
-    }
-}
-
-#Preview {
-    ScheduleView()
-        .environmentObject(NavigationService())
 }

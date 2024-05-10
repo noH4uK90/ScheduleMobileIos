@@ -68,6 +68,8 @@ class UserDefaultsService: UserDefaultsProtocol {
     func clear() {
         UserDefaults.standard.removeObject(forKey: "account")
         UserDefaults.standard.removeObject(forKey: "group")
+        NotificationCenter.default.post(name: .accountUpdated, object: nil)
+        NotificationCenter.default.post(name: .groupUpdated, object: nil)
     }
 }
 

@@ -17,14 +17,13 @@ struct HomeView: View {
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $activeTab) {
+                NavigationStack {
+                    ScheduleNavigationView()
+                        .navigationTitle(Tab.schedule.title)
+                        .environmentObject(navigationService)
+                }
+                .setUpTab(.schedule)
                 if navigationService.isAuthenticated {
-                    NavigationStack {
-                        ScheduleView()
-                            .navigationTitle(Tab.schedule.title)
-                            .environmentObject(navigationService)
-                    }
-                    .setUpTab(.schedule)
-
                     NavigationStack {
                         AccountView()
                             .navigationTitle(Tab.account.title)
@@ -33,13 +32,6 @@ struct HomeView: View {
                     }
                     .setUpTab(.account)
                 } else {
-                    NavigationStack {
-                        SelectGroupView()
-                            .navigationTitle("Группа")
-                            .environmentObject(navigationService)
-                    }
-                    .setUpTab(.schedule)
-
                     NavigationStack {
                         AuthView()
                             .navigationTitle("Авторизация")

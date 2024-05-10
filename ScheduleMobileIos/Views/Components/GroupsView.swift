@@ -34,7 +34,7 @@ struct GroupsView: View {
             LazyVGrid(columns: columns, alignment: .leading) {
                 ForEach(specialityGroups.items, id: \.id) { group in
                     NavigationLink(destination: {
-                        ScheduleView()
+                        GroupScheduleView(group: group)
                             .navigationTitle(Tab.schedule.title)
                     }, label: {
                         Text("\(group.number)")

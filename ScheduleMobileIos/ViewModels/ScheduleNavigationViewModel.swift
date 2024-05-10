@@ -1,37 +1,48 @@
 //
-//  AccountViewModel.swift
+//  ScheduleNavigationViewModel.swift
 //  ScheduleMobileIos
 //
-//  Created by Иван Спирин on 3/28/24.
+//  Created by Иван Спирин on 5/10/24.
 //
 
 import Foundation
 import Combine
 
-extension AccountView {
+extension ScheduleNavigationView {
     @MainActor class ViewModel: ObservableObject {
         @Published var account: Account?
         @Published var group: GroupModel?
+        @Published var teacher: Teacher?
 
-        @Inject private var accountNetworkService: AccountNetworkProtocol
         @Inject private var userDefaultsService: UserDefaultsProtocol
-        private var navigationService: NavigationService
+        @Inject private var teacherNetworkService: TeacherNetworkProtocol
         private var bag = Set<AnyCancellable>()
 
-        init(navigationService: NavigationService) {
-            self.navigationService = navigationService
+        init() {
             self.account = userDefaultsService.getAccount()
             self.group = userDefaultsService.getGroup()
+
             setupAccountNotification()
-            setupGroupNotification()
+            setupGrouptNotification()
+
+            if let account = self.account, account.role.name == Roles.teacher.rawValue {
+                self.getTeacherByAccount()
+            }
         }
 
-        func logOut() {
+        private func getTeacherByAccount() {
             Task {
-                try accountNetworkService.logout()
-                userDefaultsService.clear()
-                navigationService.isAuthenticated = false
-                SecureSettings().clear()
+                if let account = self.account {
+                    try teacherNetworkService.getTeacherByAccount(id: account.id)
+                        .receive(on: RunLoop.main)
+                        .sink(
+                            receiveCompletion: { _ in },
+                            receiveValue: { [weak self] value in
+                                self?.teacher = value
+                            }
+                        )
+                        .store(in: &bag)
+                }
             }
         }
 
@@ -42,12 +53,16 @@ extension AccountView {
                     receiveCompletion: { _ in },
                     receiveValue: { [weak self] _ in
                         self?.account = self?.userDefaultsService.getAccount()
+                        if let account = self?.account, account.role.name == Roles.teacher.rawValue {
+                            self?.getTeacherByAccount()
+                        }
                     }
                 )
                 .store(in: &bag)
         }
 
-        private func setupGroupNotification() {
+
+        private func setupGrouptNotification() {
             NotificationCenter.default.publisher(for: .groupUpdated)
                 .receive(on: RunLoop.main)
                 .sink(
