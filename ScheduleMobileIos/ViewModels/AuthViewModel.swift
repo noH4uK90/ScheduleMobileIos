@@ -28,7 +28,7 @@ extension AuthView {
             Task {
                 try accountNetworkService
                     .login(login: login, password: password)
-                    .receive(on: RunLoop.main)
+                    .receive(on: DispatchQueue.main)
                     .sink(
                         receiveCompletion: { [weak self] completion in
                             switch completion {

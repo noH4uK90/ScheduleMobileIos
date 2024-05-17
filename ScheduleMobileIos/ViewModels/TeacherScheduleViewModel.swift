@@ -41,7 +41,9 @@ extension TeacherScheduleView {
                     .sink(
                         receiveCompletion: { _ in },
                         receiveValue: { [weak self] value in
-                            self?.lessons = value.filter { $0.discipline != nil }
+                            self?.lessons = value
+                                .filter({ $0.discipline != nil })
+                                .sorted(by: { Date().compareTime($0.timeStart ?? "", $1.timeStart ?? "")})
                         }
                     )
                     .store(in: &bag)

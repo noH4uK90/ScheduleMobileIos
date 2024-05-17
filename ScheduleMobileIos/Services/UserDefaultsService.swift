@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import WidgetKit
 
 protocol UserDefaultsProtocol {
     var account: Account? { get set }
@@ -21,6 +22,8 @@ protocol UserDefaultsProtocol {
 }
 
 class UserDefaultsService: UserDefaultsProtocol {
+    private let groupName: String = "group.dev.noh4uk.schedule"
+
     var account: Account?
     var group: GroupModel?
 
@@ -33,9 +36,10 @@ class UserDefaultsService: UserDefaultsProtocol {
         Task {
             if let account = account {
                 let data = try JSONEncoder().encode(account)
-                UserDefaults.standard.setValue(data, forKey: "account")
+                UserDefaults(suiteName: groupName)?.setValue(data, forKey: "account")
             }
             self.account = getAccount()
+            WidgetCenter.shared.reloadAllTimelines()
             NotificationCenter.default.post(name: .accountUpdated, object: nil)
         }
     }
@@ -43,22 +47,23 @@ class UserDefaultsService: UserDefaultsProtocol {
         Task {
             if let group = group {
                 let data = try JSONEncoder().encode(group)
-                UserDefaults.standard.setValue(data, forKey: "group")
+                UserDefaults(suiteName: groupName)?.setValue(data, forKey: "group")
             }
             self.group = getGroup()
+            WidgetCenter.shared.reloadAllTimelines()
             NotificationCenter.default.post(name: .groupUpdated, object: nil)
         }
     }
 
     func getAccount() -> Account? {
-        let data = UserDefaults.standard.data(forKey: "account")
+        let data = UserDefaults(suiteName: groupName)?.data(forKey: "account")
         guard let response = try? JSONDecoder().decode(Account?.self, from: data ?? Data()) else {
             return nil
         }
         return response
     }
     func getGroup() -> GroupModel? {
-        let data = UserDefaults.standard.data(forKey: "group")
+        let data = UserDefaults(suiteName: groupName)?.data(forKey: "group")
         guard let response = try? JSONDecoder().decode(GroupModel?.self, from: data ?? Data()) else {
             return nil
         }
@@ -66,8 +71,9 @@ class UserDefaultsService: UserDefaultsProtocol {
     }
 
     func clear() {
-        UserDefaults.standard.removeObject(forKey: "account")
-        UserDefaults.standard.removeObject(forKey: "group")
+        UserDefaults(suiteName: groupName)?.removeObject(forKey: "account")
+        UserDefaults(suiteName: groupName)?.removeObject(forKey: "group")
+        WidgetCenter.shared.reloadAllTimelines()
         NotificationCenter.default.post(name: .accountUpdated, object: nil)
         NotificationCenter.default.post(name: .groupUpdated, object: nil)
     }

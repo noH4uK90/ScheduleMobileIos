@@ -13,40 +13,76 @@ struct HomeView: View {
     @State private var allTabs: [AnimatedTab] = Tab.allCases.compactMap { tab -> AnimatedTab? in
         return .init(tab: tab)
     }
+    @State private var screenSize = UIScreen.main.bounds.size
+    @State private var safeSize: EdgeInsets = EdgeInsets()
+    @StateObject private var viewModel = ViewModel()
     @Inject private var userDefaults: UserDefaultsProtocol
     var body: some View {
-        VStack(spacing: 0) {
-            TabView(selection: $activeTab) {
-                NavigationStack {
-                    ScheduleNavigationView()
-                        .navigationTitle(Tab.schedule.title)
-                        .environmentObject(navigationService)
-                }
-                .setUpTab(.schedule)
-                if navigationService.isAuthenticated {
+        ZStack(alignment: .bottom) {
+            GeometryReader { geomerty in
+                TabView(selection: $activeTab) {
                     NavigationStack {
-                        AccountView()
-                            .navigationTitle(Tab.account.title)
-                            .navigationBarTitleDisplayMode(.inline)
+                        ScheduleNavigationView()
+                            .navigationTitle(Tab.schedule.title)
                             .environmentObject(navigationService)
                     }
-                    .setUpTab(.account)
-                } else {
-                    NavigationStack {
-                        AuthView()
-                            .navigationTitle("Авторизация")
-                            .environmentObject(navigationService)
+                    .setUpTab(.schedule)
+                    if let account = viewModel.account, account.role.name != Roles.employee.rawValue {
+                        NavigationStack {
+                            switch account.role.name {
+                            case Roles.student.rawValue:
+                                if let group = viewModel.group {
+                                    GroupScheduleView(group: group)
+                                        .navigationTitle("Мое расписание")
+                                }
+                            case Roles.teacher.rawValue:
+                                if let teacher = viewModel.teacher {
+                                    TeacherScheduleView(teacher: teacher)
+                                        .navigationTitle("Мое расписание")
+                                }
+                            default:
+                                EmptyView()
+                            }
+                        }
+                        .setUpTab(.mySchedule)
                     }
-                    .setUpTab(.account)
+                    if navigationService.isAuthenticated {
+                        NavigationStack {
+                            AccountView()
+                                .navigationTitle(Tab.account.title)
+                                //.navigationBarTitleDisplayMode(.inline)
+                                .environmentObject(navigationService)
+                        }
+                        .setUpTab(.account)
+                    } else {
+                        NavigationStack {
+                            AuthView()
+                                .navigationTitle("Авторизация")
+                                .environmentObject(navigationService)
+                        }
+                        .setUpTab(.account)
+                    }
                 }
-            }
+                .onAppear {
+                    self.safeSize = geomerty.safeAreaInsets
+                    if let account = viewModel.account, account.role.name != Roles.employee.rawValue {
+                        self.activeTab = .mySchedule
+                    }
+                }
+                .onOpenURL { url in
+                    if let tab = url.tabIdentifier {
+                        self.activeTab = tab
+                    }
+                }
 
-            customTabBar()
+                customTabBar(account: viewModel.account)
+                    .position(x: screenSize.width / 2, y: screenSize.height - safeSize.bottom - safeSize.top - 25)
+            }
         }
     }
 
     @ViewBuilder
-    func customTabBar() -> some View {
+    func customTabBar(account: Account?) -> some View {
         HStack(spacing: 0) {
             ForEach($allTabs) { $animatedTab in
                 let tab = animatedTab.tab
@@ -78,6 +114,7 @@ struct HomeView: View {
                         }
                     })
                 }
+                .isHidden(tab.title == "Мое расписание" && (account == nil || account?.role.name == Roles.employee.rawValue), remove: true)
             }
         }
         .background(.bar)

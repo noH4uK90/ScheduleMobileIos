@@ -15,4 +15,14 @@ struct ConfigurationAppIntent: WidgetConfigurationIntent {
     // An example configurable parameter.
     @Parameter(title: "Favorite Emoji", default: false)
     var favoriteEmoji: Bool
+
+    init(favoriteEmoji: Bool) {
+        self.favoriteEmoji = favoriteEmoji
+    }
+
+    init() { }
+
+    func perform() async throws -> some IntentResult {
+        return .result()
+    }
 }

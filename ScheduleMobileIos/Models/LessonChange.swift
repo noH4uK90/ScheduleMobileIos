@@ -13,7 +13,7 @@ struct LessonChange: Identifiable, Codable, Hashable {
     let subgroup: Int?
     let timeStart: String
     let timeEnd: String
-    let lesson: Lesson
+    let lesson: Lesson?
     let discipline: Discipline
     let date: String
     let lessonTeacherClassrooms: [TeacherClassroom]

@@ -41,13 +41,21 @@ extension Date {
         return days!.enumerated().reduce(into: [:]) { $0[$1.offset + 1] = $1.element }
     }
 
+    func getCurrentTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: self)
+    }
+
     func getLocalDateFormatt(locale: String) -> DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.init(identifier: locale)
+        dateFormatter.dateFormat = "HH:mm"
         dateFormatter.timeStyle = .short
         dateFormatter.amSymbol = ""
         dateFormatter.pmSymbol = ""
-        dateFormatter.dateFormat = "HH:mm"
         return dateFormatter
     }
 
@@ -56,5 +64,60 @@ extension Date {
         let newDate = dateFormatter.date(from: date)
         dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
         return dateFormatter.string(from: newDate!)
+    }
+
+    func convertTime(_ time: String) -> String {
+        let dateFormetter = DateFormatter()
+        dateFormetter.locale = Locale.init(identifier: "en_US_POSIX")
+        let date = dateFromString(time)
+        dateFormetter.locale = Locale(identifier: "ru_RU")
+        dateFormetter.dateFormat = "H:mm"
+        return dateFormetter.string(from: date ?? Date())
+    }
+
+    func dateFromString(_ timeString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        let formats = ["h:mm a", "HH:mm", "H:mm"]
+
+            for format in formats {
+                dateFormatter.dateFormat = format
+                if let date = dateFormatter.date(from: timeString) {
+                    return date
+                }
+            }
+
+        return nil
+    }
+
+    func compareTime(_ first: String, _ second: String) -> Bool {
+        let firstDate = dateFromString(first)
+        let secondDate = dateFromString(second)
+        return firstDate ?? Date() < secondDate ?? Date()
+    }
+
+    func differenceFromCurrentDate(from dateString: String, withFormat format: String) -> DateComponents? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone.current
+
+        guard let date = dateFormatter.date(from: dateString) else {
+            print("Невозможно преобразовать строку в дату")
+            return nil
+        }
+
+        let calendar = Calendar.current
+        let currentDate = Date()
+        let components = calendar.dateComponents([.year, .month, .day], from: currentDate, to: date)
+        return components
+    }
+
+    func convertToPrettyDate(_ date: String, format: String = "yyyy-MM-dd") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "d MMM yyyy, E"
+        return dateFormatter.string(from: date ?? Date())
     }
 }

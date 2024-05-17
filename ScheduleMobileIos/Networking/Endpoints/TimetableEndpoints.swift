@@ -25,10 +25,10 @@ enum TimetableEndpoints {
         }
 
         switch self {
-        case .currentTimetable(let groupId, let dateCount):
+        case .currentTimetable(let groupId, let dayCount):
             urlComponents.queryItems = [
                 URLQueryItem(name: "GroupId", value: "\(groupId)"),
-                URLQueryItem(name: "DayCount", value: "\(dateCount)")
+                URLQueryItem(name: "DayCount", value: "\(dayCount)")
             ]
         }
 

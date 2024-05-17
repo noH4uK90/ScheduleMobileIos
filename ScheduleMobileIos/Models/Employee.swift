@@ -14,5 +14,5 @@ struct Employee: Identifiable, Codable, Hashable {
     let name: String
     let surname: String
     let middleName: String?
-    let premissions: [Permission]
+    let permissions: [Permission]
 }

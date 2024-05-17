@@ -20,6 +20,6 @@ final class StudentNetworkService: StudentNetworkProtocol {
             throw APIError.invalidResponse
         }
 
-        return network.fetch(url, Student.self)
+        return try network.fetch(url, Student.self)
     }
 }

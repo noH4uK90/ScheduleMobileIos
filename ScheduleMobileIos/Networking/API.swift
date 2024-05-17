@@ -13,7 +13,7 @@ enum API {
             return url
         }
 
-        return URL(string: "http://localhost:5291/api")!
+        return URL(string: "http://37.18.102.140:5050/api")!
     }
 
     static func getComponents(for url: URL, with path: String) -> URLComponents? {

@@ -39,7 +39,8 @@ final class AccountNetworkService: AccountNetworkProtocol {
         return try network.post(url, command)
     }
 
-    func changePassword(accountId: Int, password: String, newPassword: String) throws -> AnyPublisher<Void, any Error> {
+    func changePassword(accountId: Int, password: String, newPassword: String)
+        throws -> AnyPublisher<Void, any Error> {
         guard let url = AccountEndpoints.changePassword.abosluteURL else {
             throw APIError.invalidResponse
         }

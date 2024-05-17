@@ -62,7 +62,7 @@ struct LessonView: View {
                 Image(systemName: "person.fill")
                     .padding(.trailing, 5)
                     .unredacted()
-                Text(viewModel.firstTeacher + "\(viewModel.isOneTeacher ? "" : viewModel.secondTeacher)")
+                Text(viewModel.firstTeacher + "\(viewModel.isOneTeacher ? "" : " \(viewModel.secondTeacher)")")
             }
             .font(.footnote)
             .foregroundStyle(.secondary)

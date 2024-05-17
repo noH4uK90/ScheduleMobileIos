@@ -1,13 +1,13 @@
 //
-//  LessonViewModel.swift
-//  ScheduleMobileIos
+//  WidgetLessonViewModel.swift
+//  ScheduleWidgetExtension
 //
-//  Created by Иван Спирин on 5/7/24.
+//  Created by Иван Спирин on 5/17/24.
 //
 
 import Foundation
 
-extension LessonView {
+extension WidgetLessonView {
     @MainActor class ViewModel: ObservableObject {
         @Published var timeStart: String = ""
         @Published var timeEnd: String = ""

@@ -8,54 +8,74 @@
 import SwiftUI
 
 struct ScheduleNavigationView: View {
-    @EnvironmentObject var navigationService: NavigationService
+//    @EnvironmentObject var navigationService: NavigationService
 
     var body: some View {
-        Content(navigationService: navigationService)
+        Content(/*navigationService: navigationService*/)
     }
 
     struct Content: View {
-        @StateObject private var viewModel: ViewModel
-        private var navigationService: NavigationService
-
-        init(navigationService: NavigationService) {
-            self.navigationService = navigationService
-            _viewModel = StateObject(wrappedValue: ViewModel())
-        }
+        
+//        @StateObject private var viewModel: ViewModel
+//        private var navigationService: NavigationService
+//
+//        init(navigationService: NavigationService) {
+//            self.navigationService = navigationService
+//            _viewModel = StateObject(wrappedValue: ViewModel())
+//        }
+        @State private var selected: Int = 1
+        @State private var searched: String = ""
+        private var tabs = [1: "Группа", 2: "Преподаватель"]
 
         var body: some View {
-            List {
-                if let account = viewModel.account, account.role.name != Roles.employee.rawValue {
-                    NavigationLink(value: account.role.name) {
-                        Text("Мое расписание")
-                    }
-                    .navigationDestination(for: String.self) { role in
-                        switch role {
-                        case Roles.student.rawValue:
-                            if let group = viewModel.group {
-                                GroupScheduleView(group: group)
-                                    .navigationTitle("Мое расписание")
-                            }
-                        case Roles.teacher.rawValue:
-                            if let teacher = viewModel.teacher {
-                                TeacherScheduleView(teacher: teacher)
-                                    .navigationTitle("Мое расписание")
-                            }
-                        default:
-                            EmptyView()
+//            List {
+//                NavigationLink("Расписание группы") {
+//                    SelectGroupView()
+//                        .navigationTitle("Группы")
+//                        .environmentObject(navigationService)
+//                }
+//                NavigationLink("Расписание преподавателя") {
+//                    SelectTeacherView()
+//                        .navigationTitle("Преподаватели")
+//                }
+//            }
+            NavigationStack {
+                VStack {
+                    List {
+                        if selected == 1 {
+                            Text("ИСПП-01")
+                            Text("ИСПП-11")
+                            Text("ИСПП-05")
+                            Text("ИСПП-21")
+                            Text("ИСПП-35")
+                        } else {
+                            Text("Преподаватель 1")
+                            Text("Преподаватель 2")
+                            Text("Преподаватель 3")
+                            Text("Преподаватель 4")
+                            Text("Преподаватель 5")
+                            Text("Преподаватель 6")
                         }
                     }
+                    .searchable(text: $searched)
                 }
-                NavigationLink("Расписание группы") {
-                    SelectGroupView()
-                        .navigationTitle("Группы")
-                        .environmentObject(navigationService)
+                .background(Color(UIColor.systemGroupedBackground))
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Picker("Schedule", selection: $selected) {
+                            ForEach(tabs.sorted(by: <), id: \.key) { index, tab in
+                                Text(tab).tag(index)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                    }
                 }
-                NavigationLink("Расписание преподавателя") {
-                    SelectTeacherView()
-                        .navigationTitle("Преподаватели")
-                }
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }
+}
+
+#Preview {
+    ScheduleNavigationView()
 }
