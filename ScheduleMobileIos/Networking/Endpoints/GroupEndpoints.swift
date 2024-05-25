@@ -8,15 +8,12 @@
 import Foundation
 
 enum GroupEndpoints {
-    case courseGroups(Int)
     case groups(String)
 
     var baseURL: URL { API.baseURL.appending(path: APITags.group.rawValue) }
 
     func path() -> String {
         switch self {
-        case .courseGroups(let course):
-            "ByCourse/\(course)"
         case .groups:
             ""
         }
@@ -28,8 +25,6 @@ enum GroupEndpoints {
         }
 
         switch self {
-        case .courseGroups:
-            urlComponents.queryItems = []
         case .groups(let search):
             urlComponents.queryItems = [
                 URLQueryItem(name: "Search", value: search)

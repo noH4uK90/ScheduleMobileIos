@@ -17,9 +17,9 @@ extension TeacherScheduleView {
         @Inject private var teacherNetworkService: TeacherNetworkProtocol
         private var bag = Set<AnyCancellable>()
 
-        private var teacher: Teacher
+        private var teacher: TeacherFullName
 
-        init(teacher: Teacher) {
+        init(teacher: TeacherFullName) {
             self.teacher = teacher
 
             $selected
@@ -28,26 +28,25 @@ extension TeacherScheduleView {
                     receiveCompletion: { _ in },
                     receiveValue: { [weak self] value in
                         self?.currentDate = Date().dateForDayOfWeek(day: value)
-                        self?.getLessons()
                     }
                 )
                 .store(in: &bag)
         }
 
-        private func getLessons() {
-            Task {
-                try teacherNetworkService.getTeacherLessons(teacherId: teacher.id, date: currentDate)
-                    .receive(on: RunLoop.main)
-                    .sink(
-                        receiveCompletion: { _ in },
-                        receiveValue: { [weak self] value in
-                            self?.lessons = value
-                                .filter({ $0.discipline != nil })
-                                .sorted(by: { Date().compareTime($0.timeStart ?? "", $1.timeStart ?? "")})
-                        }
-                    )
-                    .store(in: &bag)
-            }
-        }
+//        private func getLessons() {
+//            Task {
+//                try teacherNetworkService.getTeacherLessons(teacherId: teacher.id, date: currentDate)
+//                    .receive(on: RunLoop.main)
+//                    .sink(
+//                        receiveCompletion: { _ in },
+//                        receiveValue: { [weak self] value in
+//                            self?.lessons = value
+//                                .filter({ $0.discipline != nil })
+//                                .sorted(by: { Date().compareTime($0.timeStart ?? "", $1.timeStart ?? "")})
+//                        }
+//                    )
+//                    .store(in: &bag)
+//            }
+//        }
     }
 }

@@ -15,6 +15,7 @@ struct HomeView: View {
     }
     @State private var screenSize = UIScreen.main.bounds.size
     @State private var safeSize: EdgeInsets = EdgeInsets()
+    @State private var isTabBarHidden = false
     @StateObject private var viewModel = ViewModel()
     @Inject private var userDefaults: UserDefaultsProtocol
     var body: some View {
@@ -37,8 +38,8 @@ struct HomeView: View {
                                 }
                             case Roles.teacher.rawValue:
                                 if let teacher = viewModel.teacher {
-                                    TeacherScheduleView(teacher: teacher)
-                                        .navigationTitle("Мое расписание")
+//                                    TeacherScheduleView(teacher: teacher)
+//                                        .navigationTitle("Мое расписание")
                                 }
                             default:
                                 EmptyView()
@@ -48,7 +49,7 @@ struct HomeView: View {
                     }
                     if navigationService.isAuthenticated {
                         NavigationStack {
-                            AccountView()
+                            AccountView(isTabBarHidden: $isTabBarHidden)
                                 .navigationTitle(Tab.account.title)
                                 //.navigationBarTitleDisplayMode(.inline)
                                 .environmentObject(navigationService)
@@ -76,7 +77,9 @@ struct HomeView: View {
                 }
 
                 customTabBar(account: viewModel.account)
+                    .animation(.easeInOut, value: isTabBarHidden)
                     .position(x: screenSize.width / 2, y: screenSize.height - safeSize.bottom - safeSize.top - 25)
+                    .isHidden(isTabBarHidden, remove: true)
             }
         }
     }

@@ -24,6 +24,7 @@ struct GroupScheduleView: View {
 
         var body: some View {
             VStack {
+                Image(systemName: "")
                 DayPicker(selection: $viewModel.selected)
                 ScheduleView(lessons: $viewModel.lessons, currentDate: $viewModel.currentDate)
             }

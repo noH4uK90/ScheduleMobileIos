@@ -9,10 +9,8 @@ import Foundation
 
 struct Timetable: Identifiable, Codable, Hashable {
     let id: Int
+    let date: Date
     let group: GroupModel
-    let created: String
-    let ended: String?
     let day: DayModel
-    let weekType: WeekType
     let lessons: [Lesson]
 }

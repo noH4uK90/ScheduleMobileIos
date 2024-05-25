@@ -9,15 +9,18 @@ import SwiftUI
 
 struct AccountView: View {
     @EnvironmentObject var navigationService: NavigationService
+    @Binding var isTabBarHidden: Bool
 
     var body: some View {
-        Content(navigationService: navigationService)
+        Content(navigationService: navigationService, isTabBarHidden: $isTabBarHidden)
     }
 
     struct Content: View {
         @StateObject private var viewModel: ViewModel
+        @Binding var isTabBarHidden: Bool
 
-        init(navigationService: NavigationService) {
+        init(navigationService: NavigationService, isTabBarHidden: Binding<Bool>) {
+            _isTabBarHidden = isTabBarHidden
             _viewModel = StateObject(wrappedValue: ViewModel(navigationService: navigationService))
         }
 
@@ -26,6 +29,7 @@ struct AccountView: View {
                 Form {
                     account
                     settings
+                    study
                     logOutButton
                 }
             }
@@ -50,6 +54,38 @@ struct AccountView: View {
             Section {
                 NavigationLink("Изменить пароль") {
                     ChangePasswordView()
+                        .onAppear {
+                            isTabBarHidden = true
+                        }
+                        .onDisappear {
+                            isTabBarHidden = false
+                        }
+                }
+            }
+        }
+
+        var study: some View {
+            Section {
+                NavigationLink("Задачи") {
+                    TaskHomeView()
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar(.hidden, for: .tabBar)
+                        .onAppear {
+                            withAnimation(.spring) {
+                                isTabBarHidden = true
+                            }
+                        }
+                        .onDisappear {
+                            withAnimation(.spring) {
+                                isTabBarHidden = false
+                            }
+                        }
+                }
+                NavigationLink("Домашнее задание") {
+                    Text("Домашнее задание")
+                }
+                NavigationLink("Уведомления") {
+                    Text("Уведомления")
                 }
             }
         }

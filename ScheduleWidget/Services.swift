@@ -64,7 +64,7 @@ class Services {
 
     func getGroupLessons(day: Int) async throws -> [Lesson] {
         if let group = getGroup() {
-            guard let url = URL(string: "http:37.18.102.140:5050/api/Timetable/Current") else {
+            guard let url = URL(string: "http:37.18.102.140:5050/api/Timetable/Group") else {
                 throw APIError.invalidResponse
             }
 
@@ -72,9 +72,11 @@ class Services {
                 throw APIError.invalidResponse
             }
 
+            let date = Date().dateForDayOfWeek(day: day)
+
             components.queryItems = [
                 URLQueryItem(name: "GroupId", value: "\(group.id)"),
-                URLQueryItem(name: "DayCount", value: "\(7)")
+                URLQueryItem(name: "Date", value: "\(date)")
             ]
 
             guard let urlComponents = components.url else {
@@ -85,15 +87,16 @@ class Services {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
             let (data, _) = try await URLSession.shared.data(for: request)
-            let pagedList = try JSONDecoder().decode(PagedList<CurrentTimetable>.self, from: data)
+            let timetables = try JSONDecoder().decode([Timetable].self, from: data)
 
             var lessons: [Lesson] = []
-            pagedList.items.forEach { current in
-                if let dayItem = current.daysAndDate.first(where: { $0.key.tValue.id == day }) {
-                    if let timetable = dayItem.items.first {
-                        lessons = timetable.lessons
-                    }
-                }
+            if let timetable = timetables.first {
+                lessons = timetable.lessons
+//                if let dayItem = current.daysAndDate.first(where: { $0.key.tValue.id == day }) {
+//                    if let timetable = dayItem.items.first {
+//                        lessons = timetable.lessons
+//                    }
+//                }
             }
             return lessons
         }
@@ -103,7 +106,7 @@ class Services {
 
     func getTeacherLessons(account: Account, day: Int) async throws -> [Lesson] {
         let teacher = try await getTeacherAccount(account: account)
-        guard let url = URL(string: "http:37.18.102.140:5050/api/Teacher") else {
+        guard let url = URL(string: "http:37.18.102.140:5050/api/Timetable/Teacher") else {
             throw APIError.invalidResponse
         }
 

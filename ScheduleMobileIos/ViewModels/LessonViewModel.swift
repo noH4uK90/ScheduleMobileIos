@@ -17,13 +17,12 @@ extension LessonView {
         @Published var firstCabinet: String = ""
         @Published var secondCabinet: String = ""
 
-        @Published var isChanged: Bool = false
         @Published var isOneTeacher: Bool = true
         @Published var isOneCabinet: Bool = true
 
         private var lesson: Lesson
         private var date: String
-        private var lessonChange: LessonChange?
+        private var subLesson: SubLesson?
 
         init(lesson: Lesson, date: String) {
             self.lesson = lesson
@@ -32,20 +31,17 @@ extension LessonView {
         }
 
         private func updateLessonDetails() {
-            timeStart = Date().convertTime(lesson.timeStart ?? "12:00")
-            timeEnd = Date().convertTime(lesson.timeEnd ?? "12:00")
-            discipline = lesson.discipline?.name.name ?? ""
+            timeStart = Date().convertTime(lesson.timeStart)
+            timeEnd = Date().convertTime(lesson.timeEnd)
+            discipline = lesson.discipline.name
 
-            updateTeachersAndCabinets(from: lesson.lessonTeacherClassrooms)
+            firstTeacher = lesson.teacher?.fullName ?? ""
+            firstCabinet = lesson.classroom?.cabinet ?? ""
+            if let subLesson = lesson.subLesson {
+                discipline = subLesson.discipline.name
 
-            if let lessonChange = lesson.lessonChanges.first(where: { $0.date == date }) {
-                isChanged = true
-
-                timeStart = Date().convertTime(lessonChange.timeStart)
-                timeEnd = Date().convertTime(lessonChange.timeEnd)
-                discipline = lessonChange.discipline.name.name
-
-                updateTeachersAndCabinets(from: lessonChange.lessonTeacherClassrooms)
+                secondTeacher = subLesson.teacher?.fullName ?? ""
+                secondCabinet = subLesson.classroom?.cabinet ?? ""
             }
         }
 

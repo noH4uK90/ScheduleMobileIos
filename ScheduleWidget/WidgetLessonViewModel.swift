@@ -17,13 +17,12 @@ extension WidgetLessonView {
         @Published var firstCabinet: String = ""
         @Published var secondCabinet: String = ""
 
-        @Published var isChanged: Bool = false
         @Published var isOneTeacher: Bool = true
         @Published var isOneCabinet: Bool = true
 
         private var lesson: Lesson
         private var date: String
-        private var lessonChange: LessonChange?
+        private var subLesson: SubLesson?
 
         init(lesson: Lesson, date: String) {
             self.lesson = lesson
@@ -32,35 +31,17 @@ extension WidgetLessonView {
         }
 
         private func updateLessonDetails() {
-            timeStart = Date().convertTime(lesson.timeStart ?? "12:00")
-            timeEnd = Date().convertTime(lesson.timeEnd ?? "12:00")
-            discipline = lesson.discipline?.name.name ?? ""
+            timeStart = Date().convertTime(lesson.timeStart)
+            timeEnd = Date().convertTime(lesson.timeEnd)
+            discipline = lesson.discipline.name
 
-            updateTeachersAndCabinets(from: lesson.lessonTeacherClassrooms)
+            firstTeacher = lesson.teacher?.fullName ?? ""
+            firstCabinet = lesson.classroom?.cabinet ?? ""
 
-            if let lessonChange = lesson.lessonChanges.first(where: { $0.date == date }) {
-                isChanged = true
+            if let subLesson = lesson.subLesson {
 
-                timeStart = Date().convertTime(lessonChange.timeStart)
-                timeEnd = Date().convertTime(lessonChange.timeEnd)
-                discipline = lessonChange.discipline.name.name
-
-                updateTeachersAndCabinets(from: lessonChange.lessonTeacherClassrooms)
-            }
-        }
-
-        private func updateTeachersAndCabinets(from teacherClassrooms: [TeacherClassroom]) {
-            isOneTeacher = teacherClassrooms.count <= 1
-            isOneCabinet = teacherClassrooms.count <= 1
-
-            if let first = teacherClassrooms.first {
-                firstTeacher = getShortName(from: first.teacher)
-                firstCabinet = first.classroom.cabinet
-            }
-
-            if let last = teacherClassrooms.last, teacherClassrooms.count > 1 {
-                secondTeacher = getShortName(from: last.teacher)
-                secondCabinet = last.classroom.cabinet
+                secondTeacher = subLesson.teacher?.fullName ?? ""
+                secondCabinet = subLesson.classroom?.cabinet ?? ""
             }
         }
 

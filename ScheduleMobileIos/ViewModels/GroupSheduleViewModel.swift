@@ -27,35 +27,35 @@ extension GroupScheduleView {
                 .sink(
                     receiveCompletion: { _ in },
                     receiveValue: { [weak self] value in
-                        self?.getTimetables(completion: { currentTimetables in
-                            currentTimetables.forEach { current in
-                                if let day = current.daysAndDate.first(where: { $0.key.tValue.id == value }) {
-                                    if let timetable = day.items.first {
-                                        self?.currentDate = Date().dateForDayOfWeek(day: value)
-                                        self?.lessons = timetable.lessons
-                                            .filter({ $0.discipline != nil })
-                                            .sorted(by: { Date().compareTime($0.timeStart ?? "", $1.timeStart ?? "") })
-                                    }
-                                }
-                            }
-                        })
+//                        self?.getTimetables(completion: { currentTimetables in
+//                            currentTimetables.forEach { current in
+//                                if let day = current.daysAndDate.first(where: { $0.key.tValue.id == value }) {
+//                                    if let timetable = day.items.first {
+//                                        self?.currentDate = Date().dateForDayOfWeek(day: value)
+//                                        self?.lessons = timetable.lessons
+//                                            .filter({ $0.discipline != nil })
+//                                            .sorted(by: { Date().compareTime($0.timeStart ?? "", $1.timeStart ?? "") })
+//                                    }
+//                                }
+//                            }
+//                        })
                     }
                 )
                 .store(in: &bag)
         }
 
-        private func getTimetables(completion: @escaping ([CurrentTimetable]) -> Void) {
-            Task {
-                try timetablesNetworkService.getCurrentTimeTable(groupId: group.id)
-                    .receive(on: RunLoop.main)
-                    .sink(
-                        receiveCompletion: { _ in },
-                        receiveValue: { value in
-                            completion(value.items)
-                        }
-                    )
-                    .store(in: &bag)
-            }
-        }
+//        private func getTimetables(completion: @escaping ([CurrentTimetable]) -> Void) {
+//            Task {
+//                try timetablesNetworkService.getCurrentTimeTable(groupId: group.id)
+//                    .receive(on: RunLoop.main)
+//                    .sink(
+//                        receiveCompletion: { _ in },
+//                        receiveValue: { value in
+//                            completion(value.items)
+//                        }
+//                    )
+//                    .store(in: &bag)
+//            }
+//        }
     }
 }

@@ -15,8 +15,8 @@ struct ScheduleView: View {
     var body: some View {
         List {
             ForEach($lessons) { $lesson in
-                LessonView(lesson: $lesson, date: $currentDate)
-                    .listRowSeparator(.hidden)
+//                LessonView(lesson: $lesson, date: $currentDate)
+//                    .listRowSeparator(.hidden)
             }
         }
         .listStyle(.inset)

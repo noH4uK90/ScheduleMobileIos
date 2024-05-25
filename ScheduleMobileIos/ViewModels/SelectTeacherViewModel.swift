@@ -10,12 +10,10 @@ import Combine
 
 extension SelectTeacherView {
     @MainActor class ViewModel: ObservableObject {
-        @Published var teachers: [Teacher] = []
+        @Published var teachers: [TeacherFullName] = []
         @Published var search: String = ""
-        @Published var isHasMore: Bool = true
 
         @Inject private var teacherNetworkService: TeacherNetworkProtocol
-        private var dataTeachers: PagedList<Teacher>?
         private var bag = Set<AnyCancellable>()
 
         init() {
@@ -25,7 +23,6 @@ extension SelectTeacherView {
                 .sink(
                     receiveCompletion: { _ in },
                     receiveValue: { [weak self] _ in
-                        self?.dataTeachers = nil
                         self?.getTeachers()
                     }
                 )
@@ -39,48 +36,45 @@ extension SelectTeacherView {
                     .sink(
                         receiveCompletion: { _ in },
                         receiveValue: { [weak self] value in
-                            self?.dataTeachers = value
-                            self?.teachers = value.items
-                            self?.isHasMore = self?.hasMore() ?? true
+                            self?.teachers = value
                         }
                     )
                     .store(in: &bag)
             }
         }
 
-        func loadMore() {
-            Task {
-                guard let data = dataTeachers else {
-                    return
-                }
-
-                if !isHasMore {
-                    return
-                }
-
-                let nextPage = data.pageNumber + 1
-
-                try teacherNetworkService.getTeachers(search: self.search, page: nextPage)
-                    .receive(on: RunLoop.main)
-                    .sink(
-                        receiveCompletion: { _ in },
-                        receiveValue: { [weak self] value in
-                            self?.dataTeachers = value
-                            self?.teachers = value.items
-                            self?.isHasMore = self?.hasMore() ?? true
-                        }
-                    )
-                    .store(in: &bag)
-            }
-        }
-
-        func hasMore() -> Bool {
-            guard let data = dataTeachers else {
-                return true
-            }
-
-            return data.pageNumber < data.totalPages
-        }
+//        func loadMore() {
+//            Task {
+//                guard let data = dataTeachers else {
+//                    return
+//                }
+//
+//                if !isHasMore {
+//                    return
+//                }
+//
+//                let nextPage = data.pageNumber + 1
+//
+//                try teacherNetworkService.getTeachers(search: self.search, page: nextPage)
+//                    .receive(on: RunLoop.main)
+//                    .sink(
+//                        receiveCompletion: { _ in },
+//                        receiveValue: { [weak self] value in
+//                            self?.teachers = value
+//                            self?.isHasMore = self?.hasMore() ?? true
+//                        }
+//                    )
+//                    .store(in: &bag)
+//            }
+//        }
+//
+//        func hasMore() -> Bool {
+//            guard let data = dataTeachers else {
+//                return true
+//            }
+//
+//            return data.pageNumber < data.totalPages
+//        }
 
         func getShortName(from teacher: Teacher) -> String {
             let nameInitial = teacher.name.first.map { "\($0)." } ?? ""

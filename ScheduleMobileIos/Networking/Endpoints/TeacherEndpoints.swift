@@ -8,8 +8,7 @@
 import Foundation
 
 enum TeacherEndpoints {
-    case teachers(String, Int)
-    case teacherLessons(Int, String)
+    case teachers(String)
     case teacherByAccount(Int)
 
     var baseURL: URL { API.baseURL.appending(path: APITags.teacher.rawValue) }
@@ -17,9 +16,7 @@ enum TeacherEndpoints {
     func path() -> String {
         switch self {
         case .teachers:
-            ""
-        case .teacherLessons:
-            "Lessons"
+            "FullName"
         case .teacherByAccount(let id):
             "Account/\(id)"
         }
@@ -31,15 +28,9 @@ enum TeacherEndpoints {
         }
 
         switch self {
-        case .teachers(let search, let page):
+        case .teachers(let search):
             urlComponents.queryItems = [
                 URLQueryItem(name: "Search", value: search),
-                URLQueryItem(name: "Page", value: "\(page)")
-            ]
-        case .teacherLessons(let teacherId, let date):
-            urlComponents.queryItems = [
-                URLQueryItem(name: "TeacherId", value: "\(teacherId)"),
-                URLQueryItem(name: "Date", value: date)
             ]
         case .teacherByAccount:
             urlComponents.queryItems = []

@@ -34,6 +34,9 @@ func buildContainer() -> Container {
     container.register(DataTransferProtocol.self) { _ in
         return DataTransferService()
     }
+    container.register(DisciplineNetworkProtocol.self) { _ in
+        return DisciplineNetworkService()
+    }
     container.register(GroupNetworkProtocol.self) { _ in
         return GroupNetworkService()
     }

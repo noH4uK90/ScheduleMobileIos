@@ -10,5 +10,4 @@ import Foundation
 struct Classroom: Identifiable, Codable, Hashable {
     let id: Int
     let cabinet: String
-    let isDeleted: Bool
 }

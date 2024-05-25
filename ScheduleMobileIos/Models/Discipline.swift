@@ -9,11 +9,5 @@ import Foundation
 
 struct Discipline: Identifiable, Codable, Hashable {
     let id: Int
-    let name: DisciplineName
-    let code: DisciplineCode
-    let type: DisciplineType
-    let term: Term
-    let speciality: Speciality
-    let totalHours: Int
-    let isDeleted: Bool
+    let name: String
 }

@@ -39,7 +39,7 @@ enum AccountEndpoints {
             urlComponents.queryItems = []
         case .logout:
             urlComponents.queryItems = []
-        case .changePassword :
+        case .changePassword:
             urlComponents.queryItems = []
         case .restorePassword:
             urlComponents.queryItems = []

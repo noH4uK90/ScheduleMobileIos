@@ -9,17 +9,19 @@ import SwiftUI
 
 struct LessonView: View {
     @Binding var lesson: Lesson
-    @Binding var date: String
+//    @Binding var date: String
 
     var body: some View {
-        Content(lesson: lesson, date: date)
+        Content(lesson: lesson)
     }
 
     struct Content: View {
-        @StateObject var viewModel: ViewModel
+//        @StateObject var viewModel: ViewModel
+        var lesson: Lesson
 
-        init(lesson: Lesson, date: String) {
-            _viewModel = StateObject(wrappedValue: ViewModel(lesson: lesson, date: date))
+        init(lesson: Lesson) {
+            self.lesson = lesson
+//            _viewModel = StateObject(wrappedValue: ViewModel(lesson: lesson))
         }
 
         var body: some View {
@@ -40,20 +42,20 @@ struct LessonView: View {
 
         var title: some View {
             HStack {
-                Text(viewModel.discipline)
+                Text(lesson.discipline.name)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .minimumScaleFactor(0.5)
                 Spacer()
-                if viewModel.isChanged {
-                    Text("Изм.")
-                        .padding(.horizontal, 3)
-                        .cornerRadius(0)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 3)
-                                .stroke(.red.gradient, lineWidth: 1)
-                        }
-                }
+//                if viewModel.isChanged {
+//                    Text("Изм.")
+//                        .padding(.horizontal, 3)
+//                        .cornerRadius(0)
+//                        .overlay {
+//                            RoundedRectangle(cornerRadius: 3)
+//                                .stroke(.red.gradient, lineWidth: 1)
+//                        }
+//                }
             }
         }
 
@@ -62,7 +64,8 @@ struct LessonView: View {
                 Image(systemName: "person.fill")
                     .padding(.trailing, 5)
                     .unredacted()
-                Text(viewModel.firstTeacher + "\(viewModel.isOneTeacher ? "" : " \(viewModel.secondTeacher)")")
+                Text(lesson.teacher?.fullName ?? "")
+                //Text(viewModel.firstTeacher + "\(viewModel.isOneTeacher ? "" : " \(viewModel.secondTeacher)")")
             }
             .font(.footnote)
             .foregroundStyle(.secondary)
@@ -71,13 +74,14 @@ struct LessonView: View {
 
         var cabinet: some View {
             HStack {
-                Text(viewModel.firstCabinet)
+                Text(lesson.classroom?.cabinet ?? "")
+                //Text(viewModel.firstCabinet)
                     .cabinetTextStyle()
 
-                if !viewModel.isOneCabinet {
-                    Text(viewModel.secondCabinet)
-                        .cabinetTextStyle()
-                }
+//                if !viewModel.isOneCabinet {
+//                    Text(viewModel.secondCabinet)
+//                        .cabinetTextStyle()
+//                }
             }
             .font(.callout)
             .foregroundStyle(.blue)
@@ -87,9 +91,9 @@ struct LessonView: View {
         @ViewBuilder
         func createTime() -> some View {
             VStack(alignment: .center) {
-                Text(viewModel.timeStart)
+                Text(lesson.timeStart)
                 Spacer()
-                Text(viewModel.timeEnd)
+                Text(lesson.timeEnd)
             }
             .font(.headline)
             .fontWeight(.semibold)

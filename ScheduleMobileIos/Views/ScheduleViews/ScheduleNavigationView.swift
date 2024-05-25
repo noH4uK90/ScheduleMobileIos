@@ -39,25 +39,13 @@ struct ScheduleNavigationView: View {
 //                        .navigationTitle("Преподаватели")
 //                }
 //            }
-            NavigationStack {
+//            NavigationStack {
                 VStack {
-                    List {
-                        if selected == 1 {
-                            Text("ИСПП-01")
-                            Text("ИСПП-11")
-                            Text("ИСПП-05")
-                            Text("ИСПП-21")
-                            Text("ИСПП-35")
-                        } else {
-                            Text("Преподаватель 1")
-                            Text("Преподаватель 2")
-                            Text("Преподаватель 3")
-                            Text("Преподаватель 4")
-                            Text("Преподаватель 5")
-                            Text("Преподаватель 6")
-                        }
+                    if selected == 1 {
+                        SelectGroupView()
+                    } else {
+                        SelectTeacherView()
                     }
-                    .searchable(text: $searched)
                 }
                 .background(Color(UIColor.systemGroupedBackground))
                 .toolbar {
@@ -71,7 +59,7 @@ struct ScheduleNavigationView: View {
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
-            }
+//            }
         }
     }
 }

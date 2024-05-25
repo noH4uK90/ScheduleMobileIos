@@ -13,8 +13,10 @@ struct ScheduleMobileIosApp: App {
 
     var body: some Scene {
         WindowGroup {
+//            TaskHomeView()
             HomeView()
                 .environmentObject(navigationService)
         }
+        .modelContainer(for: TaskModel.self)
     }
 }

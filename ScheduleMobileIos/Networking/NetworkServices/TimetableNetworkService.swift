@@ -9,49 +9,28 @@ import Foundation
 import Combine
 
 protocol TimetableNetworkProtocol {
-    func getCurrentTimeTable(groupId: Int) throws -> AnyPublisher<PagedList<CurrentTimetable>, Error>
+    func getGroupTimetable(groupId: Int, date: Date) throws -> AnyPublisher<[Timetable], Error>
 
-    func getLessons(groupId: Int, day: Int) async throws -> [Lesson]
+    func getTeacherTimetable(teacherId: Int, date: Date) throws -> AnyPublisher<[Timetable], Error>
 }
 
 final class TimetableNetworkService: TimetableNetworkProtocol {
     @Inject private var network: DataTransferProtocol
     private var bag = Set<AnyCancellable>()
 
-    func getCurrentTimeTable(groupId: Int) throws -> AnyPublisher<PagedList<CurrentTimetable>, any Error> {
-        guard let url = TimetableEndpoints.currentTimetable(groupId).absoluteURL else {
+    func getGroupTimetable(groupId: Int, date: Date) throws -> AnyPublisher<[Timetable], any Error> {
+        guard let url = TimetableEndpoints.groupTimetable(groupId: groupId, date: date).absoluteURL else {
             throw APIError.invalidResponse
         }
-        return try network.fetch(url, PagedList<CurrentTimetable>.self)
+
+        return try network.fetch(url, [Timetable].self)
     }
 
-    func getLessons(groupId: Int, day: Int) async throws -> [Lesson] {
-        print("Fetching lessons for groupId: \(groupId), day: \(day)")
-        return try await withCheckedThrowingContinuation { continuation in
-                Task {
-                    try getCurrentTimeTable(groupId: groupId)
-                        .receive(on: DispatchQueue.main)
-                        .sink(
-                            receiveCompletion: { completion in
-                                if case .failure(let error) = completion {
-                                    continuation.resume(throwing: error)
-                                }
-                            },
-                            receiveValue: { value in
-                                var lessons: [Lesson] = []
-                                value.items.forEach { current in
-                                    if let dayItem = current.daysAndDate.first(where: { $0.key.tValue.id == day }) {
-                                        if let timetable = dayItem.items.first {
-                                            lessons.append(contentsOf: timetable.lessons)
-                                        }
-                                    }
-                                }
-                                print("Fetched lessons: \(lessons)")
-                                continuation.resume(returning: lessons)
-                            }
-                        )
-                        .store(in: &bag)
-                }
-            }
+    func getTeacherTimetable(teacherId: Int, date: Date) throws -> AnyPublisher<[Timetable], any Error> {
+        guard let url = TimetableEndpoints.teacherTimetable(teacherId: teacherId, date: date).absoluteURL else {
+            throw APIError.invalidResponse
+        }
+
+        return try network.fetch(url, [Timetable].self)
     }
 }

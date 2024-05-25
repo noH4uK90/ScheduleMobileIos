@@ -87,7 +87,8 @@ struct ScheduleWidgetEntryView: View {
                     .padding(0)
                 Divider()
                     .padding(0)
-                if let components = Date().differenceFromCurrentDate(from: entry.currentDate, withFormat: "yyyy-MM-dd"), components.day ?? 1 > 0 {
+                if let components = Date().differenceFromCurrentDate(from: entry.currentDate, withFormat: "yyyy-MM-dd"),
+                   components.day ?? 1 > 0 {
                     if let lesson = entry.lessons.first {
                         WidgetLessonView(lesson: lesson, date: entry.currentDate )
                             .widgetURL(URL(string: "aktSchedule://mySchedule"))
@@ -97,7 +98,9 @@ struct ScheduleWidgetEntryView: View {
                             .padding(0 )
                     }
                 } else {
-                    if let lesson = entry.lessons.first(where: { Date().compareTime(Date().getCurrentTime(), $0.timeStart ?? "") }) {
+                    if let lesson = entry.lessons.first(where: {
+                        Date().compareTime(Date().getCurrentTime(), $0.timeStart)
+                    }) {
                         WidgetLessonView(lesson: lesson, date: entry.currentDate )
                             .widgetURL(URL(string: "aktSchedule://mySchedule"))
                             .padding(0)

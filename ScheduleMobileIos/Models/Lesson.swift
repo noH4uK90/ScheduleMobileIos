@@ -9,12 +9,12 @@ import Foundation
 
 struct Lesson: Identifiable, Codable, Hashable {
     let id: Int
-    let discipline: Discipline?
     let number: Int
-    let subgroup: Int?
-    let timetableId: Int
-    let lessonChanges: [LessonChange]
-    let timeStart: String?
-    let timeEnd: String?
-    let lessonTeacherClassrooms: [TeacherClassroom]
+    let discipline: Discipline
+    let teacher: TeacherFullName?
+    let classroom: Classroom?
+    let lessonType: LessonType
+    let subLesson: SubLesson?
+    let timeStart: String
+    let timeEnd: String
 }

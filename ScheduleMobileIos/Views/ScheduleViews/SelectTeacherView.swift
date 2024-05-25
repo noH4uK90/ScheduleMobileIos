@@ -23,16 +23,10 @@ struct SelectTeacherView: View {
         var body: some View {
             List {
                 ForEach(viewModel.teachers) { teacher in
-                    NavigationLink(viewModel.getShortName(from: teacher)) {
+                    NavigationLink(teacher.fullName) {
                         TeacherScheduleView(teacher: teacher)
                             .navigationTitle("Расписание преподавателя")
                     }
-                }
-                if viewModel.isHasMore {
-                    ProgressView()
-                        .onAppear {
-                            viewModel.loadMore()
-                        }
                 }
             }
             .refreshable {

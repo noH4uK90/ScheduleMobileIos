@@ -9,6 +9,7 @@ import Foundation
 
 enum APITags: String {
     case account = "Account"
+    case discipline = "Discipline"
     case group = "Group"
     case timetable = "Timetable"
     case student = "Student"

@@ -127,18 +127,7 @@ struct WidgetLessonView: View {
                 Text(viewModel.discipline)
                     .font(.title3)
                     .fontWeight(.semibold)
-                    .minimumScaleFactor(0.5)
-                Spacer()
-                if viewModel.isChanged {
-                    Text("Изм.")
-                        .padding(.horizontal, 3)
-                        .cornerRadius(0)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 3)
-                                .stroke(.red.gradient, lineWidth: 1)
-                        }
-                }
-            }
+                    .minimumScaleFactor(0.5)            }
         }
 
         var teacher: some View {

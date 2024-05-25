@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TeacherScheduleView: View {
 
-    @State var teacher: Teacher
+    @State var teacher: TeacherFullName
 
     var body: some View {
         Content(teacher: teacher)
@@ -18,7 +18,7 @@ struct TeacherScheduleView: View {
     struct Content: View {
         @StateObject private var viewModel: ViewModel
 
-        init(teacher: Teacher) {
+        init(teacher: TeacherFullName) {
             _viewModel = StateObject(wrappedValue: ViewModel(teacher: teacher))
         }
 
